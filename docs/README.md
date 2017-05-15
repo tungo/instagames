@@ -14,7 +14,7 @@ Instagames is a web application inspired by Instagram designed for gamer. It is 
 It will be implemented the following features:
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Post your Photos
+- [ ] Post photos
 - [ ] Like photos
 - [ ] Commenting on photos
 - [ ] Following & Photo feed
