@@ -9,7 +9,8 @@
 
 ## Minimum Viable Product
 
-Instagames is a web application inspired by Instagram designed for gamer. It is built using Ruby on Rails and React/Redux.
+Instagames is a web application inspired by Instagram designed for gamers.
+It is built using Ruby on Rails and React/Redux.
 
 It will be implemented the following features:
 - [ ] Hosting on Heroku
