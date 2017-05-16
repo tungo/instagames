@@ -5,9 +5,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email, null: false
       t.string :password_digest, null: false
       t.string :session_token, null: false
-      t.string :name, null: false
-      t.string :avatar, null: false
-      t.text :bio, null: false
+      t.string :name, null: false, default: ''
+      t.string :avatar, null: false, default: ''
+      t.text :bio, null: false, default: ''
 
       t.timestamps null: false
     end
