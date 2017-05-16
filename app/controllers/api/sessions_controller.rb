@@ -6,17 +6,17 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user
-      login!(@user)
-      render :show
+      login(@user)
+      render "api/users/show"
     else
-      error_message = 'Sorry, your account is incorrect. Please try again.'
-      render json: [error_message], status: 422
+      render json: ['invalid credentials'], status: 422
     end
   end
 
   def destroy
     if logged_in?
       current_user.reset_session_token!
+      current_user = nil
       session[:session_token] = nil
       render json: {}
     else
