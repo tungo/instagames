@@ -1,7 +1,7 @@
 {
   "name": "instagames",
   "version": "1.0.0",
-  "description": "",
+  "description": "Instagames is a web application inspired by Instagram designed for gamers. It is built using Ruby on Rails and React/Redux.",
   "main": "webpack.config.js",
   "directories": {
     "doc": "docs"
@@ -35,5 +35,9 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "webpack": "^2.5.1"
+  },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
   }
 }
