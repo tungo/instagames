@@ -25,7 +25,7 @@
       photoUrl: "mario_bros.png",
       caption: "Best game ever",
       uploaded_at: "2017-12-31T23:59:59-07:00",
-      likes: ["luigi", "peach"],
+      likesCount: 2,
       comments: [
         {
           id: 4,
@@ -46,7 +46,7 @@
       photoUrl: "zelda_and_link.png",
       caption: "Best friend forever",
       uploaded_at: "2017-06-15T10:30:05-07:00",
-      likes: ["mario", "pikachu", "nintendo"],
+      likesCount: 3,
       comments: [
         {
           id: 3,
@@ -62,9 +62,28 @@
     name: "Mario",
     avatar: "mario_avatar.png",
     bio: "I am a plumber",
-    photos: [1, 3, 5],
-    followers: [2, 3, 4, 5, 6, 7],
-    followings: [2, 4, 6]
+    followersCount: 6,
+    followingsCount: 3,
+    photos: [
+      {
+        id: 5,
+        photoUrl: "super_mash_bros.png",
+        likesCount: 6,
+        commentsCount: 0
+      },
+      {
+        id: 3,
+        photoUrl: "mario_bros.png",
+        likesCount: 2,
+        commentsCount: 2
+      },
+      {
+        id: 1,
+        photoUrl: "mario_kart.png",
+        likesCount: 2,
+        commentsCount: 2
+      }
+    ]
   },
   photo: {
     id: 1,
@@ -73,7 +92,7 @@
     photoUrl: "mario_kart.png",
     caption: "Ace again",
     uploaded_at: "2017-03-27T09:00:00-07:00",
-    likes: ["peach", "daisy"],
+    likesCount: 2,
     comments: [
       {
         id: 1,
