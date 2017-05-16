@@ -42,17 +42,19 @@ Method   | URI                          | Description
 
 Method   | URI                           | Description
 ---------|-------------------------------|----------------------------
-`GET`    | `/api/photos/:photo_id/likes` | Get all likes by photo id
 `POST`   | `/api/photos/:photo_id/likes` | Current user like a photo
 `DELETE` | `/api/photos/:photo_id/likes` | Current user unlike a photo
+
+[reserve for show likers]: # (`GET`    | `/api/photos/:photo_id/likes` | Get all likes by photo id)
 
 ### Comments
 
 Method   | URI                              | Description
 ---------|----------------------------------|-----------------------------
-`GET`    | `/api/photos/:photo_id/comments` | Get all comments by photo id
 `POST`   | `/api/photos/:photo_id/comments` | Create comment for a photo
 `DELETE` | `/api/comments/:id`              | Delete comment by id
+
+[reserve for lazy load]: # (`GET`    | `/api/photos/:photo_id/comments` | Get all comments by photo id)
 
 ### Follows
 
