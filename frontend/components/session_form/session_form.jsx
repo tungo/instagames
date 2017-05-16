@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class SessionForm extends React.Component {
         <div>
           {formTitle}
         </div>
+
         <form>
           <input
             type="text"
@@ -54,6 +56,7 @@ class SessionForm extends React.Component {
 
           <button onClick={this.handleSubmit}>{submitButton}</button>
         </form>
+
         {redirectLink}
       </div>
     );
@@ -71,7 +74,7 @@ class SessionForm extends React.Component {
     };
 
     // setup for signup form
-    if (this.state.formType === 'signup') {
+    if (this.props.formType === 'signup') {
       content = Object.assign(content, {
         formTitle: 'Create new account',
         submitButton: 'Sign up',
