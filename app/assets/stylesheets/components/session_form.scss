@@ -48,7 +48,12 @@
 }
 
 .session-main .form {
-  margin: 0 0 10px;
+
+}
+
+.session-main .errors {
+  color: $red;
+  margin: 15px 40px;
 }
 
 .session-main .input{

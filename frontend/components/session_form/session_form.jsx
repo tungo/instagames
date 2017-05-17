@@ -14,6 +14,12 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.formType !== this.props.formType) {
+      this.props.clearErrors();
+    }
+  }
+
   updateInput(name) {
     return (e) => {
       e.preventDefault();
@@ -28,11 +34,47 @@ class SessionForm extends React.Component {
     this.props.processForm(this.state);
   }
 
+  renderErrors() {
+    const { errors } = this.props;
+    if (errors.length < 1) {
+      return '';
+    }
+
+    return (
+      <div className="errors">
+        <ul>
+          {errors.map((error, i) => (
+            <li key={`error-${i}`}>{error}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  renderRedirectLink() {
+    let link = <div>
+      Don't have an account? <Link to="/signup">Sign up</Link>
+    </div>;
+
+    if (this.props.formType === 'signup') {
+      link = <div>
+        Have an account? <Link to="/login">Log in</Link>
+      </div>;
+    }
+
+    return (
+      <div className="box">
+        <div className="redirect">
+          {link}
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const {
       formTitle,
-      submitButton,
-      redirectLink
+      submitButton
     } = this.formContent();
 
     return (
@@ -53,6 +95,9 @@ class SessionForm extends React.Component {
               </div>
 
               <form>
+
+                {this.renderErrors()}
+
                 <div className="form">
                   <div className="input">
                     <input
@@ -90,11 +135,8 @@ class SessionForm extends React.Component {
 
             </div>
 
-            <div className="box">
-              <div className="redirect">
-                {redirectLink}
-              </div>
-            </div>
+            {this.renderRedirectLink()}
+
           </div>
         </div>
 
@@ -117,20 +159,14 @@ class SessionForm extends React.Component {
     // default value for login form
     let content = {
       formTitle: 'Login with your account',
-      submitButton: 'Log in',
-      redirectLink: <div>
-        Don't have an account? <Link to="/signup">Sign up</Link>
-      </div>
+      submitButton: 'Log in'
     };
 
     // setup for signup form
     if (this.props.formType === 'signup') {
       content = Object.assign(content, {
         formTitle: 'Sign up to see and share your adventures with your friends',
-        submitButton: 'Sign up',
-        redirectLink: <div>
-          Have an account? <Link to="/login">Log in</Link>
-        </div>
+        submitButton: 'Sign up'
       });
     }
 
