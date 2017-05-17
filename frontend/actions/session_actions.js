@@ -38,7 +38,7 @@ export const logout = () => (dispatch) => (
 );
 
 export const demoLogin = () => (dispatch) => {
-  const user = {username: 'mario', password: 'mariopassword'};
+  const user = {username: 'mario', password: 'mario_password'};
   return SessionAPIUtil.login(user)
     .then((rspUser) => dispatch(receiveCurrentUser(rspUser)))
     .fail((error) => dispatch(receiveErrors(error.responseJSON)));

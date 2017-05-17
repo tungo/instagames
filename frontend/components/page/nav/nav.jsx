@@ -1,6 +1,8 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
+import UploadModal from './upload_modal';
+
 class Nav extends React.Component {
   constructor (props) {
     super(props);
@@ -32,7 +34,7 @@ class Nav extends React.Component {
         </div>
 
         <div className="utils">
-          <button>Upload</button>
+          <UploadModal />
           <Link to={`/user/${this.props.username}`}>Profile</Link>
           <button onClick={this.handleLogout.bind(this)}>Logout</button>
         </div>
