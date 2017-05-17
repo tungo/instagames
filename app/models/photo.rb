@@ -11,7 +11,7 @@
 #
 
 class Photo < ActiveRecord::Base
-  validates :url, presence: true
+  validates :url, :user, presence: true
 
   belongs_to :user,
     primary_key: :id,
