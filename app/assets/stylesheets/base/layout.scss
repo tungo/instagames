@@ -1,0 +1,40 @@
+body {
+  background: $lightest-gray;
+  font-family: $sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+a:active {
+  opacity: 0.7;
+}
+
+button {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.7;
+}
+
+.blue-button {
+  background: $blue;
+  color: $white;
+  font-size: 14px;
+  border: 1px solid $blue;
+  border-radius: 3px;
+  padding: 7px 0;
+}
