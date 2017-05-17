@@ -2,7 +2,7 @@ class Api::PhotosController < ApplicationController
   before_action :require_logged_in!
 
   def index
-    @photos = Photo.find_by_user_id(current_user.id)
+    @photos = Photo.find_by_user_id(current_user.id).includes(:user)
   end
 
   def create
@@ -17,7 +17,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @photo = Photo.find(params[:id]).includes(:user)
   end
 
   def update
@@ -41,7 +41,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def user
-    @photos = Photo.find_by_user_id(params[:user_id])
+    @photos = Photo.find_by_user_id(params[:user_id]).includes(:user)
   end
 
   private

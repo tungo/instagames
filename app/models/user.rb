@@ -4,7 +4,6 @@
 #
 #  id              :integer          not null, primary key
 #  username        :string           not null
-#  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  name            :string
@@ -18,6 +17,11 @@ class User < ActiveRecord::Base
   validates :username, :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  has_many :photos,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Photo
 
   attr_reader :password
 
