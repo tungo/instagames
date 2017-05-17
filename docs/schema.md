@@ -23,8 +23,8 @@ user_id     | integer   | not null, foreign key (references users), indexed
 column name | data type | details
 ------------|-----------|---------------------------------------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references users), indexed
-photo_id    | integer   | not null, foreign key (references photos), indexed
+user_id     | integer   | not null, foreign key (references users), indexed, unique combine with photo_id
+photo_id    | integer   | not null, foreign key (references photos), indexed unique combine with user_id
 
 ## comments
 column name | data type | details
@@ -38,5 +38,5 @@ photo_id    | integer   | not null, foreign key (references photos), indexed
 column name  | data type | details
 -------------|-----------|--------------------------------------------------
 id           | integer   | not null, primary key
-follower_id  | integer   | not null, foreign key (references users), indexed
-following_id | integer   | not null, foreign key (references users), indexed
+follower_id  | integer   | not null, foreign key (references users), indexed, unique combine with following_id
+following_id | integer   | not null, foreign key (references users), indexed, unique combine with follower_id
