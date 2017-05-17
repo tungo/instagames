@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
 
     return (
       <div className="session-page">
-        <div className="session-form">
+        <div className="session-main">
           <div className="left">
             <img src="/assets/login-page-phone.png" />
           </div>
@@ -73,7 +73,7 @@ class SessionForm extends React.Component {
                   </div>
 
                   <div className="input">
-                    <button onClick={this.handleSubmit}>{submitButton}</button>
+                    <button className="blue-button" onClick={this.handleSubmit}>{submitButton}</button>
                   </div>
                 </div>
               </form>
@@ -85,7 +85,7 @@ class SessionForm extends React.Component {
               </div>
 
               <div className="demo-login">
-                <button>Demo Login</button>
+                <button className="blue-button">Demo Login</button>
               </div>
 
             </div>
