@@ -2,20 +2,12 @@
 
 ```js
 {
-  currentUser: {
-    id: 1,
-    username: "mario"
-  },
-  forms: {
-    signUp: {
-      errors: []
+  session: {
+    currentUser: {
+      id: 1,
+      username: "mario"
     },
-    logIn: {
-      errors: []
-    },
-    uploadPhoto: {
-      errors: ["Url can't be blank"]
-    }
+    errors: []
   },
   photos: {
     3: {
