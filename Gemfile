@@ -50,4 +50,5 @@ group :development do
   gem 'spring'
 end
 
+gem 'autoprefixer-rails'
 gem 'rails_12factor'
