@@ -1,0 +1,36 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 22px 40px;
+  width: 100%;
+
+  border-bottom: 1px solid $lighter-gray;
+  background: $white;
+}
+
+.nav-bar a.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 180px;
+}
+
+.nav-bar a.link .separator {
+  width: 1px;
+  height: 33px;
+  background: $gray;
+}
+
+.nav-bar a.link img {
+  width: 33px;
+  height: 33px;
+  float: left;
+}
+
+.nav-bar a.link .name {
+  font-family: $norican;
+  font-size: 26px;
+  color: $darkest;
+}

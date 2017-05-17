@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class Nav extends React.Component {
   constructor (props) {
@@ -20,8 +20,22 @@ class Nav extends React.Component {
       return <Redirect to="/login" />;
     }
     return (
-      <nav>
-        <button onClick={this.handleLogout.bind(this)}>Logout</button>
+      <nav className="nav-bar">
+        <div className="logo">
+          <Link to="/" className="link">
+            <div>
+              <img src="/assets/instagames-logo-90.png" />
+            </div>
+            <div className="separator"></div>
+            <div className="name">Instagames</div>
+          </Link>
+        </div>
+
+        <div className="utils">
+          <button>Upload</button>
+          <Link to={`/user/${this.props.username}`}>Profile</Link>
+          <button onClick={this.handleLogout.bind(this)}>Logout</button>
+        </div>
       </nav>
     );
   }
