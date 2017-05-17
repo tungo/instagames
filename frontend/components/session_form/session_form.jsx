@@ -36,28 +36,78 @@ class SessionForm extends React.Component {
     } = this.formContent();
 
     return (
-      <div>
-        <div>
-          {formTitle}
+      <div className="session-page">
+        <div className="session-form">
+          <div className="left">
+            <img src="/assets/login-page-phone.png" />
+          </div>
+
+          <div className="right">
+            <div className="box">
+              <div className="logo">
+                Instagames
+              </div>
+
+              <div className="title">
+                {formTitle}
+              </div>
+
+              <form>
+                <div className="form">
+                  <div className="input">
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      value={this.state.username}
+                      onChange={this.updateInput('username')}
+                    />
+                  </div>
+
+                  <div className="input">
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={this.state.password}
+                      onChange={this.updateInput('password')}
+                    />
+                  </div>
+
+                  <div className="input">
+                    <button onClick={this.handleSubmit}>{submitButton}</button>
+                  </div>
+                </div>
+              </form>
+
+              <div className="or-line">
+                <div className="or-line-line"></div>
+                <div className="or-line-or">OR</div>
+                <div className="or-line-line"></div>
+              </div>
+
+              <div className="demo-login">
+                <button>Demo Login</button>
+              </div>
+
+            </div>
+
+            <div className="box">
+              <div className="redirect">
+                {redirectLink}
+              </div>
+            </div>
+          </div>
         </div>
 
-        <form>
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.updateInput('username')}
-          />
-
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.updateInput('password')}
-          />
-
-          <button onClick={this.handleSubmit}>{submitButton}</button>
-        </form>
-
-        {redirectLink}
+        <div className="session-footer">
+          <div className="left">
+            <a href="https://github.com/tungo">GITHUB</a>
+            <a href="https://tungo.net">PORTFOLIO</a>
+            <a href="https://www.linkedin.com/in/tu-ngo/">LINKEDIN</a>
+          </div>
+          <div className="right">
+            2017 © Tu Ngo
+          </div>
+        </div>
       </div>
     );
   }
@@ -76,7 +126,7 @@ class SessionForm extends React.Component {
     // setup for signup form
     if (this.props.formType === 'signup') {
       content = Object.assign(content, {
-        formTitle: 'Create new account',
+        formTitle: 'Sign up to see and share your adventures with your friends',
         submitButton: 'Sign up',
         redirectLink: <div>
           Have an account? <Link to="/login">Log in</Link>
