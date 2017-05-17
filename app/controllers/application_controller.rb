@@ -20,4 +20,11 @@ class ApplicationController < ActionController::Base
   def login(user)
     session[:session_token] = user.reset_session_token!
   end
+
+  def require_logged_in!
+    if !logged_in?
+      render json: ['Require authentication'], status: 422
+      return
+    end
+  end
 end

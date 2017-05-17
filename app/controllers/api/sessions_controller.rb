@@ -1,7 +1,8 @@
 class Api::SessionsController < ApplicationController
   def create
     if logged_in?
-      render json: ['Already login'], status: 422 && return
+      render json: ['Already login'], status: 422
+      return
     end
 
     @user = User.find_by_credentials(
@@ -19,7 +20,8 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     if logged_out?
-      render json: ['Already logout'], status: 422 && return
+      render json: ['Already logout'], status: 422
+      return
     end
 
     current_user.reset_session_token!
