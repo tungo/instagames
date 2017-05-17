@@ -2,7 +2,13 @@ class Api::PhotosController < ApplicationController
   before_action :require_logged_in!
 
   def index
-    @photos = Photo.find_by_user_id(current_user.id).includes(:user)
+    @photos = Photo.includes(:user).find_by_user_id(current_user.id)
+
+    if @photos
+      render :index
+    else
+      render json: {}
+    end
   end
 
   def create
@@ -17,11 +23,11 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id]).includes(:user)
+    @photo = Photo.includes(:user).find(params[:id])
   end
 
   def update
-    @photo = Photo.find(params[:id])
+    @photo = current_user.photos.find(params[:id])
 
     if @photo.update_attributes(photo_params)
       render :show
@@ -31,7 +37,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def destroy
-    @photo = Photo.find(params[:id])
+    @photo = current_user.photos.find(params[:id])
 
     if @photo.destroy
       render :show
@@ -41,7 +47,13 @@ class Api::PhotosController < ApplicationController
   end
 
   def user
-    @photos = Photo.find_by_user_id(params[:user_id]).includes(:user)
+    @photos = Photo.includes(:user).find_by_user_id(params[:user_id])
+
+    if @photos
+      render :index
+    else
+      render json: {}
+    end
   end
 
   private
