@@ -52,7 +52,7 @@ class Upload extends React.Component {
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
           style={style}
-          contentLabel="Modal"
+          contentLabel="UploadModal"
         >
 
         </Modal>
