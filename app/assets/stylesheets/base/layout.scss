@@ -8,6 +8,7 @@ body {
 a {
   color: $blue;
   text-decoration: none;
+  outline: none;
 }
 
 a:hover {
@@ -31,6 +32,7 @@ button:active {
 }
 
 input {
+  outline: none;
 	box-sizing: border-box;
 }
 

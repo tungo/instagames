@@ -74,6 +74,9 @@
   font-size: 14px;
   color: $darkest;
 }
+.session-main .input input:focus{
+  border: 1px solid $gray;
+}
 
 .session-main .input button,
 .session-main .demo-login button{

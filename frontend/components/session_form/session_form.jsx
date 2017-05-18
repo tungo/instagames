@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
+    this.focus = this.focus.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -22,6 +23,10 @@ class SessionForm extends React.Component {
         password: ''
       });
     }
+  }
+
+  componentDidMount() {
+    this.focus();
   }
 
   updateInput(name) {
@@ -44,6 +49,10 @@ class SessionForm extends React.Component {
     this.props.demoLogin(this.state);
   }
 
+  focus() {
+    this.textInput.focus();
+  }
+
   renderErrors() {
     const { errors } = this.props;
     if (errors.length < 1) {
@@ -63,12 +72,12 @@ class SessionForm extends React.Component {
 
   renderRedirectLink() {
     let link = <div>
-      Don't have an account? <Link to="/signup">Sign up</Link>
+      Don't have an account? <Link to="/signup" onClick={this.focus}>Sign up</Link>
     </div>;
 
     if (this.props.formType === 'signup') {
       link = <div>
-        Have an account? <Link to="/login">Log in</Link>
+        Have an account? <Link to="/login" onClick={this.focus}>Log in</Link>
       </div>;
     }
 
@@ -115,6 +124,7 @@ class SessionForm extends React.Component {
                       placeholder="Username"
                       value={this.state.username}
                       onChange={this.updateInput('username')}
+                      ref={(input) => { this.textInput = input; }}
                     />
                   </div>
 
