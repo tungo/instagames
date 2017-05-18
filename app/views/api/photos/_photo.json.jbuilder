@@ -6,4 +6,4 @@ json.avatar asset_path(photo.user.avatar.url(:thumb))
 json.url asset_path(photo.image.url(:large))
 json.caption photo.caption
 json.created_at photo.created_at
-json.uploaded_at uploaded_at
+json.uploaded_at uploaded_at.gsub(/about/, '').concat(' ago')

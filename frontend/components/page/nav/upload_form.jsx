@@ -6,8 +6,8 @@ class UploadForm extends React.Component {
 
     this.state = {
       caption: '',
-      imageFile: null,
-      imageUrl: null
+      imageFile: '',
+      imageUrl: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +24,7 @@ class UploadForm extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     } else {
-      this.setState({ imageUrl: "", imageFile: null });
+      this.setState({ imageUrl: '', imageFile: '' });
     }
   }
 
@@ -41,8 +41,29 @@ class UploadForm extends React.Component {
     formData.append('photo[caption]', this.state.caption);
     formData.append('photo[image]', file);
 
-    this.props.createPhoto(formData);
-    this.props.closeModal();
+    this.props.createPhoto(formData)
+      .then(() => this.props.closeModal());
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
+  renderErrors() {
+    const { errors } = this.props;
+
+    if (errors.length < 1) {
+      return '';
+    }
+
+    const content = errors.map((err, i) => <li key={i}>{err}</li>);
+    return (
+      <li>
+        <ul className="errors">
+          {content}
+        </ul>
+      </li>
+    );
   }
 
   render() {
@@ -53,14 +74,20 @@ class UploadForm extends React.Component {
             <h3 className="title">Upload photo</h3>
           </li>
 
-          <li>
-            <input
-              type="file"
-              onChange={this.updateFile}
-              className="file"
-            />
+          {this.renderErrors()}
 
-            <img src={this.state.imageUrl} className="image" />
+          <li>
+            <div className="image-input">
+              <input
+                type="file"
+                onChange={this.updateFile}
+                className="file"
+              />
+
+              <div className="image">
+                <img src={this.state.imageUrl} />
+              </div>
+            </div>
           </li>
 
           <li>
@@ -69,7 +96,7 @@ class UploadForm extends React.Component {
               value={this.state.caption}
               onChange={this.updateInput('caption')}
               className="input"
-              placeholder="Caption"
+              placeholder="Write a caption..."
             />
           </li>
 

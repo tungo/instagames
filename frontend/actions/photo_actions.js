@@ -1,5 +1,7 @@
 import * as PhotoAPIUtil from '../util/photo_api_util';
 
+import { receiveFormErrors } from './error_actions';
+
 export const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 
@@ -23,6 +25,9 @@ export const feedPhotos = () => (dispatch) => (
 export const createPhoto = (photo) => (dispatch) => (
   PhotoAPIUtil.createPhoto(photo)
     .then((rspPhoto) => dispatch(receivePhoto(rspPhoto)))
-    .fail((err) => console.log(err))
+    .fail((err) =>
+      dispatch(receiveFormErrors('photoUpload', err.responseJSON)
+    )
+  )
 );
 

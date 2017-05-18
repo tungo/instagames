@@ -5,17 +5,20 @@ import {
   CLEAR_FORM_ERRORS
 } from '../actions/error_actions';
 
-const ErrorsReducer = (state = {}, action) => {
+const nullState = Object.freeze({
+  photoUpload: []
+});
+
+const ErrorsReducer = (state = nullState, action) => {
   Object.freeze(state);
+  const { form } = action;
 
   switch(action.type) {
     case RECEIVE_FORM_ERRORS:
-      const { form, errors } = action;
-      return merge({}, state, {[form]: errors});
+      return merge({}, state, {[form]: action.errors});
 
     case CLEAR_FORM_ERRORS:
-      const { form } = action;
-      return merge({}, state, {[form]: []});
+      return Object.assign({}, state, {[form]: []});
 
     default:
       return state;

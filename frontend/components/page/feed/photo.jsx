@@ -23,7 +23,7 @@ class Photo extends React.Component {
             <img src={photo.avatar} />
             {photo.username}
           </div>
-          <div>
+          <div className="uploaded-at">
             {photo.uploaded_at}
           </div>
         </header>
