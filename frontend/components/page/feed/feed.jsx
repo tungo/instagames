@@ -21,11 +21,11 @@ class Feed extends React.Component {
 
   render() {
     return (
-      <div className="feed-page">
+      <section className="feed-page">
         <ul>
           {this.renderPhotos()}
         </ul>
-      </div>
+      </section>
     );
   }
 }

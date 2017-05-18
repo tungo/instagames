@@ -34,9 +34,13 @@ class Nav extends React.Component {
         </div>
 
         <div className="utils">
-          <UploadModal />
-          <Link to={`/user/${this.props.username}`}>Profile</Link>
-          <button onClick={this.handleLogout.bind(this)}>Logout</button>
+            <UploadModal />
+            <Link to={`/user/${this.props.currentUser.username}`}>
+              <i className="fa fa-user-o"></i>
+            </Link>
+            <button onClick={this.handleLogout.bind(this)} className="button-link">
+              <i className="fa fa-sign-out"></i>
+            </button>
         </div>
       </nav>
     );
