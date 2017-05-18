@@ -17,6 +17,11 @@
   width: 180px;
 }
 
+.nav-bar a.link:active,
+.nav-bar a.link:hover, {
+  opacity: 1;
+}
+
 .nav-bar a.link .separator {
   width: 1px;
   height: 33px;
@@ -34,3 +39,32 @@
   font-size: 26px;
   color: $darkest;
 }
+
+.nav-bar .utils {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  width: 150px;
+}
+
+.nav-bar .utils a,
+.nav-bar .utils button {
+  display: flex;
+  align-items: center;
+  float: left;
+
+  height: 33px;
+
+  color: $darkest;
+  font-weight: normal;
+}
+
+.nav-bar .utils .fa {
+  font-size: 28px;
+}
+
+.nav-bar .utils a .fa {
+  font-size: 26px;
+}
+

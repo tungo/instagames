@@ -129,3 +129,10 @@
 
   color: $darkest-blue;
 }
+
+
+@media all and (max-width: 800px) {
+  .session-main .left {
+    display: none;
+  }
+}

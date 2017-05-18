@@ -1,0 +1,52 @@
+.feed-page {
+  margin: 50px 0;
+}
+
+.feed-page ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feed-photo {
+  margin: 0 0 50px;
+
+  background: $white;
+  border: 1px solid $lighter-gray;
+}
+
+.feed-photo .header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px;
+
+  border-bottom: 1px solid $lighter-gray;
+}
+
+.feed-photo .header .op {
+  display: flex;
+
+  margin: 0 15px 0 0;
+
+  font-weight: bold;
+}
+
+.feed-photo .header .op img {
+  width: 30px;
+  height: 30px;
+
+  margin: 0 10px 0 0;
+}
+
+.feed-photo .image img {
+  width: 600px;
+}
+
+.feed-photo .info {
+  padding: 15px;
+}
+
+.feed-photo .caption span {
+  font-weight: bold;
+}
