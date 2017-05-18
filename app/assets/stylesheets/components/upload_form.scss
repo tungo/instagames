@@ -2,14 +2,14 @@
   font-size: 14px;
 }
 
-.upload-form ul {
+.upload-form > ul {
 
 }
 
-.upload-form ul li {
+.upload-form > ul > li {
   border-bottom: 1px solid $light-gray;
 }
-.upload-form ul li:last-child {
+.upload-form > ul > li:last-child {
   border-bottom: none;
 }
 
@@ -22,6 +22,17 @@
   font-size: 16px;
 }
 
+.upload-form .errors {
+  padding: 10px;
+
+  color: $red;
+}
+
+.upload-form .image-input {
+  display: flex;
+  flex-direction: column;
+}
+
 .upload-form .file {
   padding: 10px;
   width: 100%;
@@ -30,9 +41,13 @@
 }
 
 .upload-form .image {
+  display: flex;
+  justify-content: center;
+}
+
+.upload-form .image img{
   max-height: 300px;
   max-width: 600px;
-  float: left;
 }
 
 .upload-form .input,

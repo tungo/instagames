@@ -31,7 +31,6 @@
 .nav-bar a.link img {
   width: 33px;
   height: 33px;
-  float: left;
 }
 
 .nav-bar a.link .name {
@@ -48,13 +47,15 @@
   width: 150px;
 }
 
+.nav-bar .utils > div{
+  display: flex;
+  align-items: center;
+}
+
 .nav-bar .utils a,
 .nav-bar .utils button {
   display: flex;
   align-items: center;
-  float: left;
-
-  height: 33px;
 
   color: $darkest;
   font-weight: normal;
@@ -62,9 +63,10 @@
 
 .nav-bar .utils .fa {
   font-size: 28px;
+  display: block;
 }
 
-.nav-bar .utils a .fa {
+.nav-bar .utils .fa-user-o {
   font-size: 26px;
 }
 
