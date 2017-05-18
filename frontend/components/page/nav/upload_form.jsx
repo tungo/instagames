@@ -47,25 +47,45 @@ class UploadForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form>
+      <div className="upload-form">
+        <ul>
+          <li>
+            <h3 className="title">Upload photo</h3>
+          </li>
 
-          <input
-            type="text"
-            value={this.state.caption}
-            onChange={this.updateInput('caption')}
-          />
+          <li>
+            <input
+              type="file"
+              onChange={this.updateFile}
+              className="file"
+            />
 
-          <input
-            type="file"
-            onChange={this.updateFile}
-          />
+            <img src={this.state.imageUrl} className="image" />
+          </li>
 
-          <img src={this.state.imageUrl} />
+          <li>
+            <input
+              type="text"
+              value={this.state.caption}
+              onChange={this.updateInput('caption')}
+              className="input"
+              placeholder="Caption"
+            />
+          </li>
 
-          <button onClick={this.handleSubmit}>Submit</button>
-          <button onClick={this.props.closeModal}>Close</button>
-        </form>
+          <li>
+            <button
+              onClick={this.handleSubmit}
+              className="button blue"
+            >Submit</button>
+
+            <button
+              onClick={this.props.closeModal}
+              className="button"
+            >Cancel</button>
+          </li>
+
+        </ul>
       </div>
     );
   }
