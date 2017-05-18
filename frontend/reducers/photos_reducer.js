@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_PHOTOS,
   RECEIVE_PHOTO
-} from '../actions/photo_action';
+} from '../actions/photo_actions';
 
 const PhotosReducer = (state = {}, action) => {
   Object.freeze(state);
