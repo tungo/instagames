@@ -12,7 +12,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login(@user)
-      render "api/users/show"
+      render "api/users/create"
     else
       render json: ['Account is incorrect. Please try again!'], status: 422
     end
