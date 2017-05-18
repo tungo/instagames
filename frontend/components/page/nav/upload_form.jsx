@@ -42,8 +42,7 @@ class UploadForm extends React.Component {
     formData.append('photo[image]', file);
 
     this.props.createPhoto(formData);
-
-    // this.props.createPhoto(this.state);
+    this.props.closeModal();
   }
 
   render() {
@@ -65,6 +64,7 @@ class UploadForm extends React.Component {
           <img src={this.state.imageUrl} />
 
           <button onClick={this.handleSubmit}>Submit</button>
+          <button onClick={this.props.closeModal}>Close</button>
         </form>
       </div>
     );

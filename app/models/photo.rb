@@ -18,6 +18,6 @@ class Photo < ActiveRecord::Base
     foreign_key: :user_id,
     class_name: :User
 
-  has_attached_file :image, default_url: "photo-placeholder-950-600.png"
+  has_attached_file :image, styles: { large: "600x", medium: "300x300#" }, default_url: "photo-placeholder-950-600.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 end

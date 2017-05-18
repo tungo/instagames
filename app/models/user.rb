@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_attached_file :image, default_url: "avatar-placeholder-200.jpg"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  has_attached_file :avatar, styles: { medium: "150x150#", thumb: "20x20#" }, default_url: "avatar-placeholder-200.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(32)
