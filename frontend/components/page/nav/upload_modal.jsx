@@ -1,6 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 
+import UploadFormContainer from './upload_form_container';
+
 const style = {
   overlay : {
     position        : 'fixed',
@@ -54,6 +56,7 @@ class Upload extends React.Component {
           style={style}
           contentLabel="UploadModal"
         >
+          <UploadFormContainer />
 
         </Modal>
       </div>
