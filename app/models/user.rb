@@ -2,18 +2,24 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  name            :string
-#  avatar          :string
-#  bio             :text
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  username            :string           not null
+#  password_digest     :string           not null
+#  session_token       :string           not null
+#  name                :string
+#  bio                 :text
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
+#  slug                :string
 #
 
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   validates :username, :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
@@ -29,6 +35,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, styles: { medium: "150x150#", thumb: "20x20#" }, default_url: "avatar-placeholder-200.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+  friendly_id :username, use: :slugged
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(32)
