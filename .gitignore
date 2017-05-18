@@ -21,3 +21,5 @@ bundle.js.map
 npm-debug.log
 
 .vscode/
+# Ignore application configuration
+/config/application.yml
