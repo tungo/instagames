@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import PhotoIndex from './photo_index';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -11,24 +12,8 @@ class Profile extends React.Component {
     this.props.fetchUser(this.props.match.params.userId);
   }
 
-  renderPhotos() {
-    const { photos } = this.props;
-    if (photos.length < 1) {
-      return '';
-    }
-
-    const content = photos.map((photo) => (
-      <li key={`photo-${photo.id}`}>
-        <img src={photo.url} alt={`photo-${photo.caption}`} />
-      </li>
-    ));
-
-    return content;
-  }
-
   render() {
-    const { user, photos } = this.props;
-    console.log(user);
+    const { user, photos, fetchPhotoDetail } = this.props;
 
     return (
       <section className="profile-page">
@@ -66,11 +51,8 @@ class Profile extends React.Component {
             </section>
           </header>
 
-          <main className="photos">
-            <ul>
-              {this.renderPhotos()}
-            </ul>
-          </main>
+          <PhotoIndex photos={photos} fetchPhotoDetail={fetchPhotoDetail} />
+
         </article>
       </section>
     );
