@@ -14,3 +14,9 @@ export const fetchUser = (userId) => (dispatch) => (
     .then((user) => dispatch(receiveUser(user)))
     .fail((err) => console.log(err))
 );
+
+export const updateUser = (user) => (dispatch) => (
+  UserAPIUtil.updateUser(user)
+    .then((rspUser) => dispatch(receiveUser(rspUser)))
+    .fail((err) => console.log(err))
+);

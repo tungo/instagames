@@ -6,7 +6,8 @@ import {
 } from '../actions/error_actions';
 
 const nullState = Object.freeze({
-  photoUpload: []
+  photoUpload: [],
+  avatarUpload: []
 });
 
 const ErrorsReducer = (state = nullState, action) => {
