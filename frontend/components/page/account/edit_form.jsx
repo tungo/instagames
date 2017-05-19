@@ -27,6 +27,10 @@ class EditForm extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   updateInput(name) {
     return (e) => {
       e.preventDefault();
@@ -38,11 +42,41 @@ class EditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.updateUser(this.state);
+    this.setState({success: false});
+
+    this.props.updateUser(this.state)
+      .then(() => this.props.clearErrors())
+      .then(() => this.setState({success: true}));
+  }
+
+  renderErrors() {
+    const { errors } = this.props;
+
+    if (errors.length < 1) {
+      return '';
+    }
+
+    const content = errors.map((err, i) => <li key={i}>{err}</li>);
+    return (
+      <div className="input">
+        <div className="left"></div>
+        <ul className="errors">
+          {content}
+        </ul>
+      </div>
+    );
   }
 
   render() {
     const { user } = this.props;
+
+    let success = '';
+    if (this.state.success) {
+      success = <div className="input">
+        <div className="left"></div>
+        <div className="success">Profile updated!</div>
+      </div>;
+    }
 
     return (
       <article className="edit-form">
@@ -56,6 +90,11 @@ class EditForm extends React.Component {
         </header>
 
         <main>
+
+          {this.renderErrors()}
+
+          {success}
+
           <div className="input">
             <label className="left">Name</label>
             <input

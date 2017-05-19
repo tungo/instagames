@@ -83,6 +83,13 @@
   margin-bottom: 15px;
 }
 
+.account-page .edit-form .errors {
+  color: $red;
+}
+.account-page .edit-form .success {
+  color: $green;
+}
+
 .account-page .edit-form .left {
   display: flex;
   justify-content: flex-end;
