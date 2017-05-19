@@ -6,8 +6,9 @@ import { fetchPhotoDetail } from '../../../actions/photo_actions';
 import Profile from './profile';
 
 const mapStateToProps = (state, ownProps) => ({
-  userId: ownProps.match.params.userId,
+  currentUser: state.session.currentUser,
   user: state.user,
+  userId: ownProps.match.params.userId,
   photos: selectAllPhotos(state.user.photos)
 });
 
