@@ -35,7 +35,7 @@ class AvatarForm extends React.Component {
     var formData = new FormData();
     formData.append('user[avatar]', file);
 
-    this.props.updateUser(formData)
+    this.props.updateAvatar(formData)
       .then(() => this.props.closeModal());
   }
 

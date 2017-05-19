@@ -5,10 +5,18 @@ export const requestUser = (userId) => (
   })
 );
 
-export const updateUser = (formData) => (
+export const updateUser = (user) => (
   $.ajax({
     method: 'PATCH',
-    url: `/api/users/0`,
+    url: `/api/users/user`,
+    data: {user}
+  })
+);
+
+export const updateAvatar = (formData) => (
+  $.ajax({
+    method: 'PATCH',
+    url: '/api/users/avatar',
     data: formData,
 
     processData: false,
