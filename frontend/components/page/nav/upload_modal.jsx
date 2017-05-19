@@ -31,7 +31,7 @@ const style = {
   }
 };
 
-class Upload extends React.Component {
+class UploadModal extends React.Component {
   constructor(props) {
     super(props);
 
@@ -44,14 +44,10 @@ class Upload extends React.Component {
   }
 
   closeModal(e) {
-    e.preventDefault();
-
     this.setState({modalOpen: false});
   }
 
   openModal(e) {
-    e.preventDefault();
-
     this.setState({modalOpen: true});
   }
 
@@ -69,11 +65,10 @@ class Upload extends React.Component {
           contentLabel="UploadModal"
         >
           <UploadFormContainer closeModal={this.closeModal} />
-
         </Modal>
       </div>
     );
   }
 }
 
-export default Upload;
+export default UploadModal;

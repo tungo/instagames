@@ -17,9 +17,9 @@ export const receivePhoto = (photo) => ({
   photo
 });
 
-export const receivePhotoDetail = (photo) => ({
+export const receivePhotoDetail = (photoDetail) => ({
   type: RECEIVE_PHOTO_DETAIL,
-  photoDetail: photo
+  photoDetail
 });
 
 
@@ -39,7 +39,8 @@ export const createPhoto = (photo) => (dispatch) => (
 export const fetchPhotoDetail = (id) => (dispatch, getState) => {
   const statePhoto = getState().photos[id];
   if (statePhoto) {
-    return dispatch(receivePhotoDetail(statePhoto));
+    dispatch(receivePhotoDetail(statePhoto));
+    return statePhoto;
   }
 
   return PhotoAPIUtil.requestPhoto(id)
