@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import PhotoIndex from './photo_index';
+import AvatarModal from './avatar_modal';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -26,13 +27,8 @@ class Profile extends React.Component {
       <section className="profile-page">
         <article>
           <header>
-            <figure>
-              <img
-                src={user.avatar}
-                alt={user.username}
-                className="image-circle"
-              />
-            </figure>
+
+            <AvatarModal user={user} />
 
             <section className="information">
               <div className="title">
