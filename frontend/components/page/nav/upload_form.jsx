@@ -35,9 +35,9 @@ class UploadForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    var file = this.state.imageFile;
+    const file = this.state.imageFile;
 
-    var formData = new FormData();
+    const formData = new FormData();
     formData.append('photo[caption]', this.state.caption);
     formData.append('photo[image]', file);
 

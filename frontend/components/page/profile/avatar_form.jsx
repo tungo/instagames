@@ -30,9 +30,14 @@ class AvatarForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    var file = this.state.imageFile;
+    const file = this.state.imageFile;
 
-    var formData = new FormData();
+    if (file === '') {
+      this.props.receiveFormErrors(["Avatar can't be blank"]);
+      return;
+    }
+
+    const formData = new FormData();
     formData.append('user[avatar]', file);
 
     this.props.updateAvatar(formData)
@@ -68,7 +73,7 @@ class AvatarForm extends React.Component {
             <h3 className="title">Upload your avatar</h3>
           </li>
 
-          {/*{this.renderErrors()}*/}
+          {this.renderErrors()}
 
           <li>
             <div className="image-input">
