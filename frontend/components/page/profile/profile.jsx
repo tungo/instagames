@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class Profile extends React.Component {
 
     const content = photos.map((photo) => (
       <li key={`photo-${photo.id}`}>
-        <img src={photo.url} alt={photo.url} />
+        <img src={photo.url} alt={`photo-${photo.caption}`} />
       </li>
     ));
 
@@ -29,31 +31,48 @@ class Profile extends React.Component {
     console.log(user);
 
     return (
-      <article className="profile-page">
-        <header className="information">
-          <div className="avatar">
-            <img src={user.avatar} />
-          </div>
-          <div>
-            <div className="username">
-              {user.username}
-            </div>
-            <div className="summary">
-              {photos.length} post
-            </div>
-            <div className="bio">
-              {user.name}
-              {user.bio}
-            </div>
-          </div>
-        </header>
+      <section className="profile-page">
+        <article>
+          <header>
+            <figure>
+              <img
+                src={user.avatar}
+                alt={user.username}
+                className="image-circle"
+              />
+            </figure>
 
-        <section className="photos">
-          <ul>
-            {this.renderPhotos()}
-          </ul>
-        </section>
-      </article>
+            <section className="information">
+              <div className="title">
+                <div>{user.username}</div>
+                <Link
+                  to="/edit"
+                  alt="Edit Profile"
+                  className="blue-link-button"
+                >
+                  Edit Profile
+                </Link>
+              </div>
+
+              <ul className="summary">
+                <span className="count">{photos.length} </span>
+                posts
+              </ul>
+
+              <div className="bio">
+                <span>{user.name}</span>
+                {user.bio}
+              </div>
+            </section>
+          </header>
+
+          <main className="photos">
+            <ul>
+              {this.renderPhotos()}
+            </ul>
+          </main>
+        </article>
+      </section>
     );
   }
 }

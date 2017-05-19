@@ -1,0 +1,86 @@
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 50px 0;
+}
+
+.profile-page > article {
+  max-width: 960px;
+}
+
+.profile-page header {
+  display: flex;
+
+  margin: 0 0 40px;
+}
+
+.profile-page header figure {
+  margin: 0 70px;
+}
+
+.profile-page header figure img {
+  width: 150px;
+  height: 150px;
+}
+
+.profile-page section.information {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-page section.information > * {
+  margin: 0 0 20px;
+}
+
+.profile-page section.information > *:last-child {
+  margin: 0;
+}
+
+.profile-page section.information .title {
+  display: flex;
+  align-items: center;
+}
+
+.profile-page section.information .title div {
+  font-size: 32px;
+}
+
+.profile-page section.information .title a{
+  margin-left: 15px;
+}
+
+.profile-page section.information .summary {
+  font-size: 16px;
+}
+
+.profile-page section.information .summary .count {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.profile-page section.information .bio {
+  font-size: 16px;
+}
+
+.profile-page section.information .bio span {
+  font-weight: bold;
+}
+
+.profile-page .photos > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-page .photos > ul > li {
+  margin: 0 0 30px;
+}
+
+.profile-page .photos img {
+  width: 300px;
+  height: 300px;
+}
+

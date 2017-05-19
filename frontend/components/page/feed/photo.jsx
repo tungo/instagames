@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Photo extends React.Component {
   constructor(props) {
@@ -20,8 +21,14 @@ class Photo extends React.Component {
       <article className="feed-photo">
         <header className="header">
           <div className="op">
-            <img src={photo.avatar} />
-            {photo.username}
+            <Link to={`/user/${photo.username}`}>
+              <img
+                src={photo.avatar}
+                alt={photo.username}
+                className="image-circle"
+              />
+              {photo.username}
+            </Link>
           </div>
           <div className="uploaded-at">
             {photo.uploaded_at}

@@ -26,11 +26,15 @@
 }
 
 .feed-photo .header .op {
-  display: flex;
-
   margin: 0 15px 0 0;
+}
+
+.feed-photo .header .op a{
+  display: flex;
+  align-items: center;
 
   font-weight: bold;
+  color: $darkest;
 }
 
 .feed-photo .header .op img {

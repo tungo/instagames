@@ -1,12 +1,19 @@
 .nav-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
-  padding: 22px 40px;
   width: 100%;
 
   border-bottom: 1px solid $lighter-gray;
   background: $white;
+}
+
+.nav-bar nav {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 22px 40px;
+  width: 1100px;
 }
 
 .nav-bar a.link {
