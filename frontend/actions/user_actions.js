@@ -23,3 +23,9 @@ export const updateUser = (user) => (dispatch) => (
     .then((rspUser) => dispatch(receiveUser(rspUser)))
     .fail((err) => console.log(err))
 );
+
+export const updateAvatar = (user) => (dispatch) => (
+  UserAPIUtil.updateAvatar(user)
+    .then((rspUser) => dispatch(receiveUser(rspUser)))
+    .fail((err) => console.log(err))
+);

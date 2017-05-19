@@ -50,7 +50,7 @@ class EditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.updateUser({user: this.state});
+    this.props.updateUser(this.state);
   }
 
   render() {
