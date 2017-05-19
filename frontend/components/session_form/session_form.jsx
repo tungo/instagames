@@ -138,7 +138,12 @@ class SessionForm extends React.Component {
                   </div>
 
                   <div className="input">
-                    <button className="blue-button" onClick={this.handleSubmit}>{submitButton}</button>
+                    <button
+                      className="blue-button"
+                      onClick={this.handleSubmit}
+                      tabIndex
+                    >{submitButton}
+                    </button>
                   </div>
                 </div>
               </form>
@@ -153,6 +158,7 @@ class SessionForm extends React.Component {
                 <button
                   className="blue-button"
                   onClick={this.handleDemoLogin}
+                  tabIndex
                 >Demo Login</button>
               </div>
 

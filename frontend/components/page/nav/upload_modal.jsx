@@ -43,11 +43,15 @@ class Upload extends React.Component {
     this.openModal = this.openModal.bind(this);
   }
 
-  closeModal() {
+  closeModal(e) {
+    e.preventDefault();
+
     this.setState({modalOpen: false});
   }
 
-  openModal() {
+  openModal(e) {
+    e.preventDefault();
+
     this.setState({modalOpen: true});
   }
 

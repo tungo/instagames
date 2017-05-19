@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   before_action :require_logged_in!, except: [:create]
 
   def show
-    @user = User.friendly.find(params[:id])
+    @user = User.friendly.includes(:photos).find(params[:id])
 
     if @user
       render :show
