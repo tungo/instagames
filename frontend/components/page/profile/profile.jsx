@@ -6,6 +6,13 @@ import PhotoIndex from './photo_index';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+
+  }
+
+  componentWillReceiveProps({ userId }) {
+    if (this.props.userId !== userId ) {
+      this.props.fetchUser(userId);
+    }
   }
 
   componentDidMount() {
@@ -33,7 +40,7 @@ class Profile extends React.Component {
                 <Link
                   to="/edit"
                   alt="Edit Profile"
-                  className="blue-link-button"
+                  className="link-button"
                 >
                   Edit Profile
                 </Link>
@@ -45,7 +52,7 @@ class Profile extends React.Component {
               </ul>
 
               <div className="bio">
-                <span>{user.name}</span>
+                <span>{user.name} </span>
                 {user.bio}
               </div>
             </section>

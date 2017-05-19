@@ -11,7 +11,7 @@ class PhotoDetail extends React.Component {
     let caption = '';
     if (photo.caption) {
       caption = <div className="caption">
-        <span>{photo.username}</span>
+        <span>{photo.username} </span>
         {photo.caption}
       </div>;
     }

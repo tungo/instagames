@@ -63,11 +63,14 @@ img {
 .blue-link-button {
   padding: 5px 25px;
 
-  border: 1px solid $lighter-gray;
+  border: 1px solid $light-gray;
   border-radius: 3px;
 
   color: $darkest;
   font-size: 14px;
+}
+.link-button:hover {
+  border: 1px solid $gray;
 }
 .blue-link-button {
   background: $blue;
