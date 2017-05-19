@@ -21,22 +21,10 @@ class EditForm extends React.Component {
     const { currentUser, fetchUser, user } = this.props;
     if (currentUser.username !== user.username) {
       fetchUser(currentUser.username)
-        .then((rspUser) => this.updateUser(rspUser));
+        .then((rspUser) => this.setState(rspUser));
     } else {
-      this.updateUser(user);
+      this.setState(user);
     }
-  }
-
-  updateUser(user) {
-    const nextState = merge({}, user);
-
-    Object.keys(nextState).forEach((key) => {
-      if (nextState[key] === null) {
-        delete nextState[key];
-      }
-    });
-
-    this.setState(nextState);
   }
 
   updateInput(name) {

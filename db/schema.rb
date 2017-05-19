@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518210254) do
+ActiveRecord::Schema.define(version: 20170519220707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20170518210254) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "photos", force: :cascade do |t|
-    t.text     "caption"
-    t.integer  "user_id",            null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "caption",            default: ""
+    t.integer  "user_id",                         null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 20170518210254) do
   add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",            null: false
-    t.string   "password_digest",     null: false
-    t.string   "session_token",       null: false
-    t.string   "name"
-    t.text     "bio"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string   "username",                         null: false
+    t.string   "password_digest",                  null: false
+    t.string   "session_token",                    null: false
+    t.string   "name",                default: ""
+    t.string   "bio",                 default: ""
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
