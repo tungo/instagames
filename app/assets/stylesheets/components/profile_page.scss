@@ -7,7 +7,7 @@
 }
 
 .profile-page > article {
-  max-width: 960px;
+  max-width: 990px;
 }
 
 .profile-page header {
@@ -71,16 +71,20 @@
 .profile-page .photos > ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .profile-page .photos > ul > li {
-  margin: 0 0 30px;
+  margin: 15px;
 }
+
 
 .profile-page .photos img {
   width: 300px;
   height: 300px;
+}
+
+.profile-page .photos img:hover {
+  cursor: pointer;
+  filter: brightness(70%);
 }
 
