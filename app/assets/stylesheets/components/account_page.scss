@@ -1,0 +1,104 @@
+.account-page {
+  display: flex;
+  justify-content: center;
+}
+
+.account-page > article {
+  display: flex;
+
+  margin: 50px 0;
+
+  background: $white;
+}
+
+.account-page aside.sidebar {
+  border: 1px solid $lighter-gray;
+}
+
+.account-page aside.sidebar > ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-page aside.sidebar > ul > li {
+  display: flex;
+}
+
+.account-page aside.sidebar > ul > li > a {
+  padding: 15px 30px;
+  width: 100%;
+
+  border-left: 2px solid $white;
+
+  color: $darkest;
+  font-size: 16px;
+}
+
+.account-page aside.sidebar > ul > li > a:hover {
+  background: $lightest-gray;
+  border-left: 2px solid $lighter-gray;
+}
+
+
+.account-page aside.sidebar > ul > li > a.selected {
+  border-left: 2px solid $darkest;
+
+  font-weight: bold;
+}
+
+.account-page section.form {
+  min-width: 400px;
+
+  border: 1px solid $lighter-gray;
+  border-left: none;
+}
+
+.account-page section.form > article {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 30px;
+}
+
+.account-page .edit-form > header {
+  display: flex;
+  align-items: center;
+
+  margin: 20px 0;
+}
+
+.account-page .edit-form > header img {
+  width: 40px;
+  height: 40px;
+}
+
+.account-page .edit-form > header .username {
+  font-size: 24px;
+}
+
+.account-page .edit-form .input {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+
+.account-page .edit-form .left {
+  display: flex;
+  justify-content: flex-end;
+
+  width: 120px;
+  margin: 0 30px 0 0;
+
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.account-page .edit-form .input input,
+.account-page .edit-form .input textarea {
+  width: 300px;
+}
+
+.account-page .blue-button {
+  padding: 7px 30px;
+}
