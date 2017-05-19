@@ -37,13 +37,16 @@ export const createPhoto = (photo) => (dispatch) => (
 );
 
 export const fetchPhotoDetail = (id) => (dispatch, getState) => {
-  const statePhoto = getState().photos[id];
-  if (statePhoto) {
-    dispatch(receivePhotoDetail(statePhoto));
-    return statePhoto;
+  const photo = getState().photos[id];
+  if (photo) {
+    dispatch(receivePhotoDetail(photo));
+    return photo;
   }
 
   return PhotoAPIUtil.requestPhoto(id)
-    .then((photo) => dispatch(receivePhotoDetail(photo)))
+    .then((rspPhoto) => {
+      dispatch(receivePhotoDetail(rspPhoto));
+      return rspPhoto;
+    })
     .fail((err) => console.log(err));
 };

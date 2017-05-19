@@ -19,12 +19,19 @@ class PhotoDetail extends React.Component {
     return (
       <article className="photo-detail">
         <figure className="left">
-          <img src={photo.url} alt={`photo-${photo.caption}`} />
+          <img
+            src={photo.url}
+            alt={`photo-${photo.caption}`}
+          />
         </figure>
 
         <section className="right">
           <header>
-            <img src={photo.avatar} alt={`photo-${photo.caption}`} />
+            <img
+              src={photo.avatar}
+              alt={`photo-${photo.caption}`}
+              className="image-circle"
+            />
             {photo.username}
           </header>
 

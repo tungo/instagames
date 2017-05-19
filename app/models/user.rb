@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_attached_file :avatar, styles: { medium: "150x150#", thumb: "20x20#" }, default_url: "avatar-placeholder-200.png"
+  has_attached_file :avatar, styles: { medium: "150x150#", thumb: "50x50#" }, default_url: "avatar-placeholder-200.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   friendly_id :username, use: :slugged
