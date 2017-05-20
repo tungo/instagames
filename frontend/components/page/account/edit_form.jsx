@@ -44,6 +44,8 @@ class EditForm extends React.Component {
 
     this.setState({success: false});
 
+    const user = merge(this.state, {updateType: 'edit'});
+
     this.props.updateUser(this.state)
       .then(() => this.props.clearErrors())
       .then(() => this.setState({success: true}));

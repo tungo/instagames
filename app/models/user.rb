@@ -64,23 +64,24 @@ class User < ActiveRecord::Base
 
   def update_user(params, type)
     if type == "password"
-      self.update_password(params)
+      update_password(params)
     else
-      self.update_attributes(params)
+      update_attributes(params)
     end
   end
 
-  private
-
   def update_password(params)
-    if !self.is_password?(params.password)
+    if !is_password?(params[:password])
       errors[:password] << "is incorect"
       nil
     else
-      self.password = params.password
-      self.save
+      password = params[:password]
+      save
     end
   end
+
+
+  private
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token

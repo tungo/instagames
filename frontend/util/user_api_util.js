@@ -8,7 +8,7 @@ export const requestUser = (userId) => (
 export const updateUser = (user) => (
   $.ajax({
     method: 'PATCH',
-    url: `/api/users/user`,
+    url: `/api/users/${user.updateType}`,
     data: {user}
   })
 );

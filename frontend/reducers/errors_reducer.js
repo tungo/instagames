@@ -8,7 +8,8 @@ import {
 const nullState = Object.freeze({
   photoUpload: [],
   avatarUpload: [],
-  accountEdit: []
+  accountEdit: [],
+  accountPassword: []
 });
 
 const ErrorsReducer = (state = nullState, action) => {
