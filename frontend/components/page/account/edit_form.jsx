@@ -100,8 +100,6 @@ class EditForm extends React.Component {
 
           {this.renderErrors()}
 
-          {success}
-
           <div className="input">
             <label className="left">Name</label>
             <input
@@ -138,6 +136,9 @@ class EditForm extends React.Component {
               onClick={this.handleSubmit}
             >Submit</button>
           </div>
+
+          {success}
+
         </main>
       </article>
     );

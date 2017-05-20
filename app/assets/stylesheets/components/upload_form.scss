@@ -1,4 +1,8 @@
+.upload-modal {
+  min-width: 480px;
+}
 .upload-form {
+  min-width: 480px;
   font-size: 14px;
 }
 
@@ -46,8 +50,8 @@
 }
 
 .upload-form .image img{
-  max-height: 300px;
-  max-width: 600px;
+  max-height: 270px;
+  // max-width: 480px;
 }
 
 .upload-form .input,

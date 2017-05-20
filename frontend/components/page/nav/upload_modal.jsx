@@ -3,33 +3,33 @@ import Modal from 'react-modal';
 
 import UploadFormContainer from './upload_form_container';
 
-const style = {
-  overlay: {
-    // display: 'flex', // make content stay at center
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 10,
+// const style = {
+//   overlay: {
+//     // display: 'flex', // make content stay at center
+//     position: 'fixed',
+//     top: 0,
+//     left: 0,
+//     right: 0,
+//     bottom: 0,
+//     zIndex: 10,
 
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  },
-  content: {
-    position: 'relative',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    margin: '100px auto',
-    width: '500px',
-    padding: 0,
-    zIndex: 11,
+//     backgroundColor: 'rgba(0, 0, 0, 0.5)'
+//   },
+//   content: {
+//     position: 'relative',
+//     top: 0,
+//     left: 0,
+//     right: 0,
+//     bottom: 0,
+//     margin: '100px auto',
+//     width: '500px',
+//     padding: 0,
+//     zIndex: 11,
 
-    border: 'none',
-    borderRadius: 'none'
-  }
-};
+//     border: 'none',
+//     borderRadius: 'none'
+//   }
+// };
 
 class UploadModal extends React.Component {
   constructor(props) {
@@ -61,10 +61,13 @@ class UploadModal extends React.Component {
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
-          style={style}
           contentLabel="UploadModal"
+          className="modal upload-modal"
+          overlayClassName="modal-overlay"
         >
-          <UploadFormContainer closeModal={this.closeModal} />
+          <div className="modal-guts">
+            <UploadFormContainer closeModal={this.closeModal} />
+          </div>
         </Modal>
       </div>
     );

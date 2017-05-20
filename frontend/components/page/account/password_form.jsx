@@ -111,8 +111,6 @@ class PasswordForm extends React.Component {
 
           {this.renderErrors()}
 
-          {success}
-
           <form onSubmit={this.handleSubmit}>
             <div className="input">
               <label className="left">Old Password</label>
@@ -151,6 +149,9 @@ class PasswordForm extends React.Component {
                 className="blue-button"
               >Submit</button>
             </div>
+
+            {success}
+
           </form>
         </main>
       </article>
