@@ -39,3 +39,10 @@ export const updateAvatar = (user) => (dispatch) => (
       dispatch(receiveFormErrors('avatarUpload', err.responseJSON))
     )
 );
+
+export const updatePassword = (user) => (dispatch) => (
+  UserAPIUtil.updateUser(user)
+    .fail((err) =>
+      dispatch(receiveFormErrors('accountPassword', err.responseJSON))
+    )
+);

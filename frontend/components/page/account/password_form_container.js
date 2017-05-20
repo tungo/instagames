@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import { fetchUser, updateUser } from '../../../actions/user_actions';
-import { clearFormErrors } from '../../../actions/error_actions';
+import { fetchUser, updatePassword } from '../../../actions/user_actions';
+import { receiveFormErrors, clearFormErrors } from '../../../actions/error_actions';
 import PasswordForm from './password_form';
 
 const mapStateToProps = (state) => ({
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: (userId) => dispatch(fetchUser(userId)),
-  updateUser: (user) => dispatch(updateUser(user)),
+  updatePassword: (user) => dispatch(updatePassword(user)),
+  receiveErrors: (err) => dispatch(receiveFormErrors('accountPassword', err)),
   clearErrors: () => dispatch(clearFormErrors('accountPassword'))
 });
 

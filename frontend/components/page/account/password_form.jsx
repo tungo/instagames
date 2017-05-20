@@ -8,7 +8,8 @@ class PasswordForm extends React.Component {
     this.state = {
       password: '',
       new_password: '',
-      confirm_password: ''
+      confirm_password: '',
+      success: false
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -18,10 +19,7 @@ class PasswordForm extends React.Component {
   componentDidMount() {
     const { currentUser, fetchUser, user } = this.props;
     if (currentUser.username !== user.username) {
-      fetchUser(currentUser.username)
-        .then((rspUser) => this.setState(rspUser));
-    } else {
-      this.setState(user);
+      fetchUser(currentUser.username);
     }
   }
 
@@ -40,13 +38,26 @@ class PasswordForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    this.props.clearErrors();
     this.setState({success: false});
 
-    const user = merge(this.state, {updateType: 'password'});
+    const { password, new_password, confirm_password } = this.state;
+    if (new_password !== confirm_password) {
+      this.props.receiveErrors(['Confirm Password is not correct']);
+      return;
+    }
 
-    this.props.updateUser(this.state)
-      .then(() => this.props.clearErrors())
-      .then(() => this.setState({success: true}));
+    this.props.updatePassword({
+      password,
+      new_password,
+      confirm_password,
+      updateType: 'password'
+    }).then(() => this.setState({
+      password: '',
+      new_password: '',
+      confirm_password: '',
+      success: true
+    }));
   }
 
   renderErrors() {

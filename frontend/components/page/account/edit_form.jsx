@@ -1,5 +1,4 @@
 import React from 'react';
-import merge from 'lodash/merge';
 
 import AvatarModal from '../profile/avatar_modal';
 
@@ -10,7 +9,8 @@ class EditForm extends React.Component {
     this.state = {
       name: '',
       username: '',
-      bio: ''
+      bio: '',
+      success: false
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -42,13 +42,18 @@ class EditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    this.props.clearErrors();
     this.setState({success: false});
 
-    const user = merge(this.state, {updateType: 'edit'});
-
-    this.props.updateUser(this.state)
-      .then(() => this.props.clearErrors())
-      .then(() => this.setState({success: true}));
+    const { name, username, bio } = this.state;
+    this.props.updateUser({
+      name,
+      username,
+      bio,
+      updateType: 'edit'
+    }).then(() => this.setState({
+      success: true
+    }));
   }
 
   renderErrors() {

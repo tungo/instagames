@@ -65,6 +65,8 @@ class User < ActiveRecord::Base
   def update_user(params, type)
     if type == "password"
       update_password(params)
+    elsif type == "avatar"
+      update_attributes(params)
     else
       update_attributes(params)
     end
@@ -75,8 +77,8 @@ class User < ActiveRecord::Base
       errors[:password] << "is incorect"
       nil
     else
-      password = params[:password]
-      save
+      self.password = params[:new_password]
+      self.save
     end
   end
 

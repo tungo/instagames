@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   before_action :require_logged_in!, except: [:create]
 
   def show
-    @user = User.includes(:photos).find_by_username(params[:id])
+    @user = User.includes(:photos).friendly.find(params[:id])
 
     if @user
       render :show
@@ -24,7 +24,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    # @user.slug = nil
+    @user.slug = nil
 
     update_type = params[:id]
     if @user.update_user(user_params, update_type)
@@ -47,8 +47,7 @@ class Api::UsersController < ApplicationController
       :avatar,
       :name,
       :bio,
-      :new_password,
-      :confirm_password
+      :new_password
     )
   end
 end
