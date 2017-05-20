@@ -36,6 +36,10 @@
   font-weight: bold;
   color: $darkest;
 }
+.feed-photo .header .op a:active{
+  opacity: 1;
+}
+
 
 .feed-photo .header .op img {
   width: 30px;

@@ -67,42 +67,45 @@ class AvatarForm extends React.Component {
 
   render() {
     return (
-      <div className="upload-form">
-        <ul>
-          <li>
-            <h3 className="title">Upload your avatar</h3>
-          </li>
+      <form>
+        <div className="upload-form">
+          <ul>
+            <li>
+              <h3 className="title">Upload your avatar</h3>
+            </li>
 
-          {this.renderErrors()}
+            {this.renderErrors()}
 
-          <li>
-            <div className="image-input">
-              <input
-                type="file"
-                onChange={this.updateFile}
-                className="file"
-              />
+            <li>
+              <div className="image-input">
+                <input
+                  type="file"
+                  onChange={this.updateFile}
+                  className="file"
+                />
 
-              <div className="image">
-                <img src={this.state.imageUrl} />
+                <div className="image">
+                  <img src={this.state.imageUrl} />
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
 
-          <li>
-            <button
-              onClick={this.handleSubmit}
-              className="button blue"
-            >Submit</button>
+            <li>
+              <button
+                type="submit"
+                onClick={this.handleSubmit}
+                className="button blue"
+              >Submit</button>
 
-            <button
-              onClick={this.props.closeModal}
-              className="button"
-            >Cancel</button>
-          </li>
+              <button
+                onClick={this.props.closeModal}
+                className="button"
+              >Cancel</button>
+            </li>
 
-        </ul>
-      </div>
+          </ul>
+        </div>
+      </form>
     );
   }
 }

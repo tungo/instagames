@@ -68,52 +68,55 @@ class UploadForm extends React.Component {
 
   render() {
     return (
-      <div className="upload-form">
-        <ul>
-          <li>
-            <h3 className="title">Upload photo</h3>
-          </li>
+      <form>
+        <div className="upload-form">
+          <ul>
+            <li>
+              <h3 className="title">Upload photo</h3>
+            </li>
 
-          {this.renderErrors()}
+            {this.renderErrors()}
 
-          <li>
-            <div className="image-input">
-              <input
-                type="file"
-                onChange={this.updateFile}
-                className="file"
-              />
+            <li>
+              <div className="image-input">
+                <input
+                  type="file"
+                  onChange={this.updateFile}
+                  className="file"
+                />
 
-              <div className="image">
-                <img src={this.state.imageUrl} />
+                <div className="image">
+                  <img src={this.state.imageUrl} />
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
 
-          <li>
-            <input
-              type="text"
-              value={this.state.caption}
-              onChange={this.updateInput('caption')}
-              className="input"
-              placeholder="Write a caption..."
-            />
-          </li>
+            <li>
+              <input
+                type="text"
+                value={this.state.caption}
+                onChange={this.updateInput('caption')}
+                className="input"
+                placeholder="Write a caption..."
+              />
+            </li>
 
-          <li>
-            <button
-              onClick={this.handleSubmit}
-              className="button blue"
-            >Submit</button>
+            <li>
+              <button
+                type="submit"
+                onClick={this.handleSubmit}
+                className="button blue"
+              >Submit</button>
 
-            <button
-              onClick={this.props.closeModal}
-              className="button"
-            >Cancel</button>
-          </li>
+              <button
+                onClick={this.props.closeModal}
+                className="button"
+              >Cancel</button>
+            </li>
 
-        </ul>
-      </div>
+          </ul>
+        </div>
+      </form>
     );
   }
 }

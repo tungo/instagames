@@ -100,42 +100,45 @@ class EditForm extends React.Component {
 
           {this.renderErrors()}
 
-          <div className="input">
-            <label className="left">Name</label>
-            <input
-              type="text"
-              className="white-input"
-              value={this.state.name}
-              onChange={this.updateInput('name')}
-            />
-          </div>
+          <form>
+            <div className="input">
+              <label className="left">Name</label>
+              <input
+                type="text"
+                className="white-input"
+                value={this.state.name}
+                onChange={this.updateInput('name')}
+              />
+            </div>
 
-          <div className="input">
-            <label className="left">Username</label>
-            <input
-              type="text"
-              className="white-input"
-              value={this.state.username}
-              onChange={this.updateInput('username')}
-            />
-          </div>
+            <div className="input">
+              <label className="left">Username</label>
+              <input
+                type="text"
+                className="white-input"
+                value={this.state.username}
+                onChange={this.updateInput('username')}
+              />
+            </div>
 
-          <div className="input">
-            <label className="left">Bio</label>
-            <textarea
-              className="white-input"
-              value={this.state.bio}
-              onChange={this.updateInput('bio')}
-            />
-          </div>
+            <div className="input">
+              <label className="left">Bio</label>
+              <textarea
+                className="white-input"
+                value={this.state.bio}
+                onChange={this.updateInput('bio')}
+              />
+            </div>
 
-          <div className="input">
-            <div className="left"></div>
-            <button
-              className="blue-button"
-              onClick={this.handleSubmit}
-            >Submit</button>
-          </div>
+            <div className="input">
+              <div className="left"></div>
+              <button
+                type="submit"
+                className="blue-button"
+                onClick={this.handleSubmit}
+              >Submit</button>
+            </div>
+          </form>
 
           {success}
 
