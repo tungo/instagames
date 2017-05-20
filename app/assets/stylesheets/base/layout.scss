@@ -106,3 +106,28 @@ textarea.white-input:focus{
 .clickable {
   cursor: pointer;
 }
+
+
+.main-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.main-footer footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px 20px;
+
+  width: 1000px;
+
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $gray;
+}
+
+.main-footer footer a {
+  margin-right: 15px;
+
+  color: $darkest-blue;
+}

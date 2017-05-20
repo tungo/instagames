@@ -8,12 +8,27 @@ import Page from './page/page';
 
 const App = () => (
   <div>
-    <Switch>
-      <AuthRoute path="/login" component={SessionFormContainer} />
-      <AuthRoute path="/signup" component={SessionFormContainer} />
+    <section className="main-content">
+      <Switch>
+        <AuthRoute path="/login" component={SessionFormContainer} />
+        <AuthRoute path="/signup" component={SessionFormContainer} />
 
-      <ProtectedRoute path="/" component={Page} />
-    </Switch>
+        <ProtectedRoute path="/" component={Page} />
+      </Switch>
+    </section>
+
+    <section className="main-footer">
+      <footer>
+        <div className="left">
+          <a href="https://github.com/tungo">GITHUB</a>
+          <a href="https://tungo.net">PORTFOLIO</a>
+          <a href="https://www.linkedin.com/in/tu-ngo/">LINKEDIN</a>
+        </div>
+        <div className="right">
+          2017 © Tu Ngo
+        </div>
+      </footer>
+    </section>
   </div>
 );
 

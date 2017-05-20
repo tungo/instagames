@@ -169,16 +169,6 @@ class SessionForm extends React.Component {
           </div>
         </div>
 
-        <div className="session-footer">
-          <div className="left">
-            <a href="https://github.com/tungo">GITHUB</a>
-            <a href="https://tungo.net">PORTFOLIO</a>
-            <a href="https://www.linkedin.com/in/tu-ngo/">LINKEDIN</a>
-          </div>
-          <div className="right">
-            2017 © Tu Ngo
-          </div>
-        </div>
       </div>
     );
   }
