@@ -26,8 +26,13 @@ class Api::UsersController < ApplicationController
     @user = User.find(current_user.id)
     @user.slug = nil
 
-    if @user.update_attributes(user_params)
-      render :show
+    update_type = params[:id]
+    if @user.update_user(user_params, update_type)
+      if %w(avatar edit password).include?(update_type)
+        render update_type.to_symbol
+      else
+        render :show
+      end
     else
       render json: @user.errors.full_messages, status: 422
     end
@@ -36,6 +41,14 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :avatar, :name, :bio)
+    params.require(:user).permit(
+      :username,
+      :password,
+      :avatar,
+      :name,
+      :bio,
+      :new_password,
+      :confirm_password
+    )
   end
 end

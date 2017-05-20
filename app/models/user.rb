@@ -62,7 +62,25 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
+  def update_user(params, type)
+    if type == "password"
+      self.update_password(params)
+    else
+      self.update_attributes(params)
+    end
+  end
+
   private
+
+  def update_password(params)
+    if !self.is_password?(params.password)
+      errors[:password] << "is incorect"
+      nil
+    else
+      self.password = params.password
+      self.save
+    end
+  end
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
