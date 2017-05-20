@@ -1,0 +1,1 @@
+json.avatar asset_path(@user.avatar.url(:medium))
