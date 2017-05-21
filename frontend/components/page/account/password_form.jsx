@@ -9,7 +9,8 @@ class PasswordForm extends React.Component {
       password: '',
       new_password: '',
       confirm_password: '',
-      success: false
+      success: false,
+      submiting: false
     };
 
     this.updateInput = this.updateInput.bind(this);
@@ -38,6 +39,8 @@ class PasswordForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    this.setState({submiting: true});
+
     this.props.clearErrors();
     this.setState({success: false});
 
@@ -57,7 +60,7 @@ class PasswordForm extends React.Component {
       new_password: '',
       confirm_password: '',
       success: true
-    }));
+    })).always(() => this.setState({submiting: false}));
   }
 
   renderErrors() {
@@ -148,6 +151,7 @@ class PasswordForm extends React.Component {
                 type="submit"
                 className="blue-button"
                 onClick={this.handleSubmit}
+                disabled={this.state.submiting}
               >Submit</button>
             </div>
 
