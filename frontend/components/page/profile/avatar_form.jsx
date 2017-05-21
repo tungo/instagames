@@ -6,7 +6,8 @@ class AvatarForm extends React.Component {
 
     this.state = {
       imageFile: '',
-      imageUrl: ''
+      imageUrl: '',
+      submiting: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,6 +31,8 @@ class AvatarForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    this.setState({submiting: true});
+
     const file = this.state.imageFile;
 
     if (file === '') {
@@ -41,7 +44,8 @@ class AvatarForm extends React.Component {
     formData.append('user[avatar]', file);
 
     this.props.updateAvatar(formData)
-      .then(() => this.props.closeModal());
+      .then(() => this.props.closeModal())
+      .always(() => this.setState({submiting: false}));
   }
 
   componentWillUnmount() {
@@ -95,7 +99,8 @@ class AvatarForm extends React.Component {
                 type="submit"
                 onClick={this.handleSubmit}
                 className="button blue"
-              >Submit</button>
+                disabled={this.state.submiting}
+              >{this.state.submiting ? 'Submiting' : 'Submit'}</button>
 
               <button
                 onClick={this.props.closeModal}

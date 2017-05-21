@@ -7,7 +7,8 @@ class UploadForm extends React.Component {
     this.state = {
       caption: '',
       imageFile: '',
-      imageUrl: ''
+      imageUrl: '',
+      submiting: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,6 +36,8 @@ class UploadForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    this.setState({submiting: true});
+
     const file = this.state.imageFile;
 
     const formData = new FormData();
@@ -42,7 +45,8 @@ class UploadForm extends React.Component {
     formData.append('photo[image]', file);
 
     this.props.createPhoto(formData)
-      .then(() => this.props.closeModal());
+      .then(() => this.props.closeModal())
+      .always(() => this.setState({submiting: false}));
   }
 
   componentWillUnmount() {
@@ -106,7 +110,8 @@ class UploadForm extends React.Component {
                 type="submit"
                 onClick={this.handleSubmit}
                 className="button blue"
-              >Submit</button>
+                disabled={this.state.submiting}
+              >{this.state.submiting ? 'Submiting' : 'Submit'}</button>
 
               <button
                 onClick={this.props.closeModal}
