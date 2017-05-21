@@ -7,6 +7,9 @@ import {
 import {
   RECEIVE_USER
 } from '../actions/user_actions';
+import {
+  RECEIVE_FORM_ERRORS
+} from '../actions/error_actions';
 
 const LoadingReducer = (state = false, action) => {
   Object.freeze(state);
@@ -21,6 +24,7 @@ const LoadingReducer = (state = false, action) => {
     case RECEIVE_PHOTOS:
     case RECEIVE_PHOTO_DETAIL:
     case RECEIVE_USER:
+    case RECEIVE_FORM_ERRORS:
       return false;
 
     default:

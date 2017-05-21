@@ -1,6 +1,7 @@
 import * as UserAPIUtil from '../util/user_api_util.js';
 import { receiveFormErrors } from './error_actions';
 import { receiveCurrentUser } from './session_actions';
+import { startLoading } from './loading_actions';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 
@@ -11,14 +12,16 @@ export const receiveUser = (user) => ({
 });
 
 
-export const fetchUser = (userId) => (dispatch) => (
-  UserAPIUtil.requestUser(userId)
+export const fetchUser = (userId) => (dispatch) => {
+  dispatch(startLoading());
+
+  return UserAPIUtil.requestUser(userId)
     .then((user) => {
       dispatch(receiveUser(user));
       return user;
     })
     .fail((err) => console.log(err))
-);
+};
 
 export const updateUser = (user) => (dispatch) => (
   UserAPIUtil.updateUser(user)
@@ -32,13 +35,15 @@ export const updateUser = (user) => (dispatch) => (
     )
 );
 
-export const updateAvatar = (user) => (dispatch) => (
-  UserAPIUtil.updateAvatar(user)
+export const updateAvatar = (user) => (dispatch) => {
+  dispatch(startLoading());
+
+  return UserAPIUtil.updateAvatar(user)
     .then((rspUser) => dispatch(receiveUser(rspUser)))
     .fail((err) =>
       dispatch(receiveFormErrors('avatarUpload', err.responseJSON))
-    )
-);
+    );
+};
 
 export const updatePassword = (user) => (dispatch) => (
   UserAPIUtil.updateUser(user)
