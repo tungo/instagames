@@ -5,6 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 
 import SessionFormContainer from './session_form/session_form_container';
 import Page from './page/page';
+import LoadingContainer from './other/loading_container';
 
 const App = () => (
   <div>
@@ -29,6 +30,8 @@ const App = () => (
         </div>
       </footer>
     </section>
+
+    <LoadingContainer />
   </div>
 );
 
