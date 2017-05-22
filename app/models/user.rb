@@ -26,10 +26,40 @@ class User < ActiveRecord::Base
   validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/,
     message: "can only use letters, numbers and underscores" }
 
-  has_many :photos,
+
+  has_many :photos, dependent: :destroy,
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :Photo
+
+  has_many :likes, dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Like
+
+  has_many :comments, dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Comment
+
+  has_many :in_follows, dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :following_id,
+    class_name: :Follow
+
+  has_many :out_follows, dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
+  has_many :following,
+    through: :out_follows,
+    source: :following
+
+  has_many :followers,
+    through: :in_follows,
+    source: :follower
+
 
   attr_reader :password
 

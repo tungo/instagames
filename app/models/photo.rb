@@ -16,10 +16,22 @@
 class Photo < ActiveRecord::Base
   validates :user, presence: true
 
+
   belongs_to :user,
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :User
+
+  has_many :likes, dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :photo_id,
+    class_name: :Like
+
+  has_many :comments, dependent: :destroy,
+    primary_key: :id,
+    foreign_key: :photo_id,
+    class_name: :Comment
+
 
   has_attached_file :image,
     styles: { large: "600x", medium: "300x300#" },
