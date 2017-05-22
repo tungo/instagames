@@ -8,11 +8,17 @@ import {
   RECEIVE_LIKE,
   REMOVE_LIKE
 } from '../actions/like_actions';
+import {
+  RECEIVE_COMMENT,
+  REMOVE_COMMENT
+} from '../actions/comment_actions';
 
 const PhotoDetailReducer = (state = {}, action) => {
   Object.freeze(state);
 
   let nextState = merge({}, state);
+
+  const { comment } = action;
 
   switch(action.type) {
     case RECEIVE_PHOTO_DETAIL:
@@ -32,6 +38,18 @@ const PhotoDetailReducer = (state = {}, action) => {
       if (nextState.id === action.photoId) {
         nextState.likesCount--;
         nextState.currentUserLiked = false;
+      }
+      return nextState;
+
+    case RECEIVE_COMMENT:
+      if (nextState.id === comment.photo_id) {
+        nextState = merge(nextState, {comments: {[comment.id]: comment}});
+      }
+      return nextState;
+
+    case REMOVE_COMMENT:
+      if (nextState.id === comment.photo_id) {
+        delete nextState.comments[comment.id];
       }
       return nextState;
 
