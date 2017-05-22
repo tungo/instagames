@@ -8,7 +8,7 @@ class Api::LikesController < ApplicationController
     if @like.save
       render :show
     else
-      render json: @like.errors.full_message, status: 422
+      render json: @like.errors.full_messages, status: 422
     end
   end
 
@@ -18,7 +18,7 @@ class Api::LikesController < ApplicationController
     if @like.destroy
       render :show
     else
-      render json: @like.errors.full_message, status: 422
+      render json: @like.errors.full_messages, status: 422
     end
   end
 end
