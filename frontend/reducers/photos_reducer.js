@@ -5,9 +5,15 @@ import {
   RECEIVE_PHOTO,
   REMOVE_PHOTO
 } from '../actions/photo_actions';
+import {
+  RECEIVE_LIKE,
+  REMOVE_LIKE
+} from '../actions/like_actions';
 
 const PhotosReducer = (state = {}, action) => {
   Object.freeze(state);
+
+  let nextState = merge({}, state);
 
   switch(action.type) {
     case RECEIVE_PHOTOS:
@@ -15,11 +21,20 @@ const PhotosReducer = (state = {}, action) => {
 
     case RECEIVE_PHOTO:
       const { photo } = action;
-      return merge({}, state, {[photo.id]: photo})
+      return merge({}, state, {[photo.id]: photo});
 
     case REMOVE_PHOTO:
-      let nextState = merge({}, state);
       delete nextState[action.id];
+      return nextState;
+
+    case RECEIVE_LIKE:
+      nextState.likesCount++;
+      nextState.currentUserLiked = true;
+      return nextState;
+
+    case REMOVE_LIKE:
+      nextState.likesCount--;
+      nextState.currentUserLiked = false;
       return nextState;
 
     default:
