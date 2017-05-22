@@ -94,18 +94,18 @@ class EditForm extends React.Component {
           <div className="avatar left">
             <AvatarModal user={user} />
           </div>
+
           <div className="username">
             <h1>{user.username}</h1>
           </div>
         </header>
 
-        <main>
-
+        <form>
           {this.renderErrors()}
 
-          <form>
-            <div className="input">
-              <label className="left">Name</label>
+          <div className="input">
+            <label className="left">Name</label>
+            <div className="right">
               <input
                 type="text"
                 className="white-input"
@@ -113,9 +113,11 @@ class EditForm extends React.Component {
                 onChange={this.updateInput('name')}
               />
             </div>
+          </div>
 
-            <div className="input">
-              <label className="left">Username</label>
+          <div className="input">
+            <label className="left">Username</label>
+            <div className="right">
               <input
                 type="text"
                 className="white-input"
@@ -123,18 +125,22 @@ class EditForm extends React.Component {
                 onChange={this.updateInput('username')}
               />
             </div>
+          </div>
 
-            <div className="input">
-              <label className="left">Bio</label>
+          <div className="input">
+            <label className="left">Bio</label>
+            <div className="right">
               <textarea
                 className="white-input"
                 value={this.state.bio}
                 onChange={this.updateInput('bio')}
               />
             </div>
+          </div>
 
-            <div className="input">
-              <div className="left"></div>
+          <div className="input">
+            <div className="left"></div>
+            <div className="right">
               <button
                 type="submit"
                 className="blue-button"
@@ -142,11 +148,10 @@ class EditForm extends React.Component {
                 disabled={this.state.submiting}
               >Submit</button>
             </div>
-          </form>
+          </div>
 
           {success}
-
-        </main>
+        </form>
       </article>
     );
   }

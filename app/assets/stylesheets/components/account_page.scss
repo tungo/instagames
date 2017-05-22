@@ -6,29 +6,34 @@
 .account-page > article {
   display: flex;
 
-  margin: 50px 0;
+  width: 800px;
+  margin: 50px 20px;
 
   background: $white;
   border-radius: 3px;
   border: 1px solid $lighter-gray;
 }
 
-.account-page aside.sidebar {
+.account-page ul.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  width: 30%;
+
   border-right: 1px solid $lighter-gray;
 }
 
-.account-page aside.sidebar > ul {
+.account-page ul.sidebar > li {
   display: flex;
-  flex-direction: column;
+
+  width: 100%;
 }
 
-.account-page aside.sidebar > ul > li {
-  display: flex;
-}
+.account-page ul.sidebar > li > a {
+  display: block;
 
-.account-page aside.sidebar > ul > li > a {
+  width: 100%;
   padding: 15px 30px;
-  width: 240px;
 
   border-left: 2px solid $white;
 
@@ -36,28 +41,26 @@
   font-size: 16px;
 }
 
-.account-page aside.sidebar > ul > li > a:hover {
+.account-page ul.sidebar > li > a:hover {
   background: $lightest-gray;
   border-left: 2px solid $lighter-gray;
 }
 
 
-.account-page aside.sidebar > ul > li > a.selected {
+.account-page ul.sidebar > li > a.selected {
   border-left: 2px solid $darkest;
 
   font-weight: bold;
 }
 
-.account-page section.form {
-  min-width: 400px;
-}
-
-.account-page section.form > article {
+.account-page .edit-form {
   display: flex;
   flex-direction: column;
 
-  margin: 0 30px;
+  margin: 0 50px 0 20px;
+  width: 70%;
 }
+
 
 .account-page .edit-form > header {
   display: flex;
@@ -84,8 +87,6 @@
 .account-page .edit-form .input:last-child {
   margin-bottom: 30px;
 }
-
-
 .account-page .edit-form .errors {
   color: $red;
 }
@@ -98,16 +99,20 @@
   justify-content: flex-end;
   text-align: right;
 
-  width: 120px;
+  width: 25%;
   margin: 0 30px 0 0;
 
   font-weight: bold;
   font-size: 16px;
 }
 
+.account-page .edit-form .input > .right {
+  width: 75%;
+}
+
 .account-page .edit-form .input input,
 .account-page .edit-form .input textarea {
-  width: 300px;
+  width: 100%;
 }
 
 .account-page .blue-button {

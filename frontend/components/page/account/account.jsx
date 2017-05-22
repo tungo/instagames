@@ -13,29 +13,25 @@ class Account extends React.Component {
     return (
       <main className="account-page">
         <article>
-          <aside className="sidebar">
-            <ul>
-              <li>
-                <NavLink
-                  to="/account/edit"
-                  activeClassName="selected"
-                >Edit Profile</NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/account/password"
-                  activeClassName="selected"
-                >Change Password</NavLink>
-              </li>
-            </ul>
-          </aside>
+          <ul className="sidebar">
+            <li>
+              <NavLink
+                to="/account/edit"
+                activeClassName="selected"
+              >Edit Profile</NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/account/password"
+                activeClassName="selected"
+              >Change Password</NavLink>
+            </li>
+          </ul>
 
-          <section className="form">
-            <Switch>
-              <Route path="/account/edit" component={EditFormContainer} />
-              <Route path="/account/password" component={PasswordFormContainer} />
-            </Switch>
-          </section>
+          <Switch>
+            <Route path="/account/edit" component={EditFormContainer} />
+            <Route path="/account/password" component={PasswordFormContainer} />
+          </Switch>
         </article>
       </main>
     );

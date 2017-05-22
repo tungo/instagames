@@ -110,13 +110,12 @@ class PasswordForm extends React.Component {
           </div>
         </header>
 
-        <main>
-
+        <form>
           {this.renderErrors()}
 
-          <form>
-            <div className="input">
-              <label className="left">Old Password</label>
+          <div className="input">
+            <label className="left">Old Password</label>
+            <div className="right">
               <input
                 type="password"
                 className="white-input"
@@ -124,9 +123,11 @@ class PasswordForm extends React.Component {
                 onChange={this.updateInput('password')}
               />
             </div>
+          </div>
 
-            <div className="input">
-              <label className="left">New Password</label>
+          <div className="input">
+            <label className="left">New Password</label>
+            <div className="right">
               <input
                 type="password"
                 className="white-input"
@@ -134,9 +135,11 @@ class PasswordForm extends React.Component {
                 onChange={this.updateInput('new_password')}
               />
             </div>
+          </div>
 
-            <div className="input">
-              <label className="left">Confirm Password</label>
+          <div className="input">
+            <label className="left">Confirm Password</label>
+            <div className="right">
               <input
                 type="password"
                 className="white-input"
@@ -144,9 +147,11 @@ class PasswordForm extends React.Component {
                 onChange={this.updateInput('confirm_password')}
               />
             </div>
+          </div>
 
-            <div className="input">
-              <div className="left"></div>
+          <div className="input">
+            <div className="left"></div>
+            <div className="right">
               <button
                 type="submit"
                 className="blue-button"
@@ -154,11 +159,10 @@ class PasswordForm extends React.Component {
                 disabled={this.state.submiting}
               >Submit</button>
             </div>
+          </div>
 
-            {success}
-
-          </form>
-        </main>
+          {success}
+        </form>
       </article>
     );
   }
