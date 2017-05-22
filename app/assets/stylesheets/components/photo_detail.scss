@@ -99,6 +99,17 @@
   margin: 0 25px;
 }
 
+.photo-detail section.right aside.info .like-button {
+  margin: 5px 0;
+}
+
+.photo-detail section.right aside.info .likes-count {
+  font-weight: bold;
+}
+.photo-detail section.right aside.info .likes-count > span {
+  font-weight: normal;
+}
+
 .photo-detail section.right aside.info .uploaded-at {
   margin: 10px 0;
   font-size: 10px;

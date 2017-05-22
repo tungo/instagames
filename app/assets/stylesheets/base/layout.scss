@@ -139,3 +139,13 @@ textarea.white-input:focus{
 .hide {
   display: none;
 }
+
+.like-button {
+  font-size: 22px;
+}
+.like-button:focus {
+  outline: none;
+}
+.like-button.unlike {
+  color: $red;
+}
