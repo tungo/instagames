@@ -28,13 +28,17 @@ const PhotosReducer = (state = {}, action) => {
       return nextState;
 
     case RECEIVE_LIKE:
-      nextState.likesCount++;
-      nextState.currentUserLiked = true;
+      if (nextState[action.photoId]) {
+        nextState[action.photoId].likesCount++;
+        nextState[action.photoId].currentUserLiked = true;
+      }
       return nextState;
 
     case REMOVE_LIKE:
-      nextState.likesCount--;
-      nextState.currentUserLiked = false;
+      if (nextState[action.photoId]) {
+        nextState[action.photoId].likesCount--;
+        nextState[action.photoId].currentUserLiked = false;
+      }
       return nextState;
 
     default:

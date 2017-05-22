@@ -2,7 +2,7 @@ class Api::LikesController < ApplicationController
   before_action :require_logged_in!
 
   def create
-    @like = Like.new(params[:photo_id])
+    @like = Like.new(photo_id: params[:photo_id])
     @like.user_id = current_user.id
 
     if @like.save

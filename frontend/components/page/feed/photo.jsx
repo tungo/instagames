@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import LikeContainer from '../features/like_container';
+
 class Photo extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +16,13 @@ class Photo extends React.Component {
       caption = <div className="caption">
         <span>{photo.username} </span>
         {photo.caption}
+      </div>;
+    }
+
+    let likesCount = '';
+    if (photo.likesCount > 0) {
+      likesCount = <div className="likes-count">
+        {photo.likesCount} {photo.likesCount > 1 ? 'likes' : 'like'}
       </div>;
     }
 
@@ -40,6 +49,12 @@ class Photo extends React.Component {
         </div>
 
         <div className="info">
+          <LikeContainer
+            photoId={photo.id}
+            currentUserLiked={photo.currentUserLiked}
+          />
+          {likesCount}
+
           {caption}
         </div>
       </article>
