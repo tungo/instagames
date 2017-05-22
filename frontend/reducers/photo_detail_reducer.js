@@ -42,13 +42,13 @@ const PhotoDetailReducer = (state = {}, action) => {
       return nextState;
 
     case RECEIVE_COMMENT:
-      if (nextState.id === comment.photo_id) {
+      if (nextState.id === comment.photoId) {
         nextState = merge(nextState, {comments: {[comment.id]: comment}});
       }
       return nextState;
 
     case REMOVE_COMMENT:
-      if (nextState.id === comment.photo_id) {
+      if (nextState.id === comment.photoId) {
         delete nextState.comments[comment.id];
       }
       return nextState;

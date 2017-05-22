@@ -5,6 +5,10 @@ export const selectAllPhotos = (photos) => (
   orderBy(values(photos), ['created_at'], ['desc'])
 );
 
-export const selectAllComments = (comments) => (
-  orderBy(values(comments), ['created_at'], ['asc'])
-);
+export const selectAllComments = (comments) => {
+  if (comments) {
+    return orderBy(values(comments), ['created_at'], ['asc']);
+  } else {
+    return [];
+  }
+};

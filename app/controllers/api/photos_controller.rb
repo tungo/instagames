@@ -5,6 +5,7 @@ class Api::PhotosController < ApplicationController
     @photos = Photo
       .includes(:user)
       .includes(:likes)
+      .includes(:comments)
       .where(user_id: current_user.id)
 
     if @photos
@@ -29,6 +30,7 @@ class Api::PhotosController < ApplicationController
     @photo = Photo
       .includes(:user)
       .includes(:likes)
+      .includes(:comments)
       .find(params[:id])
   end
 
@@ -46,6 +48,7 @@ class Api::PhotosController < ApplicationController
     @photos = Photo
       .includes(:user)
       .includes(:likes)
+      .includes(:comments)
       .where(user_id: params[:user_id])
 
     if @photos

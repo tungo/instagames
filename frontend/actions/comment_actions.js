@@ -5,14 +5,14 @@ export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 
-export const receiveComment = (photoId) => ({
+export const receiveComment = (comment) => ({
   type: RECEIVE_COMMENT,
-  photoId
+  comment
 });
 
-export const removeComment = (photoId) => ({
+export const removeComment = (comment) => ({
   type: REMOVE_COMMENT,
-  photoId
+  comment
 });
 
 
