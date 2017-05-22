@@ -34,20 +34,13 @@ class Comment extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="comment-form" onSubmit={this.handleSubmit}>
         <input
           type="text"
           placeholder="Add a comment..."
           value={this.state.body}
           onChange={this.updateInput('body')}
         />
-
-        <button
-          type="submit"
-          onClick={this.handleSubmit}
-        >
-          <i className="fa fa-check" aria-hidden="true"></i>
-        </button>
       </form>
     );
   }

@@ -42,9 +42,6 @@ class Photo extends React.Component {
               {photo.username}
             </Link>
           </div>
-          <div className="uploaded-at">
-            {photo.uploaded_at}
-          </div>
         </header>
 
         <div className="image">
@@ -61,6 +58,10 @@ class Photo extends React.Component {
           {caption}
 
           <CommentIndexContainer comments={photo.comments} />
+
+          <div className="uploaded-at">
+            {photo.uploaded_at}
+          </div>
 
           <CommentFormContainer photoId={photo.id} />
         </div>

@@ -54,6 +54,7 @@ img {
 }
 
 .button-link {
+  display: block;
   padding: 0;
 
   background: none;
@@ -107,10 +108,13 @@ textarea.white-input:focus{
   border: 1px solid $gray;
 }
 
+.fa {
+  display: block;
+}
+
 .clickable {
   cursor: pointer;
 }
-
 
 .main-footer {
   display: flex;
