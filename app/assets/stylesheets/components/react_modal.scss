@@ -3,10 +3,10 @@
   display: flex;
 
   /* Probably need media queries here */
-  min-width: 300px;
+  width: 300px;
   max-width: 100%;
 
-  min-height: 100px;
+  height: 100px;
   max-height: 100%;
 
   position: fixed;
@@ -41,6 +41,9 @@
   z-index: 20;
 
   background: rgba(0, 0, 0, 0.5);
+
+  // display: flex;
+  // justify-content: center;
 }
 .modal-guts {
   position: absolute;

@@ -63,7 +63,7 @@ class UploadModal extends React.Component {
           onRequestClose={this.closeModal}
           contentLabel="UploadModal"
           className="modal upload-modal"
-          overlayClassName="modal-overlay"
+          overlayClassName="modal-overlay upload-modal-overlay"
         >
           <div className="modal-guts">
             <UploadFormContainer closeModal={this.closeModal} />

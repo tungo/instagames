@@ -3,34 +3,6 @@ import Modal from 'react-modal';
 
 import PhotoDetailContainer from './photo_detail_container';
 
-const style = {
-  overlay: {
-    // display: 'flex', // make content stay at center
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 10,
-
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  },
-  content: {
-    position: 'relative',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    margin: '100px auto',
-    width: '900px',
-    padding: 0,
-    zIndex: 11,
-
-    border: 'none',
-    borderRadius: 'none'
-  }
-};
-
 class PhotoIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -96,10 +68,13 @@ class PhotoIndex extends React.Component {
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
-          style={style}
           contentLabel="PhotoDetailModal"
+          className="modal photo-detail-modal"
+          overlayClassName="modal-overlay photo-detail-modal-overlay"
         >
-          <PhotoDetailContainer closeModal={this.closeModal} />
+          <div className="modal-guts">
+            <PhotoDetailContainer closeModal={this.closeModal} />
+          </div>
         </Modal>
       </main>
     );

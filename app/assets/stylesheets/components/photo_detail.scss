@@ -1,36 +1,74 @@
+.modal.photo-detail-modal {
+  top: 50%;
+  left: 50%;
+
+  width: auto;
+  height: auto;
+
+  background: none;
+}
+
+.modal.photo-detail-modal > div.modal-guts {
+  // important style
+  position: relative;
+
+  margin: 0 20px;
+
+  background: none;
+}
+
 .photo-detail {
   display: flex;
   justify-content: center;
 
-
+  width: auto;
+  height: auto;
 }
 
 .photo-detail figure.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 600px;
+  height: 450px;
+
   background: $darkest;
 }
 
+.photo-detail figure.left img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .photo-detail section.right {
+  // width: 330px;
+  width: 360px;
+  height: auto;
+
   background: $white;
 }
 
 .photo-detail section.right header {
-    display: flex;
+  display: flex;
+  align-items: center;
 
-    margin: 20px 25px;
+  margin: 0 25px;
+
 }
 
-.photo-detail section.right header {
-    display: flex;
-    align-items: center;
+.photo-detail section.right header > div{
+  display: flex;
+  align-items: center;
 
-    margin: 0 25px;
-    padding: 20px 0;
-    width: 280px;
+  padding: 20px 0;
+  width: 100%;
 
-    border-bottom: 1px solid $lighter-gray;
+  border-bottom: 1px solid $lighter-gray;
 
-    font-weight: bold;
+  font-weight: bold;
 }
+
 
 .photo-detail section.right header img {
   width: 40px;

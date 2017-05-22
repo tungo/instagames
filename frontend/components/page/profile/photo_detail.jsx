@@ -27,12 +27,14 @@ class PhotoDetail extends React.Component {
 
         <section className="right">
           <header>
-            <img
-              src={photo.avatar}
-              alt={`photo-${photo.caption}`}
-              className="image-circle"
-            />
-            {photo.username}
+            <div>
+              <img
+                src={photo.avatar}
+                alt={`photo-${photo.caption}`}
+                className="image-circle"
+              />
+              {photo.username}
+            </div>
           </header>
 
           <aside className="info">
