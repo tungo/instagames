@@ -39,16 +39,16 @@ class PasswordForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.setState({submiting: true});
-
-    this.props.clearErrors();
     this.setState({success: false});
+    this.props.clearErrors();
 
     const { password, new_password, confirm_password } = this.state;
     if (new_password !== confirm_password) {
-      this.props.receiveErrors(['Confirm Password is not correct']);
+      this.props.receiveErrors(['Confirm Password is incorrect']);
       return;
     }
+
+    this.setState({submiting: true});
 
     this.props.updatePassword({
       password,

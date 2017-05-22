@@ -43,10 +43,8 @@ class EditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.setState({submiting: true});
-
+    this.setState({submiting: true, success: false});
     this.props.clearErrors();
-    this.setState({success: false});
 
     const { name, username, bio } = this.state;
     this.props.updateUser({
@@ -54,9 +52,8 @@ class EditForm extends React.Component {
       username,
       bio,
       updateType: 'edit'
-    }).then(() => this.setState({
-      success: true
-    })).always(() => this.setState({submiting: false}));
+    }).then(() => this.setState({success: true}))
+      .always(() => this.setState({submiting: false}));
   }
 
   renderErrors() {

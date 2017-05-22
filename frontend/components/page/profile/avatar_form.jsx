@@ -31,15 +31,13 @@ class AvatarForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.setState({submiting: true});
-
     const file = this.state.imageFile;
-
     if (file === '') {
       this.props.receiveFormErrors(["Avatar can't be blank"]);
-      this.setState({submiting: false});
       return;
     }
+
+    this.setState({submiting: true});
 
     const formData = new FormData();
     formData.append('user[avatar]', file);
