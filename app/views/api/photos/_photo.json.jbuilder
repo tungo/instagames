@@ -12,3 +12,5 @@ json.uploaded_at uploaded_at.gsub(/about/, '').concat(' ago')
 if show
   json.url_medium asset_path(photo.image.url(:medium))
 end
+
+json.likesCount photo.likes.length
