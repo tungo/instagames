@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519220707) do
+ActiveRecord::Schema.define(version: 20170522152453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "body",       null: false
+    t.integer  "user_id",    null: false
+    t.integer  "photo_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["photo_id"], name: "index_comments_on_photo_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "follower_id",  null: false
+    t.integer  "following_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "follows", ["follower_id", "following_id"], name: "index_follows_on_follower_id_and_following_id", unique: true, using: :btree
+  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
+  add_index "follows", ["following_id"], name: "index_follows_on_following_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -28,6 +50,17 @@ ActiveRecord::Schema.define(version: 20170519220707) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "photo_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["photo_id"], name: "index_likes_on_photo_id", using: :btree
+  add_index "likes", ["user_id", "photo_id"], name: "index_likes_on_user_id_and_photo_id", unique: true, using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "caption",            default: ""
