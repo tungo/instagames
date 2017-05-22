@@ -61,7 +61,7 @@ const PhotosReducer = (state = {}, action) => {
 
     case REMOVE_COMMENT:
       if (nextState[comment.photoId]) {
-        delete nextState.comments[comment.id];
+        delete nextState[comment.photoId].comments[comment.id];
       }
       return nextState;
 

@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 import { selectAllComments } from '../../../reducers/selectors';
 import LikeContainer from '../features/like_container';
+import CommentIndexContainer from '../features/comment_index_container';
 import CommentFormContainer from '../features/comment_form_container';
-
 
 class Photo extends React.Component {
   constructor(props) {
     super(props);
-
   }
+
   render() {
     const { photo } = this.props;
 
@@ -27,28 +27,6 @@ class Photo extends React.Component {
       likesCount = <div className="likes-count">
         {photo.likesCount} {photo.likesCount > 1 ? 'likes' : 'like'}
       </div>;
-    }
-
-    let comments = '';
-    if (photo.comments) {
-      const photoComments = selectAllComments(photo.comments);
-      comments = <ul className="comments">
-        {
-          photoComments.map(comment => (
-            <li key={comment.id}>
-              <div>
-                <span>{comment.username} </span>
-                {comment.body}
-              </div>
-              <div className="comment-delete">
-                <button>
-                  <i className="fa fa-times" aria-hidden="true"></i>
-                </button>
-              </div>
-            </li>
-          ))
-        }
-      </ul>;
     }
 
     return (
@@ -82,7 +60,7 @@ class Photo extends React.Component {
 
           {caption}
 
-          {comments}
+          <CommentIndexContainer comments={photo.comments} />
 
           <CommentFormContainer photoId={photo.id} />
         </div>
