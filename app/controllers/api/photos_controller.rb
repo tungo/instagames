@@ -50,7 +50,7 @@ class Api::PhotosController < ApplicationController
     @photos = Photo.includes(:user).where(user_id: params[:user_id])
 
     if @photos
-      render :index
+      render :user_index
     else
       render json: {}
     end

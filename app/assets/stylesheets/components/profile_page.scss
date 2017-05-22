@@ -79,6 +79,9 @@
 .profile-page .photos > ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+
+  width: 990px;
 }
 
 .profile-page .photos > ul > li {

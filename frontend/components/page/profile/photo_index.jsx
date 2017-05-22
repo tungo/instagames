@@ -63,7 +63,7 @@ class PhotoIndex extends React.Component {
       if (photo.id === id) {
         return this.openModal(e);
       }
-      return photo.then(() => this.openModal(e))
+      return photo.then(() => this.openModal(e));
     };
   }
 
@@ -76,7 +76,7 @@ class PhotoIndex extends React.Component {
     const content = photos.map((photo) => (
       <li key={`photo-${photo.id}`}>
         <img
-          src={photo.url}
+          src={photo.url_medium}
           alt={`photo-${photo.caption}`}
           onClick={this.openPhotoDetail(photo.id)}
         />
