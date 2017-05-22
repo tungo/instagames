@@ -26,7 +26,7 @@ const App = () => (
           <a href="https://www.linkedin.com/in/tu-ngo/">LINKEDIN</a>
         </div>
         <div className="right">
-          2017 © Tu Ngo
+          Tu Ngo © 2017 INSTAGAMES
         </div>
       </footer>
     </section>

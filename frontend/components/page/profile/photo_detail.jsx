@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class PhotoDetail extends React.Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class PhotoDetail extends React.Component {
     this.props.deletePhoto(this.props.photo.id);
     this.props.closeModal();
   }
+
+
 
   render() {
     const { photo, currentUser } = this.props;
@@ -47,12 +50,17 @@ class PhotoDetail extends React.Component {
           <header>
             <div>
               <div className="name">
-                <img
-                  src={photo.avatar}
-                  alt={`photo-${photo.caption}`}
-                  className="image-circle"
-                />
-                {photo.username}
+                <Link
+                  to={`/user/${photo.username}`}
+                  onClick={this.props.closeModal}
+                >
+                  <img
+                    src={photo.avatar}
+                    alt={`photo-${photo.caption}`}
+                    className="image-circle"
+                  />
+                  {photo.username}
+                </Link>
               </div>
 
               <div className="delete">

@@ -71,8 +71,14 @@
 }
 
 .photo-detail section.right header > div .name {
+
+}
+
+.photo-detail section.right header > div .name a {
   display: flex;
   align-items: center;
+
+  color: $darkest;
 }
 
 .photo-detail section.right header > div .delete {
