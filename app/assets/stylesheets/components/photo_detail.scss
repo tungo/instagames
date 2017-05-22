@@ -57,8 +57,9 @@
 
 }
 
-.photo-detail section.right header > div{
+.photo-detail section.right header > div {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   padding: 20px 0;
@@ -69,6 +70,14 @@
   font-weight: bold;
 }
 
+.photo-detail section.right header > div .name {
+  display: flex;
+  align-items: center;
+}
+
+.photo-detail section.right header > div .delete {
+  font-size: 20px;
+}
 
 .photo-detail section.right header img {
   width: 40px;

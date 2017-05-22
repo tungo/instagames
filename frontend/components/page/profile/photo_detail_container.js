@@ -1,9 +1,15 @@
 import { connect } from 'react-redux';
 
+import { deletePhoto } from '../../../actions/photo_actions';
 import PhotoDetail from './photo_detail';
 
 const mapStateToProps = (state) => ({
-  photo: state.photoDetail
+  photo: state.photoDetail,
+  currentUser: state.session.currentUser
 });
 
-export default connect(mapStateToProps)(PhotoDetail);
+const mapDispatchToProps = (dispatch) => ({
+  deletePhoto: (id) => dispatch(deletePhoto(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoDetail);

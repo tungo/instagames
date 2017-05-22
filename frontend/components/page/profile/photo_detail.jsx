@@ -3,10 +3,19 @@ import React from 'react';
 class PhotoDetail extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+
+    this.props.deletePhoto(this.props.photo.id);
+    this.props.closeModal();
   }
 
   render() {
-    const { photo } = this.props;
+    const { photo, currentUser } = this.props;
 
     let caption = '';
     if (photo.caption) {
@@ -14,6 +23,15 @@ class PhotoDetail extends React.Component {
         <span>{photo.username} </span>
         {photo.caption}
       </div>;
+    }
+
+    let deleteButton = '';
+    if (currentUser.username === photo.username) {
+      deleteButton = <button
+        onClick={this.handleDelete}
+        className="button-link"
+      ><i className="fa fa-trash-o" aria-hidden="true"></i>
+      </button>;
     }
 
     return (
@@ -28,12 +46,18 @@ class PhotoDetail extends React.Component {
         <section className="right">
           <header>
             <div>
-              <img
-                src={photo.avatar}
-                alt={`photo-${photo.caption}`}
-                className="image-circle"
-              />
-              {photo.username}
+              <div className="name">
+                <img
+                  src={photo.avatar}
+                  alt={`photo-${photo.caption}`}
+                  className="image-circle"
+                />
+                {photo.username}
+              </div>
+
+              <div className="delete">
+                {deleteButton}
+              </div>
             </div>
           </header>
 

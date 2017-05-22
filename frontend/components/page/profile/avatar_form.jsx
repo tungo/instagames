@@ -37,6 +37,7 @@ class AvatarForm extends React.Component {
 
     if (file === '') {
       this.props.receiveFormErrors(["Avatar can't be blank"]);
+      this.setState({submiting: false});
       return;
     }
 

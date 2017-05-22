@@ -21,10 +21,10 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { user, photos, fetchPhotoDetail } = this.props;
+    const { user, photos, fetchPhotoDetail, currentUser } = this.props;
 
     // edit if current user profile
-    const setting = <Link
+    let setting = <Link
       to="/account/edit"
       alt="Edit Profile"
       className="link-button"
@@ -33,7 +33,9 @@ class Profile extends React.Component {
     </Link>;
 
     // follow feature for other users
-
+    if (user.username !== currentUser.username) {
+      setting = '';
+    }
 
     return (
       <section className="profile-page">

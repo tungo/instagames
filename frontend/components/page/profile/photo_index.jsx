@@ -16,14 +16,10 @@ class PhotoIndex extends React.Component {
   }
 
   closeModal(e) {
-    e.preventDefault();
-
     this.setState({modalOpen: false});
   }
 
   openModal(e) {
-    e.preventDefault();
-
     this.setState({modalOpen: true});
   }
 
