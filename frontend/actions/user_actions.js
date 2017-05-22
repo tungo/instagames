@@ -4,11 +4,23 @@ import { receiveCurrentUser } from './session_actions';
 import { startLoading } from './loading_actions';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_USER_PHOTOS = 'RECEIVE_USER_PHOTOS';
+export const RECEIVE_USER_PHOTO = 'RECEIVE_USER_PHOTO';
 
 
 export const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user
+});
+
+export const receiveUserPhotos = (photos) => ({
+  type: RECEIVE_USER_PHOTOS,
+  photos
+});
+
+export const receiveUserPhoto = (photo) => ({
+  type: RECEIVE_USER_PHOTO,
+  photo
 });
 
 
@@ -20,7 +32,7 @@ export const fetchUser = (userId) => (dispatch) => {
       dispatch(receiveUser(user));
       return user;
     })
-    .fail((err) => console.log(err))
+    .fail((err) => console.log(err));
 };
 
 export const updateUser = (user) => (dispatch) => (
