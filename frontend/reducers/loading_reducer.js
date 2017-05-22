@@ -2,7 +2,8 @@ import { START_LOADING, STOP_LOADING } from '../actions/loading_actions';
 import {
   RECEIVE_PHOTO,
   RECEIVE_PHOTOS,
-  RECEIVE_PHOTO_DETAIL
+  RECEIVE_PHOTO_DETAIL,
+  REMOVE_PHOTO
 } from '../actions/photo_actions';
 import {
   RECEIVE_USER
@@ -25,6 +26,7 @@ const LoadingReducer = (state = false, action) => {
     case RECEIVE_PHOTO_DETAIL:
     case RECEIVE_USER:
     case RECEIVE_FORM_ERRORS:
+    case REMOVE_PHOTO:
       return false;
 
     default:

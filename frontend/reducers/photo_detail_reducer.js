@@ -1,7 +1,8 @@
 import merge from 'lodash/merge';
 
 import {
-  RECEIVE_PHOTO_DETAIL
+  RECEIVE_PHOTO_DETAIL,
+  REMOVE_PHOTO
 } from '../actions/photo_actions';
 
 const PhotoDetailReducer = (state = {}, action) => {
@@ -10,6 +11,9 @@ const PhotoDetailReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_PHOTO_DETAIL:
       return merge({}, state, action.photoDetail);
+
+    case REMOVE_PHOTO:
+      return {};
 
     default:
       return state;
