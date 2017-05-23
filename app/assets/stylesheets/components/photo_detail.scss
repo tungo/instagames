@@ -94,58 +94,70 @@
   margin: 0 10px 0 0;
 }
 
-.photo-detail section.right aside.info {
+.photo-detail .info {
   display: flex;
   flex-direction: column;
   flex-grow: 2;
 
+  height: 300px;
+
   margin: 5px 25px;
 }
 
-.photo-detail section.right aside.info > div:first-child {
+.photo-detail .info > div:first-child {
   flex-grow: 2;
+
+  overflow-y: scroll
 }
 
-.photo-detail section.right aside.info > div:last-child {
+.photo-detail .info > div:last-child {
   border-top: 1px solid $lighter-gray;
 }
 
-.photo-detail section.right aside.info .caption {
+.photo-detail .info .caption {
   margin: 0 0 8px 0;
 }
 
-.photo-detail section.right aside.info .caption span {
+.photo-detail .info .caption span {
   font-weight: bold;
 }
 
-.photo-detail section.right aside.info .features > div:first-child {
+.photo-detail .features {
+  margin: 5px 0 0;
+}
+
+.photo-detail .features > div:first-child {
   display: flex;
 }
 
-.photo-detail section.right aside.info .features > div:first-child button.focus-comment {
+.photo-detail .info .features > div:first-child button.focus-comment {
   font-size: 22px;
   margin-left: 15px;
 }
 
-.photo-detail section.right aside.info .features > div:first-child button.focus-comment > i {
+.photo-detail .info .features > div:first-child button.focus-comment > i {
   margin-bottom: 3px;
 }
 
-.photo-detail section.right aside.info .like-button {
+.photo-detail .info .like-button {
   margin: 5px 0;
 }
 
-.photo-detail section.right aside.info .likes-count {
+.photo-detail .info .likes-count {
   font-weight: bold;
 }
-.photo-detail section.right aside.info .likes-count > span {
+.photo-detail .info .likes-count > span {
   font-weight: normal;
 }
 
-.photo-detail section.right aside.info .uploaded-at {
+.photo-detail .info .uploaded-at {
   margin: 10px 0;
   font-size: 10px;
   color: $gray;
   text-transform: uppercase;
+}
+
+.photo-detail .comments {
+  padding-right: 10px;
 }
 

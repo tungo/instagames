@@ -42,12 +42,29 @@ class PhotoIndex extends React.Component {
     }
 
     const content = photos.map((photo) => (
-      <li key={`photo-${photo.id}`}>
+      <li
+        className="clickable"
+        key={`photo-${photo.id}`}
+        onClick={this.openPhotoDetail(photo.id)}
+      >
         <img
           src={photo.url_medium}
           alt={`photo-${photo.caption}`}
-          onClick={this.openPhotoDetail(photo.id)}
         />
+
+        <div className="highlight-overlay">
+          <div className="highlight">
+            <div>
+              <i className="fa fa-heart" aria-hidden="true"></i>
+              {photo.likesCount}
+            </div>
+
+            <div>
+              <i className="fa fa-comment" aria-hidden="true"></i>
+              {photo.commentsCount}
+            </div>
+          </div>
+        </div>
       </li>
     ));
 
