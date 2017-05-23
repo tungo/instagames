@@ -1,1 +1,2 @@
-json.extract! @like, :id, :photo_id
+json.id @like.id
+json.photoId @like.photo_id

@@ -18,10 +18,10 @@ export const removeLike = (photoId) => ({
 
 export const likePhoto = (photoId) => (dispatch) => (
   LikeAPIUtil.likePhoto(photoId)
-    .then((like) => dispatch(receiveLike(like.photo_id)))
+    .then((like) => dispatch(receiveLike(like.photoId)))
 );
 
 export const unlikePhoto = (photoId) => (dispatch) => (
   LikeAPIUtil.unlikePhoto(photoId)
-    .then((like) => dispatch(removeLike(like.photo_id)))
+    .then((like) => dispatch(removeLike(like.photoId)))
 );

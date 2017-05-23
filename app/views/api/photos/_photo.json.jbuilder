@@ -6,11 +6,11 @@ json.username photo.user.username
 json.avatar asset_path(photo.user.avatar.url(:thumb))
 json.url asset_path(photo.image.url(:large))
 json.caption photo.caption
-json.created_at photo.created_at
-json.uploaded_at uploaded_at.gsub(/about/, '').concat(' ago')
+json.createdAt photo.created_at
+json.uploadedAt uploaded_at.gsub(/about/, '').concat(' ago')
 
 if show
-  json.url_medium asset_path(photo.image.url(:medium))
+  json.urlMedium asset_path(photo.image.url(:medium))
 end
 
 json.likesCount photo.likes.length
@@ -23,7 +23,7 @@ json.comments do
       json.id comment.id
       json.body comment.body
       json.username comment.user.username
-      json.created_at comment.created_at
+      json.createdAt comment.created_at
     end
   end
 end

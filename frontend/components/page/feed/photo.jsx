@@ -78,7 +78,7 @@ class Photo extends React.Component {
           <CommentIndexContainer comments={photo.comments} />
 
           <div className="uploaded-at">
-            {photo.uploaded_at}
+            {photo.uploadedAt}
           </div>
 
           <CommentFormContainer photoId={photo.id} />

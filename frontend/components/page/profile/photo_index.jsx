@@ -48,7 +48,7 @@ class PhotoIndex extends React.Component {
         onClick={this.openPhotoDetail(photo.id)}
       >
         <img
-          src={photo.url_medium}
+          src={photo.urlMedium}
           alt={`photo-${photo.caption}`}
         />
 

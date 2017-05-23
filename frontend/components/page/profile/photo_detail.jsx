@@ -110,7 +110,7 @@ class PhotoDetail extends React.Component {
               </div>
 
               <div className="uploaded-at">
-                {photo.uploaded_at}
+                {photo.uploadedAt}
               </div>
 
               <CommentFormContainer photoId={photo.id} />
