@@ -1,7 +1,27 @@
+ul.comments {
+  display: flex;
+  flex-direction: column;
+}
+
+ul.comments > li {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0 0 8px;
+}
+
+ul.comments > li > div:first-child span {
+  font-weight: bold;
+}
+
+ul.comments > li > div:last-child {
+  color: $light-gray;
+}
+
 .comment-form {
   display: flex;
 
-  border-top: 1px solid $light-gray;
+  border-top: 1px solid $lighter-gray;
 }
 
 .comment-form > input {

@@ -57,6 +57,19 @@
   padding: 5px 15px;
 }
 
+.feed-photo .info > div:first-child {
+  display: flex;
+}
+
+.feed-photo .info > div:first-child button.focus-comment {
+  font-size: 22px;
+  margin-left: 15px;
+}
+
+.feed-photo .info > div:first-child button.focus-comment > i {
+  margin-bottom: 3px;
+}
+
 .feed-photo .info .like-button {
   margin: 8px 0;
 }
@@ -73,26 +86,6 @@
 
 .feed-photo .caption span {
   font-weight: bold;
-}
-
-.feed-photo .info ul.comments {
-  display: flex;
-  flex-direction: column;
-}
-
-.feed-photo .info ul.comments > li {
-  display: flex;
-  justify-content: space-between;
-
-  margin: 0 0 8px;
-}
-
-.feed-photo .info ul.comments > li > div:first-child span {
-  font-weight: bold;
-}
-
-.feed-photo .info ul.comments > li > div:last-child {
-  color: $light-gray;
 }
 
 .feed-photo .info .uploaded-at {

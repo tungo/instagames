@@ -31,7 +31,7 @@
   justify-content: center;
 
   width: 600px;
-  height: 450px;
+  height: 600px;
 
   background: $darkest;
 }
@@ -42,7 +42,9 @@
 }
 
 .photo-detail section.right {
-  // width: 330px;
+  display: flex;
+  flex-direction: column;
+
   width: 360px;
   height: auto;
 
@@ -95,8 +97,38 @@
 .photo-detail section.right aside.info {
   display: flex;
   flex-direction: column;
+  flex-grow: 2;
 
-  margin: 0 25px;
+  margin: 5px 25px;
+}
+
+.photo-detail section.right aside.info > div:first-child {
+  flex-grow: 2;
+}
+
+.photo-detail section.right aside.info > div:last-child {
+  border-top: 1px solid $lighter-gray;
+}
+
+.photo-detail section.right aside.info .caption {
+  margin: 0 0 8px 0;
+}
+
+.photo-detail section.right aside.info .caption span {
+  font-weight: bold;
+}
+
+.photo-detail section.right aside.info .features > div:first-child {
+  display: flex;
+}
+
+.photo-detail section.right aside.info .features > div:first-child button.focus-comment {
+  font-size: 22px;
+  margin-left: 15px;
+}
+
+.photo-detail section.right aside.info .features > div:first-child button.focus-comment > i {
+  margin-bottom: 3px;
 }
 
 .photo-detail section.right aside.info .like-button {
@@ -115,9 +147,5 @@
   font-size: 10px;
   color: $gray;
   text-transform: uppercase;
-}
-
-.photo-detail section.right aside.info .caption span {
-  font-weight: bold;
 }
 
