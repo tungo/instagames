@@ -18,16 +18,14 @@ import {
 const PhotosReducer = (state = {}, action) => {
   Object.freeze(state);
 
+  const { photos, photo, comment } = action;
   let nextState = merge({}, state);
-
-  const { comment } = action;
 
   switch(action.type) {
     case RECEIVE_PHOTOS:
-      return merge({}, state, action.photos);
+      return merge({}, state, photos);
 
     case RECEIVE_PHOTO:
-      const { photo } = action;
       return merge({}, state, {[photo.id]: photo});
 
     case REMOVE_PHOTO:
