@@ -1,0 +1,17 @@
+#image-login-page-phone::after {
+  background-image: url(asset_path("login-page-phone.png"));
+  background-size: 400px 550px;
+  display: block;
+  width: 400px;
+  height: 550px;
+  content: " ";
+}
+
+#image-logo-nav::after {
+  background-image: url(asset_path("instagames-logo-90.png"));
+  background-size: 33px 33px;
+  display: block;
+  width: 33px;
+  height: 33px;
+  content: " ";
+}

@@ -26,8 +26,7 @@ class Nav extends React.Component {
         <nav>
           <div className="logo">
             <Link to="/" className="link">
-              <div>
-                <img src="/assets/instagames-logo-90.png" />
+              <div id="image-logo-nav">
               </div>
               <div className="separator"></div>
               <div className="name">Instagames</div>
