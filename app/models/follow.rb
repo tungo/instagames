@@ -1,6 +1,6 @@
 class Follow < ActiveRecord::Base
-  validations :follower, :following, presence: true
-  validations :follower, uniqueness: { scope: :following,
+  validates :follower, :following, presence: true
+  validates :follower, uniqueness: { scope: :following,
     message: "should follow once only" }
 
 
