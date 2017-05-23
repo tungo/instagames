@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleClickCommenter = this.handleClickCommenter.bind(this);
   }
 
   handleDelete(id) {
@@ -11,6 +14,12 @@ class CommentIndex extends React.Component {
 
       this.props.deleteComment(id);
     };
+  }
+
+  handleClickCommenter(e) {
+    if (this.props.clickCommenter) {
+      this.props.clickCommenter();
+    }
   }
 
   render() {
@@ -22,7 +31,13 @@ class CommentIndex extends React.Component {
           comments.map(comment => (
             <li key={comment.id}>
               <div>
-                <span>{comment.username} </span>
+                <Link
+                  to={`/user/${comment.username}`}
+                  onClick={this.handleClickCommenter}
+                >
+                  {comment.username}
+                </Link>
+
                 {comment.body}
               </div>
 

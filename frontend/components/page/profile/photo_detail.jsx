@@ -11,6 +11,7 @@ class PhotoDetail extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this);
     this.focusCommentInput = this.focusCommentInput.bind(this);
+    this.clickCommenter = this.clickCommenter.bind(this);
   }
 
   handleDelete(e) {
@@ -24,6 +25,11 @@ class PhotoDetail extends React.Component {
     e.preventDefault();
 
     document.getElementById(`comment-photo-${this.props.photo.id}`).focus();
+  }
+
+  clickCommenter() {
+    this.props.closeModal();
+    scroll(0,0);
   }
 
   render() {
@@ -87,7 +93,10 @@ class PhotoDetail extends React.Component {
             <div>
               {caption}
 
-              <CommentIndexContainer comments={photo.comments} />
+              <CommentIndexContainer
+                comments={photo.comments}
+                clickCommenter={this.clickCommenter}
+              />
             </div>
 
             <div className="features">

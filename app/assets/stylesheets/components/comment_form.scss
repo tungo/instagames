@@ -10,8 +10,12 @@ ul.comments > li {
   margin: 0 0 8px;
 }
 
-ul.comments > li > div:first-child span {
+ul.comments > li > div:first-child a {
+  display: inline-block;
+  margin: 0 5px 0 0;
+
   font-weight: bold;
+  color: $darkest;
 }
 
 ul.comments > li > div:last-child {
