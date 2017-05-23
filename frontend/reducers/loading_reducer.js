@@ -6,7 +6,8 @@ import {
   REMOVE_PHOTO
 } from '../actions/photo_actions';
 import {
-  RECEIVE_USER
+  RECEIVE_USER,
+  UPDATE_USER
 } from '../actions/user_actions';
 import {
   RECEIVE_FORM_ERRORS
@@ -25,6 +26,7 @@ const LoadingReducer = (state = false, action) => {
     case RECEIVE_PHOTOS:
     case RECEIVE_PHOTO_DETAIL:
     case RECEIVE_USER:
+    case UPDATE_USER:
     case RECEIVE_FORM_ERRORS:
     case REMOVE_PHOTO:
       return false;

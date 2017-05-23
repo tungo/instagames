@@ -2,6 +2,7 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_USER,
+  UPDATE_USER,
   RECEIVE_USER_PHOTO,
   RECEIVE_USER_PHOTOS,
 } from '../actions/user_actions';
@@ -29,8 +30,12 @@ const UserReducer = (state = {}, action) => {
     case RECEIVE_USER:
       return action.user;
 
+    case UPDATE_USER:
+      return merge(nextState, action.user);
+
     case RECEIVE_USER_PHOTO:
       return merge({}, state, {photos: {[photo.id]: photo}});
+
     case RECEIVE_USER_PHOTOS:
       return merge({}, state, {photos});
 

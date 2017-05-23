@@ -4,12 +4,18 @@ import { receiveCurrentUser } from './session_actions';
 import { startLoading } from './loading_actions';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
+export const UPDATE_USER = 'UPDATE_USER';
 export const RECEIVE_USER_PHOTOS = 'RECEIVE_USER_PHOTOS';
 export const RECEIVE_USER_PHOTO = 'RECEIVE_USER_PHOTO';
 
 
 export const receiveUser = (user) => ({
   type: RECEIVE_USER,
+  user
+});
+
+export const updateUser = (user) => ({
+  type: UPDATE_USER,
   user
 });
 
@@ -35,10 +41,10 @@ export const fetchUser = (userId) => (dispatch) => {
     .fail((err) => console.log(err));
 };
 
-export const updateUser = (user) => (dispatch) => (
+export const updateProfile = (user) => (dispatch) => (
   UserAPIUtil.updateUser(user)
     .then((rspUser) => {
-      dispatch(receiveUser(rspUser));
+      dispatch(updateUser(rspUser));
       dispatch(receiveCurrentUser(rspUser));
       return rspUser;
     })
@@ -51,7 +57,7 @@ export const updateAvatar = (user) => (dispatch) => {
   dispatch(startLoading());
 
   return UserAPIUtil.updateAvatar(user)
-    .then((rspUser) => dispatch(receiveUser(rspUser)))
+    .then((rspUser) => dispatch(updateUser(rspUser)))
     .fail((err) =>
       dispatch(receiveFormErrors('avatarUpload', err.responseJSON))
     );

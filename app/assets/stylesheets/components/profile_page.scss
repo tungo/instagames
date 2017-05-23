@@ -24,50 +24,52 @@
   width: 150px;
   height: 150px;
 }
-.profile-page header figure img:hover {
-  cursor: pointer;
-}
 
-.profile-page section.information {
+.profile-page .information {
   display: flex;
   flex-direction: column;
 }
 
-.profile-page section.information > * {
+.profile-page .information > * {
   margin: 0 0 20px;
 }
 
-.profile-page section.information > *:last-child {
+.profile-page .information > *:last-child {
   margin: 0;
 }
 
-.profile-page section.information .title {
+.profile-page .information .title {
   display: flex;
   align-items: center;
 }
 
-.profile-page section.information .title div {
+.profile-page .information .title div {
   font-size: 32px;
 }
 
-.profile-page section.information .title a{
+.profile-page .information .title a{
   margin-left: 15px;
 }
 
-.profile-page section.information .summary {
+.profile-page .information .summary {
+  display: flex;
   font-size: 16px;
 }
 
-.profile-page section.information .summary .count {
+.profile-page .information .summary > div {
+  margin-right: 20px;
+}
+
+.profile-page .information .summary .count span {
   font-weight: bold;
   font-size: 17px;
 }
 
-.profile-page section.information .bio {
+.profile-page .information .bio {
   font-size: 16px;
 }
 
-.profile-page section.information .bio span {
+.profile-page .information .bio span {
   font-weight: bold;
 }
 

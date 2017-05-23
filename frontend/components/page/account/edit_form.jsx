@@ -47,7 +47,7 @@ class EditForm extends React.Component {
     this.props.clearErrors();
 
     const { name, username, bio } = this.state;
-    this.props.updateUser({
+    this.props.updateProfile({
       name,
       username,
       bio,

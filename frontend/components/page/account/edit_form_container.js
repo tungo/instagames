@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchUser, updateUser } from '../../../actions/user_actions';
+import { fetchUser, updateProfile } from '../../../actions/user_actions';
 import { clearFormErrors } from '../../../actions/error_actions';
 import EditForm from './edit_form';
 
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: (userId) => dispatch(fetchUser(userId)),
-  updateUser: (user) => dispatch(updateUser(user)),
+  updateProfile: (user) => dispatch(updateProfile(user)),
   clearErrors: () => dispatch(clearFormErrors('accountEdit'))
 });
 
