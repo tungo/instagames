@@ -40,6 +40,7 @@ class Comment extends React.Component {
           placeholder="Add a comment..."
           value={this.state.body}
           onChange={this.updateInput('body')}
+          id={`comment-photo-${this.props.photoId}`}
         />
       </form>
     );

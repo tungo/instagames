@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import LikeContainer from '../features/like_container';
+import CommentFormContainer from '../features/comment_form_container';
+import CommentIndexContainer from '../features/comment_index_container';
 
 class PhotoDetail extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleDelete = this.handleDelete.bind(this);
+    this.focusCommentInput = this.focusCommentInput.bind(this);
   }
 
   handleDelete(e) {
@@ -17,7 +20,11 @@ class PhotoDetail extends React.Component {
     this.props.closeModal();
   }
 
+  focusCommentInput(e) {
+    e.preventDefault();
 
+    document.getElementById(`comment-photo-${this.props.photo.id}`).focus();
+  }
 
   render() {
     const { photo, currentUser } = this.props;
@@ -77,21 +84,38 @@ class PhotoDetail extends React.Component {
           </header>
 
           <aside className="info">
-            <LikeContainer
-              photoId={photo.id}
-              currentUserLiked={photo.currentUserLiked}
-            />
+            <div>
+              {caption}
 
-            <div className="likes-count">
-              {likesCount}
+              <CommentIndexContainer comments={photo.comments} />
             </div>
 
-            <div className="uploaded-at">
-              {photo.uploaded_at}
+            <div className="features">
+              <div>
+                <LikeContainer
+                  photoId={photo.id}
+                  currentUserLiked={photo.currentUserLiked}
+                />
+
+                <button
+                  className="button-link focus-comment"
+                  onClick={this.focusCommentInput}
+                >
+                  <i className="fa fa-comment-o" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <div className="likes-count">
+                {likesCount}
+              </div>
+
+              <div className="uploaded-at">
+                {photo.uploaded_at}
+              </div>
+
+              <CommentFormContainer photoId={photo.id} />
             </div>
 
-
-            {caption}
           </aside>
         </section>
       </article>

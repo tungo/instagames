@@ -22,7 +22,7 @@ const PhotoDetailReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_PHOTO_DETAIL:
-      return merge({}, state, action.photoDetail);
+      return action.photoDetail;
 
     case REMOVE_PHOTO:
       return {};

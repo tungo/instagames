@@ -9,6 +9,14 @@ import CommentFormContainer from '../features/comment_form_container';
 class Photo extends React.Component {
   constructor(props) {
     super(props);
+
+    this.focusCommentInput = this.focusCommentInput.bind(this);
+  }
+
+  focusCommentInput(e) {
+    e.preventDefault();
+
+    document.getElementById(`comment-photo-${this.props.photo.id}`).focus();
   }
 
   render() {
@@ -49,10 +57,20 @@ class Photo extends React.Component {
         </div>
 
         <div className="info">
-          <LikeContainer
-            photoId={photo.id}
-            currentUserLiked={photo.currentUserLiked}
-          />
+          <div>
+            <LikeContainer
+              photoId={photo.id}
+              currentUserLiked={photo.currentUserLiked}
+            />
+
+            <button
+              className="button-link focus-comment"
+              onClick={this.focusCommentInput}
+            >
+              <i className="fa fa-comment-o" aria-hidden="true"></i>
+            </button>
+          </div>
+
           {likesCount}
 
           {caption}
