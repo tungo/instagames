@@ -1,4 +1,6 @@
 class Api::FollowsController < ApplicationController
+  before_action :require_logged_in!
+
   def following
     @follows = Follow.where(follower_id: params[:user_id])
     render :index

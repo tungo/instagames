@@ -11,3 +11,27 @@ json.photos do
     end
   end
 end
+
+json.followersCount @user.followers.length
+json.followers do
+  @user.followers.each do |follow|
+    json.set! follow.id do
+      json.id follow.id
+      json.username follow.username
+      json.avatar follow.avatar
+      json.currentUserFollowed @current_user_following_ids.include?(follow.id)
+    end
+  end
+end
+
+json.followingCount @user.following.length
+json.following do
+  @user.following.each do |follow|
+    json.set! follow.id do
+      json.id follow.id
+      json.username follow.username
+      json.avatar follow.avatar
+      json.currentUserFollowed @current_user_following_ids.include?(follow.id)
+    end
+  end
+end
