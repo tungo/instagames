@@ -5,6 +5,7 @@ import { deleteComment } from '../../../actions/comment_actions';
 import CommentIndex from './comment_index';
 
 const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.session.currentUser,
   comments: selectAllComments(ownProps.comments),
 });
 

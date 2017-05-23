@@ -14,7 +14,8 @@ class CommentIndex extends React.Component {
   }
 
   render() {
-    const { comments } = this.props;
+    const { comments, currentUser } = this.props;
+
     return (
       <ul className="comments">
         {
@@ -26,12 +27,15 @@ class CommentIndex extends React.Component {
               </div>
 
               <div className="comment-delete">
-                <button
-                  className="button-link"
-                  onClick={this.handleDelete(comment.id)}
-                >
-                  <i className="fa fa-times" aria-hidden="true"></i>
-                </button>
+              {
+                (currentUser.username !== comment.username)
+                  ? ''
+                  : <button
+                      className="button-link"
+                      onClick={this.handleDelete(comment.id)}
+                    ><i className="fa fa-times" aria-hidden="true"></i>
+                    </button>
+              }
               </div>
             </li>
           ))
