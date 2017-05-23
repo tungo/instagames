@@ -1,5 +1,6 @@
 import merge from 'lodash/merge';
 
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import {
   RECEIVE_PHOTOS,
   RECEIVE_PHOTO,
@@ -62,6 +63,12 @@ const PhotosReducer = (state = {}, action) => {
     case REMOVE_COMMENT:
       if (nextState[comment.photoId]) {
         delete nextState[comment.photoId].comments[comment.id];
+      }
+      return nextState;
+
+    case RECEIVE_CURRENT_USER:
+      if (!action.currentUser) {
+        nextState = {};
       }
       return nextState;
 
