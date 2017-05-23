@@ -16,3 +16,11 @@ export const selectAllComments = (comments) => {
     return [];
   }
 };
+
+export const selectAllFollows = (follows) => {
+  if (follows) {
+    return orderBy(values(follows), ['createdAt'], ['desc']);
+  } else {
+    return [];
+  }
+};

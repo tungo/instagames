@@ -14,11 +14,15 @@ import {
   RECEIVE_COMMENT,
   REMOVE_COMMENT
 } from '../actions/comment_actions';
+import {
+  RECEIVE_FOLLOW,
+  REMOVE_FOLLOW
+} from '../actions/follow_actions';
 
 const UserReducer = (state = {}, action) => {
   Object.freeze(state);
 
-  const { photo, photos, comment } = action;
+  const { photo, photos, comment, userId } = action;
   let nextState = merge({}, state);
 
   switch(action.type) {
@@ -55,6 +59,30 @@ const UserReducer = (state = {}, action) => {
     case REMOVE_COMMENT:
       if (nextState.photos[comment.photoId]) {
         nextState.photos[comment.photoId].commentsCount--;
+      }
+      return nextState;
+
+    case RECEIVE_FOLLOW:
+      if (nextState.id === userId) {
+        nextState = merge(nextState, {currentUserFollowed: true});
+      }
+      if (nextState.followers[userId]) {
+        nextState.followers[userId].currentUserFollowed = true;
+      }
+      if (nextState.following[userId]) {
+        nextState.following[userId].currentUserFollowed = true;
+      }
+      return nextState;
+
+    case REMOVE_FOLLOW:
+      if (nextState.id === userId) {
+        nextState = merge(nextState, {currentUserFollowed: false});
+      }
+      if (nextState.followers[userId]) {
+        nextState.followers[userId].currentUserFollowed = false;
+      }
+      if (nextState.following[userId]) {
+        nextState.following[userId].currentUserFollowed = false;
       }
       return nextState;
 

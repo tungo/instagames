@@ -12,26 +12,32 @@ json.photos do
   end
 end
 
-json.followersCount @user.followers.length
+json.currentUserFollowed @current_user_following_ids.include?(@user.id)
+
+json.followersCount @user.in_follows.length
 json.followers do
-  @user.followers.each do |follow|
-    json.set! follow.id do
-      json.id follow.id
-      json.username follow.username
-      json.avatar follow.avatar
-      json.currentUserFollowed @current_user_following_ids.include?(follow.id)
+  @user.in_follows.each do |in_follow|
+    follower = in_follow.follower
+    json.set! follower.id do
+      json.id follower.id
+      json.username follower.username
+      json.avatar follower.avatar
+      json.currentUserFollowed @current_user_following_ids.include?(follower.id)
+      json.createdAt in_follow.created_at
     end
   end
 end
 
-json.followingCount @user.following.length
+json.followingCount @user.out_follows.length
 json.following do
-  @user.following.each do |follow|
-    json.set! follow.id do
-      json.id follow.id
-      json.username follow.username
-      json.avatar follow.avatar
-      json.currentUserFollowed @current_user_following_ids.include?(follow.id)
+  @user.out_follows.each do |out_follow|
+    following = out_follow.following
+    json.set! following.id do
+      json.id following.id
+      json.username following.username
+      json.avatar following.avatar
+      json.currentUserFollowed @current_user_following_ids.include?(following.id)
+      json.createdAt out_follow.created_at
     end
   end
 end

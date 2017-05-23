@@ -3,8 +3,8 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.includes(photos: [:likes, :comments])
-      .includes(:followers)
-      .includes(:following)
+      .includes(in_follows: :follower)
+      .includes(out_follows: :following)
       .friendly.find(params[:id])
 
     @current_user_following_ids = current_user.following.pluck(:id);

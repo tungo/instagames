@@ -1,3 +1,3 @@
 json.id follow.id
-json.followerId follow.follower_id
-json.followingId follow.following_id
+json.currentUserId follow.follower_id
+json.userId follow.following_id
