@@ -18,7 +18,7 @@ class Profile extends React.Component {
       noMorePhoto: false
     };
 
-    this.limit = 3;
+    this.limit = 6;
 
     this.handleScroll = this.handleScroll.bind(this);
     this.handleFollow = this.handleFollow.bind(this);

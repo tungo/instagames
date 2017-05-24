@@ -2,13 +2,16 @@ class Api::UsersController < ApplicationController
   before_action :require_logged_in!, except: [:create]
 
   def show
-    @user = User.includes(photos: [:likes, :comments])
-      .includes(in_follows: :follower)
+    @user = User.includes(in_follows: :follower)
       .includes(out_follows: :following)
-      .order('photos.created_at DESC')
       .friendly.find(params[:id])
 
     if @user
+      @photos = @user.photos
+        .includes(:likes, :comments)
+        .order('photos.created_at DESC')
+        .limit(6)
+
       render :show
     else
       render json: @user.errors.full_messages, status: 422
