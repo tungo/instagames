@@ -1,0 +1,98 @@
+.modal.follow-modal {
+  top: 50%;
+  left: 50%;
+
+  width: auto;
+  height: auto;
+
+  background: none;
+}
+
+.modal.follow-modal > div.modal-guts {
+  // important style
+  position: relative;
+
+  margin: 0 20px;
+
+  background: none;
+}
+
+.follows {
+  display: flex;
+  flex-direction: column;
+
+  width: auto;
+  height: 600px;
+
+  background: $white;
+}
+
+.follows > header {
+  display: flex;
+
+  width: 600px;
+
+  padding: 15px;
+
+  border-bottom: 1px solid $light-gray;
+
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.follows > main {
+  overflow-y: scroll;
+}
+
+.follows ul.follows-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.follows ul.follows-list li {
+  display: flex;
+
+  padding: 8px 15px;
+
+  border-bottom: 1px solid $lighter-gray;
+}
+
+.follows ul.follows-list li > div{
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.follows ul.follows-list li .name {
+  display: flex;
+}
+
+.follows ul.follows-list li .name a {
+  display: flex;
+  align-items: center;
+
+  color: $darkest;
+  font-weight: bold;
+}
+
+.follows ul.follows-list li .name img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.follows ul.follows-list li .blue-button {
+  padding: 5px 8px;
+
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.follows ul.follows-list li .blue-button.following {
+  background: $white;
+  border-color: $light-gray;
+
+  color: $darkest;
+
+}
