@@ -7,6 +7,9 @@
 }
 
 .profile-page > article {
+  display: flex;
+  flex-direction: column;
+
   max-width: 990px;
 }
 
@@ -23,6 +26,13 @@
 .profile-page header figure img {
   width: 150px;
   height: 150px;
+}
+
+.profile-page footer {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
 }
 
 .profile-page .information {
