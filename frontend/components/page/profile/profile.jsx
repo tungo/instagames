@@ -9,6 +9,11 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      following: false
+    };
+
+    this.handleFollow = this.handleFollow.bind(this);
   }
 
   componentWillReceiveProps({ userId }) {
@@ -21,11 +26,21 @@ class Profile extends React.Component {
     this.props.fetchUser(this.props.match.params.userId);
   }
 
-  render() {
-    const { user, photos, fetchPhotoDetail, currentUser } = this.props;
+  handleFollow(e) {
+    e.preventDefault();
 
-    // current user profile
-    let avatar = <AvatarModal user={user} />;
+    this.setState({following: true});
+
+    const { currentUser, user, followUser, unfollowUser } = this.props;
+    const result = (user.currentUserFollowed)
+                  ? unfollowUser(user.id)
+                  : followUser(user.id);
+    result.always(() => this.setState({following: false}));
+  }
+
+  renderSetting() {
+    const { user, currentUser } = this.props;
+
     let setting = <Link
       to="/account/edit"
       alt="Edit Profile"
@@ -34,9 +49,25 @@ class Profile extends React.Component {
       Edit Profile
     </Link>;
 
-    // other users profile
     if (user.username !== currentUser.username) {
-      setting = '';
+      let followText = user.currentUserFollowed ? 'following' : 'follow';
+
+      setting = <button
+        className={`blue-button ${followText}`}
+        onClick={this.handleFollow}
+        disabled={this.state.submitting}
+      >{followText}
+      </button>;
+    }
+
+    return setting;
+  }
+
+  render() {
+    const { user, photos, fetchPhotoDetail, currentUser } = this.props;
+
+    let avatar = <AvatarModal user={user} />;
+    if (user.username !== currentUser.username) {
       avatar = <figure>
         <img
           src={user.avatar}
@@ -57,7 +88,7 @@ class Profile extends React.Component {
               <div className="title">
                 <div>{user.username}</div>
 
-                {setting}
+                {this.renderSetting()}
               </div>
 
               <ul className="summary">

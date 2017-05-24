@@ -51,6 +51,21 @@
   margin-left: 15px;
 }
 
+.profile-page .information .title .blue-button {
+  margin-left: 15px;
+  padding: 5px 25px;
+
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.profile-page .information .title .blue-button.following {
+  background: $white;
+  border-color: $light-gray;
+
+  color: $darkest;
+}
+
 .profile-page .information .summary {
   display: flex;
   font-size: 16px;
