@@ -19,6 +19,11 @@ class Api::UsersController < ApplicationController
   end
 
   def create
+    if logged_in?
+      render json: ['Already login'], status: 428
+      return
+    end
+
     @user = User.new(user_params)
 
     if @user.save

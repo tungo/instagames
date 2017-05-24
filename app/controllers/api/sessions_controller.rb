@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
   def create
     if logged_in?
-      render json: ['Already login'], status: 422
+      render json: ['Already login'], status: 428
       return
     end
 
@@ -20,7 +20,7 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     if logged_out?
-      render json: ['Already logout'], status: 422
+      render json: ['Already logout'], status: 428
       return
     end
 

@@ -46,7 +46,10 @@ class SessionForm extends React.Component {
   handleDemoLogin(e) {
     e.preventDefault();
 
-    this.props.demoLogin(this.state);
+    this.props.login({
+      username: 'mario',
+      password: 'mario_password'
+    });
   }
 
   focus() {
