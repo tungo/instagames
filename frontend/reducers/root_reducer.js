@@ -6,6 +6,7 @@ import ErrorsReducer from './errors_reducer';
 import UserReducer from './user_reducer';
 import PhotoDetailReducer from './photo_detail_reducer';
 import LoadingReducer from './loading_reducer';
+import SearchReducer from './search_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -13,7 +14,8 @@ const RootReducer = combineReducers({
   errors: ErrorsReducer,
   user: UserReducer,
   photoDetail: PhotoDetailReducer,
-  loading: LoadingReducer
+  loading: LoadingReducer,
+  search: SearchReducer
 });
 
 export default RootReducer;

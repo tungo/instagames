@@ -23,3 +23,11 @@ export const updateAvatar = (formData) => (
     contentType: false
   })
 );
+
+export const searchUsers = (query) => (
+  $.ajax({
+    method: 'GET',
+    url: '/api/users/search',
+    data: {query}
+  })
+);
