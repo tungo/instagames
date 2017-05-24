@@ -114,17 +114,27 @@ class User < ActiveRecord::Base
     end
   end
 
-  def feed_photos(limit = nil, max_created_at = nil)
+  def fetch_photos(params)
     @photos = Photo
       .joins(:user)
-      .joins("LEFT OUTER JOIN follows ON users.id = follows.following_id")
-      .where("photos.user_id = :id OR follows.follower_id = :id", id: self.id)
       .order("photos.created_at DESC")
       .uniq
 
-    @photos = @photos.limit(limit) if limit
-    if max_created_at && max_created_at != ''
-      @photos = @photos.where("photos.created_at < ?", max_created_at)
+    if (params[:user_only])
+      @photos = @photos
+        .where("photos.user_id = :id", id: self.id)
+    else
+      @photos = @photos
+        .joins("LEFT OUTER JOIN follows ON users.id = follows.following_id")
+        .where("photos.user_id = :id OR follows.follower_id = :id", id: self.id)
+    end
+
+    if (params[:limit])
+      @photos = @photos.limit(params[:limit])
+    end
+
+    if params[:max_created_at] && !params[:max_created_at].empty?
+      @photos = @photos.where("photos.created_at < ?", params[:max_created_at])
     end
 
     @photos

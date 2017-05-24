@@ -5,6 +5,7 @@ class Api::UsersController < ApplicationController
     @user = User.includes(photos: [:likes, :comments])
       .includes(in_follows: :follower)
       .includes(out_follows: :following)
+      .order('photos.created_at DESC')
       .friendly.find(params[:id])
 
     if @user

@@ -1,10 +1,8 @@
 class Api::PhotosController < ApplicationController
   before_action :require_logged_in!
 
-  LIMIT = 3;
-
   def index
-    @photos = current_user.feed_photos(LIMIT, params[:max_created_at])
+    @photos = current_user.fetch_photos(fetch_params)
       .includes(:user)
       .includes(:likes)
       .includes(:comments)
@@ -46,16 +44,16 @@ class Api::PhotosController < ApplicationController
   end
 
   def user
-    @photos = Photo
+    @photos = User.find(params[:user_id])
+      .fetch_photos(fetch_params(user_only: true))
       .includes(:user)
       .includes(:likes)
       .includes(:comments)
-      .where(user_id: params[:user_id])
 
     if @photos
-      render :user_index
+      render :user
     else
-      render json: {}
+      render json: @photos.errors.full_messages, status: 422
     end
   end
 
@@ -63,5 +61,10 @@ class Api::PhotosController < ApplicationController
 
   def photo_params
     params.require(:photo).permit(:caption, :image)
+  end
+
+  def fetch_params(options = {})
+    params.require(:filter).permit(:limit, :max_created_at)
+      .merge(options)
   end
 end
