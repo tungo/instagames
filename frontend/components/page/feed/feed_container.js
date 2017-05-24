@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { selectAllPhotos } from '../../../reducers/selectors';
-import {feedPhotos} from '../../../actions/photo_actions';
+import { feedPhotos } from '../../../actions/photo_actions';
 import Feed from './feed';
 
 const mapStateToProps = (state) => ({
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  feedPhotos: () => dispatch(feedPhotos())
+  feedPhotos: (data) => dispatch(feedPhotos(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);

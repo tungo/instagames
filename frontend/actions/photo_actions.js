@@ -31,11 +31,14 @@ export const removePhoto = (id) => ({
 });
 
 
-export const feedPhotos = () => (dispatch) => {
+export const feedPhotos = (data) => (dispatch) => {
   dispatch(startLoading());
 
-  return PhotoAPIUtil.feedPhotos()
-    .then((photos) => dispatch(receivePhotos(photos)));
+  return PhotoAPIUtil.feedPhotos(data)
+    .then((photos) => {
+      dispatch(receivePhotos(photos));
+      return photos;
+    });
 };
 
 export const createPhoto = (photo) => (dispatch) => {

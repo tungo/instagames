@@ -1,7 +1,8 @@
-export const feedPhotos = () => (
+export const feedPhotos = (data) => (
   $.ajax({
     method: 'GET',
-    url: '/api/photos'
+    url: '/api/photos',
+    data
   })
 );
 
