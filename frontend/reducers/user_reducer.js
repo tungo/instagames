@@ -40,29 +40,31 @@ const UserReducer = (state = {}, action) => {
       return merge({}, state, {photos});
 
     case REMOVE_PHOTO:
-      delete nextState.photos[action.id];
+      if (nextState.photos && nextState.photos[action.id]) {
+        delete nextState.photos[action.id];
+      }
       return nextState;
 
     case RECEIVE_LIKE:
-      if (nextState.photos[action.photoId]) {
+      if (nextState.photos && nextState.photos[action.photoId]) {
         nextState.photos[action.photoId].likesCount++;
       }
       return nextState;
 
     case REMOVE_LIKE:
-      if (nextState.photos[action.photoId]) {
+      if (nextState.photos && nextState.photos[action.photoId]) {
         nextState.photos[action.photoId].likesCount--;
       }
       return nextState;
 
     case RECEIVE_COMMENT:
-      if (nextState.photos[comment.photoId]) {
+      if (nextState.photos && nextState.photos[comment.photoId]) {
         nextState.photos[comment.photoId].commentsCount++;
       }
       return nextState;
 
     case REMOVE_COMMENT:
-      if (nextState.photos[comment.photoId]) {
+      if (nextState.photos && nextState.photos[comment.photoId]) {
         nextState.photos[comment.photoId].commentsCount--;
       }
       return nextState;
