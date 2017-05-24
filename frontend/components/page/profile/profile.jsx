@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { selectAllPhotos } from '../../../reducers/selectors';
 import PhotoIndex from './photo_index';
 import AvatarModal from './avatar_modal';
 import FollowModal from './follow_modal';
@@ -10,20 +11,102 @@ class Profile extends React.Component {
     super(props);
 
     this.state = {
-      following: false
+      following: false,
+      isInfiniteScroll: false,
+      lastCreatedAt: null,
+      isFetchingPhotos: false,
+      noMorePhoto: false
     };
 
+    this.limit = 3;
+
+    this.handleScroll = this.handleScroll.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
+    this.startInfiniteScroll = this.startInfiniteScroll.bind(this);
   }
 
   componentWillReceiveProps({ userId }) {
     if (this.props.userId !== userId ) {
-      this.props.fetchUser(userId);
+      this.fetchUser(userId);
     }
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.userId);
+    window.addEventListener("scroll", this.handleScroll);
+
+    this.fetchUser(this.props.match.params.userId);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll() {
+    const body = document.body;
+    const html = document.documentElement;
+    const windowHeight = ("innerHeight" in window)
+                         ? window.innerHeight
+                         : document.documentElement.offsetHeight;
+
+    const docHeight = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+    const windowBottom = windowHeight + window.pageYOffset;
+
+    if (windowBottom >= docHeight) {
+      this.fetchUserPhotos();
+    }
+  }
+
+  fetchUser(userId) {
+    this.props.fetchUser(userId)
+      .then((user) => {
+        const photos = selectAllPhotos(user.photos);
+        if (photos.length > 0) {
+          this.setState({
+            lastCreatedAt: photos[photos.length - 1].createdAt
+          });
+        }
+      });
+  }
+
+  fetchUserPhotos(force) {
+    if ((!force && !this.state.isInfiniteScroll) ||
+        this.state.isFetchingPhotos ||
+        this.state.noMorePhoto) {
+      return;
+    }
+
+    this.setState({isFetchingPhotos: true});
+
+    this.props.fetchUserPhotos({
+      userId: this.props.match.params.userId,
+      limit: this.limit,
+      max_created_at: this.state.lastCreatedAt
+    }).then((rspPhotos) => {
+      const photos = selectAllPhotos(rspPhotos);
+
+      if (photos.length < this.limit) {
+        this.setState({noMorePhoto: true});
+      }
+
+      if (photos.length > 0) {
+        this.setState({
+          lastCreatedAt: photos[photos.length - 1].createdAt
+        });
+      }
+    }).always(() => this.setState({isFetchingPhotos: false}));
+  }
+
+  startInfiniteScroll(e) {
+    e.preventDefault();
+
+    this.setState({isInfiniteScroll: true});
+    this.fetchUserPhotos(true);
   }
 
   handleFollow(e) {
@@ -117,6 +200,15 @@ class Profile extends React.Component {
 
           <PhotoIndex photos={photos} fetchPhotoDetail={fetchPhotoDetail} />
 
+          <footer>
+            <button
+              className={this.state.isInfiniteScroll
+                        ? 'hidden'
+                        : 'blue-button'}
+              onClick={this.startInfiniteScroll}
+            >Load more
+            </button>
+          </footer>
         </article>
       </section>
     );

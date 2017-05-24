@@ -13,6 +13,8 @@ class Feed extends React.Component {
       noMorePhoto: false
     };
 
+    this.limit = 3;
+
     this.handleScroll = this.handleScroll.bind(this);
     this.feedPhotos = this.feedPhotos.bind(this);
   }
@@ -44,6 +46,12 @@ class Feed extends React.Component {
     const windowBottom = windowHeight + window.pageYOffset;
 
     if (windowBottom >= docHeight) {
+      // stop scrolling
+      // body.style.overflow = 'hidden';
+      // setTimeout(function() {
+      //   body.style.overflow = '';
+      // }, 10);
+
       this.feedPhotos();
     }
   }
@@ -54,21 +62,22 @@ class Feed extends React.Component {
     }
     this.setState({isFeeding: true});
 
-    this.props.feedPhotos({max_created_at: this.state.lastCreatedAt})
-      .then((rspPhotos) => {
-        const photos = selectAllPhotos(rspPhotos);
+    this.props.feedPhotos({
+      limit: this.limit,
+      max_created_at: this.state.lastCreatedAt
+    }).then((rspPhotos) => {
+      const photos = selectAllPhotos(rspPhotos);
 
-        if (photos.length < 2) {
-          this.setState({noMorePhoto: true});
-        }
+      if (photos.length < this.limit) {
+        this.setState({noMorePhoto: true});
+      }
 
-        if (photos.length > 0) {
-          this.setState({
-            lastCreatedAt: photos[photos.length - 1].createdAt
-          });
-        }
-      })
-      .always(() => this.setState({isFeeding: false}));
+      if (photos.length > 0) {
+        this.setState({
+          lastCreatedAt: photos[photos.length - 1].createdAt
+        });
+      }
+    }).always(() => this.setState({isFeeding: false}));
   }
 
   renderPhotos() {
