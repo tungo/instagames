@@ -77,3 +77,88 @@
   font-size: 26px;
 }
 
+.nav-bar .search-form {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  margin: 0 5px;
+}
+
+.nav-bar .search-form input {
+  width: 200px;
+  padding: 5px 25px;
+
+  border-radius: 3px;
+  border: 1px solid $light-gray;
+  background: $lightest-gray;
+
+  font-size: 14px;
+}
+
+.nav-bar .search-form input::placeholder {
+  text-align: center;
+  color: $gray;
+}
+
+.nav-bar .search-form input:focus::placeholder {
+  text-align: left;
+}
+
+.nav-bar .search-form .search-icon {
+  position: absolute;
+  left: 8px;
+
+  color: $gray;
+}
+
+.nav-bar .search-form .delete-icon {
+  position: absolute;
+  right: 8px;
+
+  color: $gray;
+}
+
+.nav-bar .search-form .result {
+  position: absolute;
+
+  width: 230px;
+  top: 40px;
+  left: -15px;
+
+  border: 1px solid $light-gray;
+  border-radius: 3px;
+  background: $white;
+
+  box-shadow: 0 0 5px rgba(0,0,0, 0.1);
+  height: auto;
+}
+
+.nav-bar .search-form .result ul {
+
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.nav-bar .search-form .result ul li {
+  display: flex;
+}
+
+.nav-bar .search-form .result ul li a {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-bottom: 1px solid $light-gray;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-bar .search-form .result ul li a img{
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+
+
