@@ -2,11 +2,14 @@ class Api::PhotosController < ApplicationController
   before_action :require_logged_in!
 
   def index
+    user_ids = current_user.following.pluck(:id);
+    user_ids << current_user.id
+
     @photos = Photo
       .includes(:user)
       .includes(:likes)
       .includes(:comments)
-      .where(user_id: current_user.id)
+      .where(user_id: user_ids)
 
     if @photos
       render :index

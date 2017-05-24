@@ -14,6 +14,10 @@ class PhotoDetail extends React.Component {
     this.clickCommenter = this.clickCommenter.bind(this);
   }
 
+  componentDidMount() {
+    this.focusCommentInput();
+  }
+
   handleDelete(e) {
     e.preventDefault();
 
@@ -22,7 +26,9 @@ class PhotoDetail extends React.Component {
   }
 
   focusCommentInput(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
 
     document.getElementById(`comment-photo-${this.props.photo.id}`).focus();
   }

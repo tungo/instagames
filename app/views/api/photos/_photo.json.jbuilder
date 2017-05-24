@@ -17,6 +17,8 @@ json.likesCount photo.likes.length
 json.currentUserLiked (photo.likes.where(user_id: current_user.id).length > 0) ? true : false
 
 json.commentsCount photo.comments.length
+
+json.comments({})
 json.comments do
   photo.comments.each do |comment|
     json.set! comment.id do

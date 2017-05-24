@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import PhotoIndex from './photo_index';
 import AvatarModal from './avatar_modal';
+import FollowModal from './follow_modal';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class Profile extends React.Component {
   render() {
     const { user, photos, fetchPhotoDetail, currentUser } = this.props;
 
-    // edit if current user profile
+    // current user profile
+    let avatar = <AvatarModal user={user} />;
     let setting = <Link
       to="/account/edit"
       alt="Edit Profile"
@@ -32,9 +34,16 @@ class Profile extends React.Component {
       Edit Profile
     </Link>;
 
-    // follow feature for other users
+    // other users profile
     if (user.username !== currentUser.username) {
       setting = '';
+      avatar = <figure>
+        <img
+          src={user.avatar}
+          alt={user.username}
+          className="image-circle"
+        />
+      </figure>;
     }
 
     return (
@@ -42,7 +51,7 @@ class Profile extends React.Component {
         <article>
           <header>
 
-            <AvatarModal user={user} />
+            {avatar}
 
             <section className="information">
               <div className="title">
@@ -52,8 +61,20 @@ class Profile extends React.Component {
               </div>
 
               <ul className="summary">
-                <span className="count">{photos.length} </span>
-                posts
+                <div className="count">
+                  <span>{photos.length} </span>
+                  posts
+                </div>
+
+                <FollowModal
+                  count={user.followersCount}
+                  followType="followers"
+                />
+
+                <FollowModal
+                  count={user.followingCount}
+                  followType="following"
+                />
               </ul>
 
               <div className="bio">
