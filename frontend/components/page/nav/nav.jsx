@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
 import UploadModal from './upload_modal';
+import SearchFormContainer from './search_form_container';
 
 class Nav extends React.Component {
   constructor (props) {
@@ -32,6 +33,8 @@ class Nav extends React.Component {
               <div className="name">Instagames</div>
             </Link>
           </div>
+
+          <SearchFormContainer />
 
           <div className="utils">
               <UploadModal />

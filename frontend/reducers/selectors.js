@@ -24,3 +24,11 @@ export const selectAllFollows = (follows) => {
     return [];
   }
 };
+
+export const selectAllUsers = (users) => {
+  if (users) {
+    return orderBy(values(users), ['username'], ['asc']);
+  } else {
+    return [];
+  }
+};
