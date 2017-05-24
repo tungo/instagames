@@ -13,7 +13,7 @@ json.photos do
   end
 end
 
-json.currentUserFollowed @current_user_following_ids.include?(@user.id)
+json.currentUserFollowed @current_user.follows?(@user)
 
 json.followersCount @user.in_follows.length
 json.followers({})
@@ -24,7 +24,7 @@ json.followers do
       json.id follower.id
       json.username follower.username
       json.avatar asset_path(follower.avatar.url(:medium))
-      json.currentUserFollowed @current_user_following_ids.include?(follower.id)
+      json.currentUserFollowed @current_user.follows?(follower)
       json.createdAt in_follow.created_at
     end
   end
@@ -39,7 +39,7 @@ json.following do
       json.id following.id
       json.username following.username
       json.avatar asset_path(following.avatar.url(:medium))
-      json.currentUserFollowed @current_user_following_ids.include?(following.id)
+      json.currentUserFollowed @current_user.follows?(following)
       json.createdAt out_follow.created_at
     end
   end

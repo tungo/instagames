@@ -7,8 +7,6 @@ class Api::UsersController < ApplicationController
       .includes(out_follows: :following)
       .friendly.find(params[:id])
 
-    @current_user_following_ids = current_user.following.pluck(:id);
-
     if @user
       render :show
     else
