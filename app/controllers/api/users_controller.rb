@@ -42,6 +42,18 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def search
+    if params[:query].present?
+      @users = User.where("username ~ ?", params[:query])
+                   .order('username ASC')
+                   .limit(20)
+    else
+      @users = User.none
+    end
+
+    render :search
+  end
+
   private
 
   def user_params

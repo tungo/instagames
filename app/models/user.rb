@@ -120,7 +120,7 @@ class User < ActiveRecord::Base
       .order("photos.created_at DESC")
       .uniq
 
-    if (params[:user_only])
+    if (params[:user_only].present?)
       @photos = @photos
         .where("photos.user_id = :id", id: self.id)
     else
@@ -129,11 +129,11 @@ class User < ActiveRecord::Base
         .where("photos.user_id = :id OR follows.follower_id = :id", id: self.id)
     end
 
-    if (params[:limit])
+    if (params[:limit].present?)
       @photos = @photos.limit(params[:limit])
     end
 
-    if params[:max_created_at] && !params[:max_created_at].empty?
+    if params[:max_created_at].present? && !params[:max_created_at].empty?
       @photos = @photos.where("photos.created_at < ?", params[:max_created_at])
     end
 
