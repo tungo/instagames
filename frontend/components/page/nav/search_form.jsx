@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import onClickOutside from 'react-onclickoutside';
-
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
@@ -14,13 +12,6 @@ class SearchForm extends React.Component {
     this.updateInput = this.updateInput.bind(this);
     this.clickUser = this.clickUser.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-  }
-
-  handleClickOutside(e) {
-    if (this.state.keyword) {
-      this.props.clearSearchUsers();
-      this.setState({keyword: ''});
-    }
   }
 
   updateInput(name) {
@@ -105,4 +96,4 @@ class SearchForm extends React.Component {
   }
 }
 
-export default onClickOutside(SearchForm);
+export default SearchForm;
