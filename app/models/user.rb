@@ -116,9 +116,6 @@ class User < ActiveRecord::Base
 
   def feed_photos(limit = nil, max_created_at = nil)
     @photos = Photo
-      .includes(:user)
-      .includes(:likes)
-      .includes(:comments)
       .joins(:user)
       .joins("LEFT OUTER JOIN follows ON users.id = follows.following_id")
       .where("photos.user_id = :id OR follows.follower_id = :id", id: self.id)
@@ -126,7 +123,9 @@ class User < ActiveRecord::Base
       .uniq
 
     @photos = @photos.limit(limit) if limit
-    @photos = @photos.where("photos.created_at < ?", max_created_at) if max_created_at
+    if max_created_at && max_created_at != ''
+      @photos = @photos.where("photos.created_at < ?", max_created_at)
+    end
 
     @photos
   end

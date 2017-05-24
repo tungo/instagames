@@ -7,7 +7,7 @@ class Loading extends React.Component {
 
   render() {
     if (!this.props.loading) {
-      return <div className="hide"></div>;
+      return <div className="hidden"></div>;
     }
 
     return (

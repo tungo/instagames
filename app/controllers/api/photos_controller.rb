@@ -1,8 +1,13 @@
 class Api::PhotosController < ApplicationController
   before_action :require_logged_in!
 
+  LIMIT = 3;
+
   def index
-    @photos = current_user.feed_photos
+    @photos = current_user.feed_photos(LIMIT, params[:max_created_at])
+      .includes(:user)
+      .includes(:likes)
+      .includes(:comments)
 
     if @photos
       render :index
