@@ -3,6 +3,8 @@ import {
   RECEIVE_PHOTO,
   RECEIVE_PHOTOS,
   RECEIVE_PHOTO_DETAIL,
+  RECEIVE_USER_PHOTO,
+  RECEIVE_USER_PHOTOS,
   REMOVE_PHOTO
 } from '../actions/photo_actions';
 import {
@@ -25,6 +27,8 @@ const LoadingReducer = (state = false, action) => {
     case RECEIVE_PHOTO:
     case RECEIVE_PHOTOS:
     case RECEIVE_PHOTO_DETAIL:
+    case RECEIVE_USER_PHOTO:
+    case RECEIVE_USER_PHOTOS:
     case RECEIVE_USER:
     case UPDATE_USER:
     case RECEIVE_FORM_ERRORS:

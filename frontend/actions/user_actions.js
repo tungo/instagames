@@ -5,8 +5,6 @@ import { startLoading } from './loading_actions';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const UPDATE_USER = 'UPDATE_USER';
-export const RECEIVE_USER_PHOTOS = 'RECEIVE_USER_PHOTOS';
-export const RECEIVE_USER_PHOTO = 'RECEIVE_USER_PHOTO';
 
 
 export const receiveUser = (user) => ({
@@ -17,16 +15,6 @@ export const receiveUser = (user) => ({
 export const updateUser = (user) => ({
   type: UPDATE_USER,
   user
-});
-
-export const receiveUserPhotos = (photos) => ({
-  type: RECEIVE_USER_PHOTOS,
-  photos
-});
-
-export const receiveUserPhoto = (photo) => ({
-  type: RECEIVE_USER_PHOTO,
-  photo
 });
 
 

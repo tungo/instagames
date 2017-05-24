@@ -2,12 +2,14 @@ import * as PhotoAPIUtil from '../util/photo_api_util';
 
 import { receiveFormErrors } from './error_actions';
 import { startLoading, stopLoading } from './loading_actions';
-import { receiveUserPhoto, removeUserPhoto } from './user_actions';
+
 
 export const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const RECEIVE_PHOTO_DETAIL = 'RECEIVE_PHOTO_DETAIL';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
+export const RECEIVE_USER_PHOTOS = 'RECEIVE_USER_PHOTOS';
+export const RECEIVE_USER_PHOTO = 'RECEIVE_USER_PHOTO';
 
 
 export const receivePhotos = (photos) => ({
@@ -28,6 +30,16 @@ export const receivePhotoDetail = (photoDetail) => ({
 export const removePhoto = (id) => ({
   type: REMOVE_PHOTO,
   id
+});
+
+export const receiveUserPhotos = (photos) => ({
+  type: RECEIVE_USER_PHOTOS,
+  photos
+});
+
+export const receiveUserPhoto = (photo) => ({
+  type: RECEIVE_USER_PHOTO,
+  photo
 });
 
 
@@ -77,4 +89,14 @@ export const deletePhoto = (id) => (dispatch) => {
 
   return PhotoAPIUtil.deletePhoto(id)
     .then((photo) => dispatch(removePhoto(photo.id)));
+};
+
+export const fetchUserPhotos = (data) => (dispatch) => {
+  dispatch(startLoading());
+
+  return PhotoAPIUtil.fetchUserPhotos(data)
+    .then((photos) => {
+      dispatch(receiveUserPhotos(photos));
+      return photos;
+    });
 };

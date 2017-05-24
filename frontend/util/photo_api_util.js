@@ -1,8 +1,8 @@
-export const feedPhotos = (data) => (
+export const feedPhotos = (filter) => (
   $.ajax({
     method: 'GET',
     url: '/api/photos',
-    data
+    data: {filter}
   })
 );
 
@@ -39,9 +39,10 @@ export const deletePhoto = (id) => (
   })
 );
 
-export const requestUserPhotos = (userId) => (
+export const fetchUserPhotos = (filter) => (
   $.ajax({
     method: 'GET',
-    url: `/api/users/${userId}/photos`
+    url: `/api/users/${filter.userId}/photos`,
+    data: {filter}
   })
 );

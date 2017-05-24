@@ -2,11 +2,13 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_USER,
-  UPDATE_USER,
+  UPDATE_USER
+} from '../actions/user_actions';
+import {
   RECEIVE_USER_PHOTO,
   RECEIVE_USER_PHOTOS,
-} from '../actions/user_actions';
-import { REMOVE_PHOTO } from '../actions/photo_actions';
+  REMOVE_PHOTO
+} from '../actions/photo_actions';
 import {
   RECEIVE_LIKE,
   REMOVE_LIKE
