@@ -4,11 +4,17 @@ import { Link } from 'react-router-dom';
 import LikeContainer from '../features/like_container';
 import CommentFormContainer from '../features/comment_form_container';
 import CommentIndexContainer from '../features/comment_index_container';
+import ConfirmModal from '../../other/confirm_modal';
 
 class PhotoDetail extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      confirmingDelete: false
+    };
+
+    this.confirmDelete = this.confirmDelete.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.focusCommentInput = this.focusCommentInput.bind(this);
     this.clickCommenter = this.clickCommenter.bind(this);
@@ -23,6 +29,12 @@ class PhotoDetail extends React.Component {
 
     this.props.deletePhoto(this.props.photo.id);
     this.props.closeModal();
+  }
+
+  confirmDelete(e) {
+    e.preventDefault();
+
+    this.setState({confirmingDelete: true});
   }
 
   focusCommentInput(e) {
@@ -54,7 +66,7 @@ class PhotoDetail extends React.Component {
     let deleteButton = '';
     if (currentUser.username === photo.username) {
       deleteButton = <button
-        onClick={this.handleDelete}
+        onClick={this.confirmDelete}
         className="button-link"
       ><i className="fa fa-trash-o" aria-hidden="true"></i>
       </button>;
@@ -92,7 +104,14 @@ class PhotoDetail extends React.Component {
               </div>
 
               <div className="delete">
+
                 {deleteButton}
+
+                <ConfirmModal
+                  modalOpen={this.state.confirmingDelete}
+                  confirmText="Delete Photo"
+                  handleConfirm={this.handleDelete}
+                />
               </div>
             </div>
           </header>
