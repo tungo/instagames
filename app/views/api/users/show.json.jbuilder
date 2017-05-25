@@ -23,6 +23,7 @@ json.followers do
     json.set! follower.id do
       json.id follower.id
       json.username follower.username
+      json.name follower.name
       json.avatar asset_path(follower.avatar.url(:medium))
       json.currentUserFollowed @current_user.follows?(follower)
       json.createdAt in_follow.created_at
@@ -38,6 +39,7 @@ json.following do
     json.set! following.id do
       json.id following.id
       json.username following.username
+      json.name following.name
       json.avatar asset_path(following.avatar.url(:medium))
       json.currentUserFollowed @current_user.follows?(following)
       json.createdAt out_follow.created_at

@@ -56,8 +56,24 @@ class FollowItem extends React.Component {
             onClick={this.clickUser}
           >
             <img src={user.avatar} className="image-circle" />
-            {user.username}
           </Link>
+
+          <div>
+            <Link
+              to={`/user/${user.username}`}
+              onClick={this.clickUser}
+            >
+              {user.username}
+            </Link>
+
+            {
+              (user.name)
+              ? <div className="fullname">
+                {user.name}
+              </div>
+              : ''
+            }
+          </div>
         </div>
 
         <div>

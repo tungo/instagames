@@ -58,11 +58,13 @@
   border-bottom: 1px solid $lighter-gray;
 }
 
-.follows ul.follows-list li > div{
+.follows ul.follows-list li > div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   width: 100%;
+  height: 40px;
 }
 
 .follows ul.follows-list li .name {
@@ -75,6 +77,16 @@
 
   color: $darkest;
   font-weight: bold;
+}
+
+.follows ul.follows-list li .name > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.follows ul.follows-list li .name .fullname {
+  color: $gray;
 }
 
 .follows ul.follows-list li .name img {

@@ -53,7 +53,20 @@ class SearchForm extends React.Component {
             onClick={this.clickUser}
           >
             <img src={user.avatar} className="image-circle" />
-            {user.username}
+
+            <div>
+              <div className="username">
+                {user.username}
+              </div>
+
+              {
+                (user.name)
+                ? <div className="fullname">
+                  {user.name}
+                </div>
+                : ''
+              }
+            </div>
           </Link>
         </li>)
       }

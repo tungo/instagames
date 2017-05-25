@@ -121,12 +121,13 @@
 
 .nav-bar .search-form .result {
   position: absolute;
+  z-index: 21;
 
-  width: 230px;
+  width: 250px;
   top: 40px;
-  left: -15px;
+  left: -25px;
 
-  border: 1px solid $light-gray;
+  border: 1px solid $lighter-gray;
   border-radius: 3px;
   background: $white;
 
@@ -148,16 +149,29 @@
 .nav-bar .search-form .result ul li a {
   display: flex;
   align-items: center;
+
   padding: 8px 15px;
-  border-bottom: 1px solid $light-gray;
   width: 100%;
-  height: 100%;
+  height: 55px;
+
+  border-bottom: 1px solid $lighter-gray;
+
+  color: $darkest;
+  font-weight: bold;
+}
+.nav-bar .search-form .result ul li:last-child a {
+  border-bottom: none;
 }
 
 .nav-bar .search-form .result ul li a img{
   width: 30px;
   height: 30px;
   margin-right: 15px;
+}
+
+.nav-bar .search-form .result ul li a .fullname{
+  color: $gray;
+  font-weight: normal;
 }
 
 

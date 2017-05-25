@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/,
     message: "can only use letters, numbers and underscores" }
-
+  validates :name, length: { maximum: 30 }
 
   has_many :photos, dependent: :destroy,
     primary_key: :id,
