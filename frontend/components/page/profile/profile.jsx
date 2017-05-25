@@ -64,14 +64,7 @@ class Profile extends React.Component {
 
   fetchUser(userId) {
     this.props.fetchUser(userId)
-      .then((user) => {
-        const photos = selectAllPhotos(user.photos);
-        if (photos.length > 0) {
-          this.setState({
-            lastCreatedAt: photos[photos.length - 1].createdAt
-          });
-        }
-      });
+      .then((user) => this.updateResult(user.photos));
   }
 
   fetchUserPhotos(force) {
@@ -87,19 +80,22 @@ class Profile extends React.Component {
       userId: this.props.match.params.userId,
       limit: this.limit,
       max_created_at: this.state.lastCreatedAt
-    }).then((rspPhotos) => {
-      const photos = selectAllPhotos(rspPhotos);
+    }).then((rspPhotos) => this.updateResult(rspPhotos))
+      .always(() => this.setState({isFetchingPhotos: false}));
+  }
 
-      if (photos.length < this.limit) {
-        this.setState({noMorePhoto: true});
-      }
+  updateResult(rspPhotos) {
+    const photos = selectAllPhotos(rspPhotos);
 
-      if (photos.length > 0) {
-        this.setState({
-          lastCreatedAt: photos[photos.length - 1].createdAt
-        });
-      }
-    }).always(() => this.setState({isFetchingPhotos: false}));
+    if (photos.length < this.limit) {
+      this.setState({noMorePhoto: true});
+    }
+
+    if (photos.length > 0) {
+      this.setState({
+        lastCreatedAt: photos[photos.length - 1].createdAt
+      });
+    }
   }
 
   startInfiniteScroll(e) {
@@ -202,9 +198,11 @@ class Profile extends React.Component {
 
           <footer>
             <button
-              className={this.state.isInfiniteScroll
-                        ? 'hidden'
-                        : 'blue-button'}
+              className={
+                this.state.isInfiniteScroll || this.state.noMorePhoto
+                ? 'hidden'
+                : 'blue-button'
+              }
               onClick={this.startInfiniteScroll}
             >Load more
             </button>
