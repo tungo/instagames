@@ -94,15 +94,20 @@
   background: $lightest-gray;
 
   font-size: 14px;
-}
-
-.nav-bar .search-form input::placeholder {
   text-align: center;
   color: $gray;
 }
 
-.nav-bar .search-form input:focus::placeholder {
+.nav-bar .search-form input::placeholder {
+  color: $gray;
+}
+
+.nav-bar .search-form input:focus {
+  border: 1px solid $gray;
+  background: $white;
+
   text-align: left;
+  color: $darkest;
 }
 
 .nav-bar .search-form .search-icon {
