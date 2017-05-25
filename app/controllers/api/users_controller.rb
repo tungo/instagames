@@ -35,12 +35,12 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = current_user
     @user.slug = nil
 
     update_type = params[:id]
     if @user.update_user(user_params, update_type)
-      if %w(avatar edit password).include?(update_type)
+      if %w(avatar edit password delete_avatar).include?(update_type)
         render update_type.to_sym
       else
         render :show

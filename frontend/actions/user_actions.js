@@ -51,6 +51,16 @@ export const updateAvatar = (user) => (dispatch) => {
     );
 };
 
+export const deleteAvatar = () => (dispatch) => {
+  dispatch(startLoading());
+
+  return UserAPIUtil.deleteAvatar()
+    .then((rspUser) => dispatch(updateUser(rspUser)))
+    .fail((err) =>
+      dispatch(receiveFormErrors('avatarUpload', err.responseJSON))
+    );
+};
+
 export const updatePassword = (user) => (dispatch) => (
   UserAPIUtil.updateUser(user)
     .fail((err) =>

@@ -20,7 +20,6 @@
 .upload-form .title {
   padding: 10px;
 
-  font-weight: bold;
   text-align: center;
   color: $darkest;
   font-size: 16px;
@@ -42,6 +41,11 @@
   width: 100%;
 
   outline: none;
+  cursor: pointer;
+}
+
+.upload-form .file:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .upload-form .image {
@@ -66,13 +70,35 @@
   font-size: 14px;
 }
 
+.upload-form .input::placeholder {
+  color: $gray;
+}
+
 .upload-form .button {
   width: 50%;
 
-  background: $lighter-gray;
+  background: $white;
+}
+
+.upload-form .button:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+.upload-form .button:disabled:hover {
+  background: $white;
 }
 
 .upload-form .button.blue {
   color: $white;
   background: $blue;
+}
+.upload-form .button.blue:disabled:hover {
+  background: $blue;
+}
+
+.upload-form .button.wide {
+  width: 100%;
+
+  color: $darkest;
+
+  font-size: 16px;
 }

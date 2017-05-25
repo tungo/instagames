@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateAvatar } from '../../../actions/user_actions';
+import { updateAvatar, deleteAvatar } from '../../../actions/user_actions';
 import {
   clearFormErrors,
   receiveFormErrors
@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateAvatar: (user) => dispatch(updateAvatar(user)),
+  deleteAvatar: () => dispatch(deleteAvatar()),
   receiveFormErrors: (err) => dispatch(receiveFormErrors('avatarUpload', err)),
   clearErrors: () => dispatch(clearFormErrors('avatarUpload'))
 });

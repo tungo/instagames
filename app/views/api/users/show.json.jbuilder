@@ -1,4 +1,5 @@
 json.extract! @user, :id, :username, :name, :bio
+json.isAvatar @user.avatar_file_name
 json.avatar asset_path(@user.avatar.url(:medium))
 json.photos({})
 json.photos do

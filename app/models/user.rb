@@ -99,6 +99,10 @@ class User < ActiveRecord::Base
       update_password(params)
     elsif type == "avatar"
       update_attributes(params)
+    elsif type == "delete_avatar"
+      self.avatar.destroy
+      self.avatar.clear
+      self.save
     else
       update_attributes(params)
     end

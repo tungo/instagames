@@ -12,6 +12,7 @@ class AvatarForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   updateFile(e) {
@@ -47,6 +48,16 @@ class AvatarForm extends React.Component {
       .always(() => this.setState({submiting: false}));
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+
+    this.setState({submiting: true});
+
+    this.props.deleteAvatar()
+      .then(() => this.props.closeModal())
+      .always(() => this.setState({submiting: false}));
+  }
+
   componentWillUnmount() {
     this.props.clearErrors();
   }
@@ -74,7 +85,15 @@ class AvatarForm extends React.Component {
         <div className="upload-form">
           <ul>
             <li>
-              <h3 className="title">Upload your avatar</h3>
+              <button
+                onClick={this.handleDelete}
+                className="button wide"
+                disabled={this.state.submiting}
+              >Remove Current Avatar</button>
+            </li>
+
+            <li>
+              <h3 className="title">Upload New Avatar</h3>
             </li>
 
             {this.renderErrors()}
