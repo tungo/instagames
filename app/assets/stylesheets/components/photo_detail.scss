@@ -118,8 +118,11 @@
   margin: 0 0 8px 0;
 }
 
-.photo-detail .info .caption span {
+.photo-detail .info .caption a {
+  margin-right: 8px;
+
   font-weight: bold;
+  color: $darkest;
 }
 
 .photo-detail .features {

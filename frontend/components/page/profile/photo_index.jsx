@@ -49,7 +49,7 @@ class PhotoIndex extends React.Component {
       >
         <img
           src={photo.urlMedium}
-          alt={`photo-${photo.caption}`}
+          alt={`photo-${photo.id}`}
         />
 
         <div className="highlight-overlay">

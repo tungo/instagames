@@ -85,8 +85,11 @@
   margin: 0 0 8px;
 }
 
-.feed-photo .caption span {
+.feed-photo .caption a {
+  margin-right: 8px;
+
   font-weight: bold;
+  color: $darkest;
 }
 
 .feed-photo .info .uploaded-at {

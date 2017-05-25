@@ -25,7 +25,9 @@ class Photo extends React.Component {
     let caption = '';
     if (photo.caption) {
       caption = <div className="caption">
-        <span>{photo.username} </span>
+        <Link to={`/user/${photo.username}`}>
+          {photo.username}
+        </Link>
         {photo.caption}
       </div>;
     }

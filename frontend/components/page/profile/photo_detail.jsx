@@ -44,7 +44,9 @@ class PhotoDetail extends React.Component {
     let caption = '';
     if (photo.caption) {
       caption = <div className="caption">
-        <span>{photo.username} </span>
+        <Link to={`/user/${photo.username}`} onClick={this.clickCommenter}>
+          {photo.username}
+        </Link>
         {photo.caption}
       </div>;
     }
@@ -68,7 +70,7 @@ class PhotoDetail extends React.Component {
         <figure className="left">
           <img
             src={photo.url}
-            alt={`photo-${photo.caption}`}
+            alt={`photo-${photo.id}`}
           />
         </figure>
 
@@ -82,7 +84,7 @@ class PhotoDetail extends React.Component {
                 >
                   <img
                     src={photo.avatar}
-                    alt={`photo-${photo.caption}`}
+                    alt={`photo-${photo.username}`}
                     className="image-circle"
                   />
                   {photo.username}
