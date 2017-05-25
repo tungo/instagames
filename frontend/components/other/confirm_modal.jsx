@@ -5,6 +5,12 @@ class ConfirmModal extends React.Component {
   constructor(props) {
     super(props);
 
+    // props:
+    // confirmOpen: boolean
+    // closeConfirm: function
+    // confirmText: string
+    // handleConfirm: function
+
     this.state = {
       modalOpen: false
     };
@@ -14,11 +20,17 @@ class ConfirmModal extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({modalOpen: nextProps.modalOpen});
+    if (this.state.modalOpen !== nextProps.confirmOpen) {
+      this.setState({modalOpen: nextProps.confirmOpen});
+    }
   }
 
   closeModal(e) {
     this.setState({modalOpen: false});
+
+    if (this.props.closeConfirm) {
+      this.props.closeConfirm();
+    }
   }
 
   openModal(e) {

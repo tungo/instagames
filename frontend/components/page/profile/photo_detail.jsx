@@ -11,10 +11,11 @@ class PhotoDetail extends React.Component {
     super(props);
 
     this.state = {
-      confirmingDelete: false
+      deleteConfirming: false
     };
 
-    this.confirmDelete = this.confirmDelete.bind(this);
+    this.openDeleteConfirm = this.openDeleteConfirm.bind(this);
+    this.closeDeleteConfirm = this.closeDeleteConfirm.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.focusCommentInput = this.focusCommentInput.bind(this);
     this.clickCommenter = this.clickCommenter.bind(this);
@@ -31,10 +32,12 @@ class PhotoDetail extends React.Component {
     this.props.closeModal();
   }
 
-  confirmDelete(e) {
-    e.preventDefault();
+  openDeleteConfirm() {
+    this.setState({deleteConfirming: true});
+  }
 
-    this.setState({confirmingDelete: true});
+  closeDeleteConfirm() {
+    this.setState({deleteConfirming: false});
   }
 
   focusCommentInput(e) {
@@ -66,7 +69,7 @@ class PhotoDetail extends React.Component {
     let deleteButton = '';
     if (currentUser.username === photo.username) {
       deleteButton = <button
-        onClick={this.confirmDelete}
+        onClick={this.openDeleteConfirm}
         className="button-link"
       ><i className="fa fa-trash-o" aria-hidden="true"></i>
       </button>;
@@ -108,7 +111,8 @@ class PhotoDetail extends React.Component {
                 {deleteButton}
 
                 <ConfirmModal
-                  modalOpen={this.state.confirmingDelete}
+                  confirmOpen={this.state.deleteConfirming}
+                  closeConfirm={this.closeDeleteConfirm}
                   confirmText="Delete Photo"
                   handleConfirm={this.handleDelete}
                 />
