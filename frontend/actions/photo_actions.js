@@ -80,8 +80,7 @@ export const fetchPhotoDetail = (id) => (dispatch, getState) => {
     .then((rspPhoto) => {
       dispatch(receivePhotoDetail(rspPhoto));
       return rspPhoto;
-    })
-    .fail((err) => console.log(err));
+    });
 };
 
 export const deletePhoto = (id) => (dispatch) => {

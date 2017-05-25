@@ -1,7 +1,7 @@
 import * as UserAPIUtil from '../util/user_api_util.js';
 import { receiveFormErrors } from './error_actions';
 import { receiveCurrentUser } from './session_actions';
-import { startLoading } from './loading_actions';
+import { startLoading, stopLoading } from './loading_actions';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const UPDATE_USER = 'UPDATE_USER';
@@ -26,7 +26,7 @@ export const fetchUser = (userId) => (dispatch) => {
       dispatch(receiveUser(user));
       return user;
     })
-    .fail((err) => console.log(err));
+    .fail((err) => dispatch(stopLoading()));
 };
 
 export const updateProfile = (user) => (dispatch) => (

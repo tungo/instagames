@@ -15,7 +15,7 @@ class Page extends React.Component {
         <Switch>
           <Route path="/account/:formType" component={Account} />
           <Route path="/user/:userId" component={ProfileContainer} />
-          <Route exact path="/" component={FeedContainer} />
+          <Route path="/" component={FeedContainer} />
         </Switch>
       </div>
     );

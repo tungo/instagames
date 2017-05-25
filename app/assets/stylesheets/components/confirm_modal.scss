@@ -12,6 +12,8 @@
   // important style
   position: relative;
 
+  margin: 5px;
+
   background: none;
 }
 
@@ -20,7 +22,6 @@
   flex-direction: column;
 
   width: auto;
-  margin: 5px;
 
   background: $white;
 }

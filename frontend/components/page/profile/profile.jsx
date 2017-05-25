@@ -5,6 +5,7 @@ import { selectAllPhotos } from '../../../reducers/selectors';
 import PhotoIndex from './photo_index';
 import AvatarModal from './avatar_modal';
 import FollowModal from './follow_modal';
+import Error from '../error';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class Profile extends React.Component {
       isInfiniteScroll: false,
       lastCreatedAt: null,
       isFetchingPhotos: false,
-      noMorePhoto: false
+      noMorePhoto: false,
+      noUser: false
     };
 
     this.limit = 6;
@@ -64,7 +66,11 @@ class Profile extends React.Component {
 
   fetchUser(userId) {
     this.props.fetchUser(userId)
-      .then((user) => this.updateResult(user.photos));
+      .then((user) => {
+        this.updateResult(user.photos);
+        this.setState({noUser: false});
+      })
+      .fail(() => this.setState({noUser: true}));
   }
 
   fetchUserPhotos(force) {
@@ -143,6 +149,10 @@ class Profile extends React.Component {
   }
 
   render() {
+    if (this.state.noUser) {
+      return <Error />;
+    }
+
     const { user, photos, fetchPhotoDetail, currentUser } = this.props;
 
     let avatar = <AvatarModal user={user} />;

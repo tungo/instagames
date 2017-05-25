@@ -3,6 +3,7 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 
 import EditFormContainer from './edit_form_container';
 import PasswordFormContainer from './password_form_container';
+import Error from '../error';
 
 class Account extends React.Component {
   constructor(props) {
@@ -10,6 +11,11 @@ class Account extends React.Component {
   }
 
   render() {
+    const formType = this.props.match.params.formType;
+    if (formType !== 'edit' && formType !== 'password') {
+      return <Error />;
+    }
+
     return (
       <main className="account-page">
         <article>
