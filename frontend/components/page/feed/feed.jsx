@@ -2,6 +2,7 @@ import React from 'react';
 
 import { selectAllPhotos } from '../../../reducers/selectors';
 import Photo from './photo';
+import Welcome from './welcome';
 
 class Feed extends React.Component {
   constructor(props) {
@@ -89,6 +90,10 @@ class Feed extends React.Component {
   }
 
   render() {
+    if (this.props.photos.length < 1) {
+      return <Welcome />;
+    }
+
     return (
       <section className="feed-page">
         <ul>

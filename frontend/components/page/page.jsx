@@ -5,6 +5,7 @@ import NavContainer from './nav/nav_container';
 import FeedContainer from './feed/feed_container';
 import ProfileContainer from './profile/profile_container';
 import Account from './account/account';
+import UploadModal from './nav/upload_modal';
 
 class Page extends React.Component {
   render() {
@@ -17,6 +18,10 @@ class Page extends React.Component {
           <Route path="/user/:userId" component={ProfileContainer} />
           <Route path="/" component={FeedContainer} />
         </Switch>
+
+        <div className="floating-upload">
+          <UploadModal floatingUpload={true} />
+        </div>
       </div>
     );
   }

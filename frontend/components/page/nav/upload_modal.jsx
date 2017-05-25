@@ -24,10 +24,15 @@ class UploadModal extends React.Component {
   }
 
   render() {
+    let button = <i className="fa fa-plus-square-o" aria-hidden="true"></i>;
+    if (this.props.floatingUpload) {
+      button = <i className="fa fa-plus-circle" aria-hidden="true"></i>;
+    }
+
     return (
       <div>
         <button onClick={this.openModal} className="button-link">
-          <i className="fa fa-plus-square-o"></i>
+          {button}
         </button>
 
         <Modal
