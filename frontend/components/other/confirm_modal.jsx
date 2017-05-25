@@ -7,7 +7,6 @@ class ConfirmModal extends React.Component {
 
     // props:
     // confirmOpen: boolean
-    // closeConfirm: function
     // confirmText: string
     // handleConfirm: function
 
@@ -27,10 +26,6 @@ class ConfirmModal extends React.Component {
 
   closeModal(e) {
     this.setState({modalOpen: false});
-
-    if (this.props.closeConfirm) {
-      this.props.closeConfirm();
-    }
   }
 
   openModal(e) {

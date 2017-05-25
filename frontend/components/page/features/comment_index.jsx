@@ -1,19 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import ConfirmModal from '../../other/confirm_modal';
+
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      deleteConfirming: false
+    };
+
+    this.openDeleteConfirm = this.openDeleteConfirm.bind(this);
+    this.closeDeleteConfirm = this.closeDeleteConfirm.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.handleClickCommenter = this.handleClickCommenter.bind(this);
   }
 
-  handleDelete(id) {
+  openDeleteConfirm(id) {
     return (e) => {
       e.preventDefault();
 
-      this.props.deleteComment(id);
+      this.setState({deleteConfirming: true, id});
     };
+  }
+
+  closeDeleteConfirm() {
+    this.setState({deleteConfirming: false});
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+
+    if (this.state.id) {
+      this.props.deleteComment(this.state.id);
+    }
+    this.closeDeleteConfirm();
   }
 
   handleClickCommenter(e) {
@@ -47,7 +69,7 @@ class CommentIndex extends React.Component {
                   ? ''
                   : <button
                       className="button-link"
-                      onClick={this.handleDelete(comment.id)}
+                      onClick={this.openDeleteConfirm(comment.id)}
                     ><i className="fa fa-times" aria-hidden="true"></i>
                     </button>
               }
@@ -55,6 +77,11 @@ class CommentIndex extends React.Component {
             </li>
           ))
         }
+        <ConfirmModal
+          confirmOpen={this.state.deleteConfirming}
+          confirmText="Delete comment"
+          handleConfirm={this.handleDelete}
+        />
       </ul>
     );
   }

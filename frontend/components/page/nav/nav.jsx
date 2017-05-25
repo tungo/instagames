@@ -31,6 +31,8 @@ class Nav extends React.Component {
 
     this.props.logout()
       .then(() => this.setState({ redirect: true }));
+
+    this.closeLogoutConfirm();
   }
 
   render() {
@@ -67,7 +69,6 @@ class Nav extends React.Component {
 
                 <ConfirmModal
                   confirmOpen={this.state.logoutConfirming}
-                  closeConfirm={this.closeLogoutConfirm}
                   confirmText="Logout"
                   handleConfirm={this.handleLogout}
                 />

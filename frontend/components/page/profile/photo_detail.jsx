@@ -30,6 +30,7 @@ class PhotoDetail extends React.Component {
 
     this.props.deletePhoto(this.props.photo.id);
     this.props.closeModal();
+    this.closeDeleteConfirm();
   }
 
   openDeleteConfirm() {
@@ -112,7 +113,6 @@ class PhotoDetail extends React.Component {
 
                 <ConfirmModal
                   confirmOpen={this.state.deleteConfirming}
-                  closeConfirm={this.closeDeleteConfirm}
                   confirmText="Delete Photo"
                   handleConfirm={this.handleDelete}
                 />
