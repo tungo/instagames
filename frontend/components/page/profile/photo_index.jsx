@@ -38,7 +38,7 @@ class PhotoIndex extends React.Component {
   renderPhotos() {
     const { photos } = this.props;
     if (photos.length < 1) {
-      return '';
+      return;
     }
 
     const content = photos.map((photo) => (

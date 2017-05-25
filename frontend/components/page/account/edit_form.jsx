@@ -60,7 +60,7 @@ class EditForm extends React.Component {
     const { errors } = this.props;
 
     if (errors.length < 1) {
-      return '';
+      return;
     }
 
     const content = errors.map((err, i) => <li key={i}>{err}</li>);

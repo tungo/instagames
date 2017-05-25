@@ -94,7 +94,7 @@ class SearchForm extends React.Component {
 
   renderDelete() {
     if (!this.state.keyword) {
-      return '';
+      return;
     }
     return <div
       className="delete-icon clickable"
