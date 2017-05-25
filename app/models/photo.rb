@@ -3,7 +3,7 @@
 # Table name: photos
 #
 #  id                 :integer          not null, primary key
-#  caption            :text
+#  caption            :string           default("")
 #  user_id            :integer          not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -15,7 +15,7 @@
 
 class Photo < ActiveRecord::Base
   validates :user, presence: true
-
+  validates :caption, length: { maximum: 255 }
 
   belongs_to :user,
     primary_key: :id,
@@ -31,7 +31,6 @@ class Photo < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :photo_id,
     class_name: :Comment
-
 
   has_attached_file :image,
     styles: { large: "600x", medium: "300x300#" },

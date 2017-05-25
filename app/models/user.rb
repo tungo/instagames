@@ -6,8 +6,8 @@
 #  username            :string           not null
 #  password_digest     :string           not null
 #  session_token       :string           not null
-#  name                :string
-#  bio                 :text
+#  name                :string           default("")
+#  bio                 :string           default("")
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  avatar_file_name    :string
@@ -23,9 +23,13 @@ class User < ActiveRecord::Base
   validates :username, :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  validates :username, length: { maximum: 31 }
   validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/,
     message: "can only use letters, numbers and underscores" }
-  validates :name, length: { maximum: 30 }
+
+  validates :name, length: { maximum: 31 }
+  validates :bio, length: { maximum: 255 }
 
   has_many :photos, dependent: :destroy,
     primary_key: :id,
