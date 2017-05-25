@@ -153,3 +153,21 @@ textarea.white-input:focus{
 .like-button.unlike {
   color: $red;
 }
+
+.disabled-overlay {
+  pointer-events: none !important;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 69;
+
+  background: $white;
+  opacity: 0.5;
+}
+
+.disabled-all {
+  pointer-events: none !important;
+}

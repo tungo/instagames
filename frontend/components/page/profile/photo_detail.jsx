@@ -11,7 +11,8 @@ class PhotoDetail extends React.Component {
     super(props);
 
     this.state = {
-      deleteConfirming: false
+      deleteConfirming: false,
+      deleting: false
     };
 
     this.openDeleteConfirm = this.openDeleteConfirm.bind(this);
@@ -28,9 +29,12 @@ class PhotoDetail extends React.Component {
   handleDelete(e) {
     e.preventDefault();
 
-    this.props.deletePhoto(this.props.photo.id);
-    this.props.closeModal();
+    this.setState({deleting: true});
     this.closeDeleteConfirm();
+
+    this.props.deletePhoto(this.props.photo.id)
+      .then(() => this.props.closeModal())
+      .always(() => this.setState({deleting: false}));
   }
 
   openDeleteConfirm() {
@@ -82,83 +86,93 @@ class PhotoDetail extends React.Component {
     }
 
     return (
-      <article className="photo-detail">
-        <figure className="left">
-          <img
-            src={photo.url}
-            alt={`photo-${photo.id}`}
-          />
-        </figure>
+        <article
+          className={
+            (this.state.deleting)
+            ? 'photo-detail disabled-all'
+            : 'photo-detail'
+          }
+        >
+          <figure className="left">
+            <img
+              src={photo.url}
+              alt={`photo-${photo.id}`}
+            />
+          </figure>
 
-        <section className="right">
-          <header>
-            <div>
-              <div className="name">
-                <Link
-                  to={`/user/${photo.username}`}
-                  onClick={this.props.closeModal}
-                >
-                  <img
-                    src={photo.avatar}
-                    alt={`photo-${photo.username}`}
-                    className="image-circle"
-                  />
-                  {photo.username}
-                </Link>
-              </div>
-
-              <div className="delete">
-
-                {deleteButton}
-
-                <ConfirmModal
-                  confirmOpen={this.state.deleteConfirming}
-                  confirmText="Delete Photo"
-                  handleConfirm={this.handleDelete}
-                />
-              </div>
-            </div>
-          </header>
-
-          <aside className="info">
-            <div>
-              {caption}
-
-              <CommentIndexContainer
-                comments={photo.comments}
-                clickCommenter={this.clickCommenter}
-              />
-            </div>
-
-            <div className="features">
+          <section className="right">
+            <header>
               <div>
-                <LikeContainer
-                  photoId={photo.id}
-                  currentUserLiked={photo.currentUserLiked}
+                <div className="name">
+                  <Link
+                    to={`/user/${photo.username}`}
+                    onClick={this.props.closeModal}
+                  >
+                    <img
+                      src={photo.avatar}
+                      alt={`photo-${photo.username}`}
+                      className="image-circle"
+                    />
+                    {photo.username}
+                  </Link>
+                </div>
+
+                <div className="delete">
+
+                  {deleteButton}
+
+                  <ConfirmModal
+                    confirmOpen={this.state.deleteConfirming}
+                    confirmText="Delete Photo"
+                    handleConfirm={this.handleDelete}
+                  />
+                </div>
+              </div>
+            </header>
+
+            <aside className="info">
+              <div>
+                {caption}
+
+                <CommentIndexContainer
+                  comments={photo.comments}
+                  clickCommenter={this.clickCommenter}
                 />
-
-                <button
-                  className="button-link focus-comment"
-                  onClick={this.focusCommentInput}
-                >
-                  <i className="fa fa-comment-o" aria-hidden="true"></i>
-                </button>
               </div>
 
-              <div className="likes-count">
-                {likesCount}
+              <div className="features">
+                <div>
+                  <LikeContainer
+                    photoId={photo.id}
+                    currentUserLiked={photo.currentUserLiked}
+                  />
+
+                  <button
+                    className="button-link focus-comment"
+                    onClick={this.focusCommentInput}
+                  >
+                    <i className="fa fa-comment-o" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <div className="likes-count">
+                  {likesCount}
+                </div>
+
+                <div className="uploaded-at">
+                  {photo.uploadedAt}
+                </div>
+
+                <CommentFormContainer photoId={photo.id} />
               </div>
 
-              <div className="uploaded-at">
-                {photo.uploadedAt}
-              </div>
-
-              <CommentFormContainer photoId={photo.id} />
-            </div>
-
-          </aside>
-        </section>
-      </article>
+            </aside>
+          </section>
+          <div
+            className={this.state.deleting ? 'disabled-overlay' : ''}
+          >
+          </div>
+        </article>
     );
   }
 }
