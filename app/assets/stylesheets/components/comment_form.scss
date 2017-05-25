@@ -42,3 +42,18 @@ ul.comments > li > div:last-child {
 .comment-form > input::placeholder {
   color: $gray;
 }
+
+.comment-form > button {
+  padding: 3px;
+
+  border: none;
+  margin-left: 5px;
+  background: $white;
+
+  font-size: 20px;
+  color: $gray;
+}
+
+.comment-form > button.active {
+  color: $darkest;
+}

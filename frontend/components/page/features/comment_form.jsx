@@ -24,6 +24,10 @@ class Comment extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    if (!this.state.body) {
+      return;
+    }
+
     this.setState({submitting: true});
 
     const comment = merge({}, this.state, {photo_id: this.props.photoId});
@@ -34,7 +38,7 @@ class Comment extends React.Component {
 
   render() {
     return (
-      <form className="comment-form" onSubmit={this.handleSubmit}>
+      <form className="comment-form">
         <input
           type="text"
           placeholder="Add a comment..."
@@ -42,6 +46,14 @@ class Comment extends React.Component {
           onChange={this.updateInput('body')}
           id={`comment-photo-${this.props.photoId}`}
         />
+
+        <button
+          type="submit"
+          className={this.state.body ? 'active' : ''}
+          onClick={this.handleSubmit}
+        >
+          <i className="fa fa-paper-plane" aria-hidden="true"></i>
+        </button>
       </form>
     );
   }
