@@ -12,8 +12,6 @@
   // important style
   position: relative;
 
-  margin: 0 20px;
-
   background: none;
 }
 
@@ -23,6 +21,7 @@
 
   width: auto;
   height: auto;
+  margin: 5px;
 }
 
 .photo-detail figure.left {
@@ -56,7 +55,6 @@
   align-items: center;
 
   margin: 0 25px;
-
 }
 
 .photo-detail section.right header > div {
@@ -101,7 +99,7 @@
 
   height: 300px;
 
-  margin: 5px 25px;
+  margin: 5px 0;
 }
 
 .photo-detail .info > div:first-child {
@@ -125,8 +123,12 @@
   color: $darkest;
 }
 
+.photo-detail .comments {
+  padding: 0 25px;
+}
+
 .photo-detail .features {
-  margin: 5px 0 0;
+  margin: 5px 25px 0;
 }
 
 .photo-detail .features > div:first-child {
@@ -159,8 +161,3 @@
   color: $gray;
   text-transform: uppercase;
 }
-
-.photo-detail .comments {
-  padding-right: 10px;
-}
-

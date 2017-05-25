@@ -12,8 +12,6 @@
   // important style
   position: relative;
 
-  margin: 0 20px;
-
   background: none;
 }
 
@@ -23,11 +21,16 @@
 
   width: auto;
   height: 600px;
+  margin: 5px;
 
   background: $white;
 }
 
-.follows > header {
+.follows > div {
+  overflow: hidden;
+}
+
+.follows > div > header {
   display: flex;
 
   width: 600px;
@@ -41,7 +44,7 @@
   font-weight: bold;
 }
 
-.follows > main {
+.follows > div > main {
   overflow-y: scroll;
 }
 

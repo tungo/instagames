@@ -12,21 +12,23 @@ class FollowIndex extends React.Component {
     const { followType } = this.props;
     return (
       <article className="follows">
-        <header>
-          <h1>{followType}</h1>
-        </header>
-        <main>
-          <ul className="follows-list">
-          {
-            this.props.follows.map((user) => <li key={user.id}>
-                <FollowItemContainer
-                  user={user}
-                  closeModal={this.props.closeModal}
-                />
-            </li>)
-          }
-          </ul>
-        </main>
+        <div>
+          <header>
+            <h1>{followType}</h1>
+          </header>
+          <main>
+            <ul className="follows-list">
+            {
+              this.props.follows.map((user) => <li key={user.id}>
+                  <FollowItemContainer
+                    user={user}
+                    closeModal={this.props.closeModal}
+                  />
+              </li>)
+            }
+            </ul>
+          </main>
+        </div>
       </article>
     );
   }
