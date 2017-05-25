@@ -1,24 +1,57 @@
-.upload-modal {
-  min-width: 480px;
+.modal.upload-modal {
+  top: 50%;
+  left: 50%;
+
+  width: auto;
+  height: auto;
+
+  background: none;
 }
+
+
+.modal.upload-modal > div.modal-guts {
+  // important style
+  position: relative;
+
+  margin: 5px;
+
+  background: none;
+}
+
 .upload-form {
-  min-width: 480px;
+  display: flex;
+  flex-direction: column;
+
+  width: auto;
+  margin: 5px;
+
+  background: $white;
+
   font-size: 14px;
 }
 
 .upload-form > ul {
-
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .upload-form > ul > li {
+  display: flex;
+  justify-content: center;
+
+  // width: auto;
+
   border-bottom: 1px solid $light-gray;
 }
+
 .upload-form > ul > li:last-child {
   border-bottom: none;
 }
 
 .upload-form .title {
   padding: 10px;
+  width: 450px;
 
   text-align: center;
   color: $darkest;
@@ -34,13 +67,14 @@
 .upload-form .image-input {
   display: flex;
   flex-direction: column;
+
+  width: 100%;
 }
 
 .upload-form .file {
   padding: 10px;
   width: 100%;
 
-  outline: none;
   cursor: pointer;
 }
 
@@ -64,7 +98,6 @@
   width: 100%;
 
   border: none;
-  outline: none;
 
   text-align: center;
   font-size: 14px;

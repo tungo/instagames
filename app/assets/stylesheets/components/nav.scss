@@ -13,7 +13,7 @@
   justify-content: space-between;
 
   padding: 22px 40px;
-  width: 1100px;
+  width: 1000px;
 }
 
 .nav-bar a.link {
@@ -21,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 180px;
+  width: 200px;
 }
 
 .nav-bar a.link:active,
@@ -42,7 +42,7 @@
 
 .nav-bar a.link .name {
   font-family: $norican;
-  font-size: 26px;
+  font-size: 30px;
   color: $darkest;
 }
 

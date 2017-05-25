@@ -34,8 +34,13 @@ button:disabled {
 
 input,
 textarea {
-  outline: none;
 	box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  outline: none;
 }
 
 img {
@@ -124,9 +129,10 @@ textarea.white-input:focus{
 .main-footer footer {
   display: flex;
   justify-content: space-between;
-  margin: 0 40px 20px;
 
   width: 1000px;
+  margin-bottom: 20px;
+  padding: 0 40px;
 
   font-size: 12px;
   text-transform: uppercase;
@@ -147,9 +153,7 @@ textarea.white-input:focus{
 .like-button {
   font-size: 22px;
 }
-.like-button:focus {
-  outline: none;
-}
+
 .like-button.unlike {
   color: $red;
 }
