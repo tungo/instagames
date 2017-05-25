@@ -64,7 +64,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def fetch_params(options = {})
-    params.require(:filter).permit(:limit, :max_created_at)
+    params.require(:query).permit(:limit, :max_created_at)
       .merge(options)
   end
 end

@@ -43,10 +43,10 @@ export const receiveUserPhoto = (photo) => ({
 });
 
 
-export const feedPhotos = (data) => (dispatch) => {
+export const feedPhotos = (query) => (dispatch) => {
   dispatch(startLoading());
 
-  return PhotoAPIUtil.feedPhotos(data)
+  return PhotoAPIUtil.feedPhotos(query)
     .then((photos) => {
       dispatch(receivePhotos(photos));
       return photos;
@@ -90,10 +90,10 @@ export const deletePhoto = (id) => (dispatch) => {
     .then((photo) => dispatch(removePhoto(photo.id)));
 };
 
-export const fetchUserPhotos = (data) => (dispatch) => {
+export const fetchUserPhotos = (query) => (dispatch) => {
   dispatch(startLoading());
 
-  return PhotoAPIUtil.fetchUserPhotos(data)
+  return PhotoAPIUtil.fetchUserPhotos(query)
     .then((photos) => {
       dispatch(receiveUserPhotos(photos));
       return photos;

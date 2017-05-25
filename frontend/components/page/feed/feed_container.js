@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  feedPhotos: (data) => dispatch(feedPhotos(data))
+  feedPhotos: (query) => dispatch(feedPhotos(query))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);
