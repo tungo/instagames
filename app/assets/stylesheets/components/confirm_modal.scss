@@ -1,0 +1,65 @@
+.modal.confirm-modal {
+  top: 50%;
+  left: 50%;
+
+  width: auto;
+  height: auto;
+
+  background: none;
+}
+
+.modal.confirm-modal > div.modal-guts {
+  // important style
+  position: relative;
+
+  margin: 0 20px;
+
+  background: none;
+}
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+
+  width: auto;
+
+  background: $white;
+}
+
+.confirm > ul {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm > ul > li {
+  display: flex;
+  justify-content: center;
+
+  // width: auto;
+
+  border-bottom: 1px solid $light-gray;
+}
+
+.confirm > ul > li:last-child {
+  border-bottom: none;
+}
+
+.confirm button {
+  padding: 0 10px;
+  width: 600px;
+  line-height: 50px;
+
+  border: none;
+  outline: none;
+  background: white;
+
+  color: $darkest;
+  text-align: center;
+  font-size: 16px;
+
+}
+
+.confirm button:hover {
+  background: $light-gray;
+}
