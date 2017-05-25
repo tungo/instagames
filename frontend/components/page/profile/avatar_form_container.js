@@ -9,6 +9,7 @@ import {
 import AvatarForm from './avatar_form';
 
 const mapStateToProps = (state) => ({
+  isAvatar: state.user.isAvatar,
   errors: state.errors.avatarUpload
 });
 

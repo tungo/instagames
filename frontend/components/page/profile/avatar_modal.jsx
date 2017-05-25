@@ -41,7 +41,9 @@ class AvatarModal extends React.Component {
           overlayClassName="modal-overlay upload-modal-overlay"
         >
           <div className="modal-guts">
-            <AvatarFormContainer closeModal={this.closeModal} />
+            <AvatarFormContainer
+              closeModal={this.closeModal}
+            />
           </div>
         </Modal>
       </figure>

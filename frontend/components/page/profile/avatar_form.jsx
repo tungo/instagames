@@ -84,14 +84,17 @@ class AvatarForm extends React.Component {
       <form>
         <div className="upload-form">
           <ul>
-            <li>
-              <button
-                onClick={this.handleDelete}
-                className="button wide"
-                disabled={this.state.submiting}
-              >Remove Current Avatar</button>
-            </li>
-
+            {
+              (!this.props.isAvatar)
+                ? ''
+                : <li>
+                  <button
+                    onClick={this.handleDelete}
+                    className="button wide"
+                    disabled={this.state.submiting || !this.props.isAvatar}
+                  >Remove Current Avatar</button>
+                </li>
+            }
             <li>
               <h3 className="title">Upload New Avatar</h3>
             </li>
