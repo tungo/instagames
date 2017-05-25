@@ -27,12 +27,12 @@ class FollowModal extends React.Component {
 
     return (
       <div>
-        <div
-          className="count clickable"
+        <button
+          className="count"
           onClick={this.openModal}
         >
           <span>{this.props.count} </span> {this.props.followType}
-        </div>
+        </button>
 
         <Modal
           isOpen={this.state.modalOpen}

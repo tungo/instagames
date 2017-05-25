@@ -26,12 +26,16 @@ class AvatarModal extends React.Component {
   render() {
     return (
       <figure className="avatar-modal">
-        <img
-          src={this.props.user.avatar}
-          alt={this.props.user.username}
+        <button
+          className="image-button"
           onClick={this.openModal}
-          className="image-circle clickable"
-        />
+        >
+          <img
+            src={this.props.user.avatar}
+            alt={this.props.user.username}
+            className="image-circle"
+          />
+        </button>
 
         <Modal
           isOpen={this.state.modalOpen}
