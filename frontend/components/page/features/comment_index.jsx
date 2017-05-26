@@ -80,6 +80,7 @@ class CommentIndex extends React.Component {
         <ConfirmModal
           confirmOpen={this.state.deleteConfirming}
           confirmText="Delete comment"
+          closeConfirm={this.closeDeleteConfirm}
           handleConfirm={this.handleDelete}
         />
       </ul>

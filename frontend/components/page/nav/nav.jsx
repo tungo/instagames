@@ -70,6 +70,7 @@ class Nav extends React.Component {
                 <ConfirmModal
                   confirmOpen={this.state.logoutConfirming}
                   confirmText="Log Out"
+                  closeConfirm={this.closeLogoutConfirm}
                   handleConfirm={this.handleLogout}
                 />
               </div>
