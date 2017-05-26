@@ -148,6 +148,22 @@ class Profile extends React.Component {
     return setting;
   }
 
+  renderIntro() {
+    if (this.props.photos.length < 1) {
+      return <div className="intro">
+        <div className="left">
+          <div id="image-intro-photos">
+          </div>
+        </div>
+
+        <div className="right">
+          <h3>Start capturing and sharing your adventures.</h3>
+          <p>Press + buttons to upload your photos</p>
+        </div>
+      </div>;
+    }
+  }
+
   render() {
     if (this.state.noUser) {
       return <Error />;
@@ -204,6 +220,7 @@ class Profile extends React.Component {
             </section>
           </header>
 
+          {this.renderIntro()}
           <PhotoIndex photos={photos} fetchPhotoDetail={fetchPhotoDetail} />
 
           <footer>

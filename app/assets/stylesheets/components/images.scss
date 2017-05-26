@@ -24,3 +24,12 @@
   height: 108px;
   content: " ";
 }
+
+#image-intro-photos::after {
+  background-image: url(asset_path("intro-photos.jpg"));
+  background-size: 360px 360px;
+  display: block;
+  width: 360px;
+  height: 360px;
+  content: " ";
+}

@@ -103,6 +103,37 @@
   font-weight: bold;
 }
 
+.profile-page .intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: $white;
+}
+
+.profile-page .intro .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.profile-page .intro .right h3 {
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile-page .intro .right p {
+  font-size: 16px;
+}
+
+.profile-page .intro .right .inline {
+  display: inline;
+}
+
 .profile-page .photos {
   display: flex;
   justify-content: center;
