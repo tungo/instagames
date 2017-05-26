@@ -83,6 +83,13 @@ class User < ActiveRecord::Base
     user && user.is_password?(password) ? user : nil
   end
 
+  def self.topten
+    self.joins("JOIN follows ON follows.following_id = users.id")
+        .group("users.id")
+        .order("COUNT(follows.follower_id) DESC")
+        .limit(10)
+  end
+
   def reset_session_token!
     self.session_token = self.class.generate_session_token
     self.save!

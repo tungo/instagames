@@ -1,6 +1,10 @@
 class Api::UsersController < ApplicationController
   before_action :require_logged_in!, except: [:create]
 
+  def index
+    @users = User.topten
+  end
+
   def show
     @user = User.includes(in_follows: :follower)
       .includes(out_follows: :following)
