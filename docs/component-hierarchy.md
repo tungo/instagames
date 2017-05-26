@@ -2,34 +2,51 @@
 
 **AuthFormContainer**
 - AuthForm
-- Error
 
-**HomeContainer**
-- Navbar
-  + Search
-  + Upload
+**PageContainer**
+- Nav
+  + SearchForm
+  + UploadForm
+- Feed
+- Profile
+- Account
+
+**FeedContainer**
 - Photo
   + Like
   + Comment
+    - CommentIndex
+    - CommentForm
+- Users
 
-**UserContainer**
-- Avatar
-- Follow
-  + FollowDetail
+**ProfileContainer**
+- AvatarForm
+- FollowIndex
+  + FollowItem
+- PhotoIndex
 - PhotoDetail
   + Like
   + Comment
+    - CommentIndex
+    - CommentForm
 
-**UserEditContainer**
-- Avatar
-- UserForm
+**AccountContainer**
+- AvatarForm
+- Account
+  + EditForm
+  + PasswordForm
+
+**OtherComponents**
+- ConfirmModal
+- Loading
 
 ## Route
 
-Path               | Components
--------------------|--------------------
-`/sign-up`         | `AuthFormContainer`
-`/sign-in`         | `AuthFormContainer`
-`/`                | `HomeContainer`
-`/users/:username` | `UserContainer`
-`/users/edit`      | `UserEditContainer`
+Path                | Components
+--------------------|----------------------------------------------------
+`/signup`           | `AuthFormContainer`
+`/login`            | `AuthFormContainer`
+`/`                 | `PageContainer`, `FeedContainer`
+`/users/:username`  | `PageContainer`, `ProfileContainer`
+`/account/edit`     | `PageContainer`, `AccountContainer`, `EditForm`
+`/account/password` | `PageContainer`, `AccountContainer`, `PasswordForm`

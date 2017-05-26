@@ -4,7 +4,7 @@
 
 [Project Management on Trello][trello]
 
-[heroku]: http://instagames.herokuapp.com/
+[heroku]: http://instagames.ninja/
 [trello]: https://trello.com/b/JdRil0Mc/instagames
 
 ## Minimum Viable Product
@@ -13,14 +13,14 @@ Instagames is a web application inspired by Instagram designed for gamers.
 It is built using Ruby on Rails and React/Redux.
 
 It will be implemented the following features:
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Post photos
-- [ ] Like photos
-- [ ] Commenting on photos
-- [ ] Following & Photo feed
-- [ ] Infinite Scroll
-- [ ] Production README
+- [x] Hosting on Heroku
+- [x] New account creation, login, and guest/demo login
+- [x] Post photos
+- [x] Like photos
+- [x] Commenting on photos
+- [x] Following & Photo feed
+- [x] Infinite Scroll
+- [x] Production README
 
 ## Design Docs
 
