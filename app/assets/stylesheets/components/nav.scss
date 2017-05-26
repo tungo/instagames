@@ -112,6 +112,7 @@
 .nav-bar .search-form .search-icon {
   position: absolute;
   left: 8px;
+  top: 12px;
 
   color: $gray;
 }
@@ -119,6 +120,7 @@
 .nav-bar .search-form .delete-icon {
   position: absolute;
   right: 8px;
+  top: 12px;
 
   color: $gray;
 }
@@ -163,6 +165,12 @@
   color: $darkest;
   font-weight: bold;
 }
+
+.nav-bar .search-form .result ul li a:hover {
+  background: $lightest-gray;
+}
+
+
 .nav-bar .search-form .result ul li:last-child a {
   border-bottom: none;
 }

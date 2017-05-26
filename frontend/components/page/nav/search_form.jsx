@@ -74,7 +74,7 @@ class SearchForm extends React.Component {
 
             <div>
               <div className="username">
-                {user.username}
+                {user.usernameShort}
               </div>
 
               {
