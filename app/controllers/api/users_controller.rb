@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
       @photos = @user.photos
         .includes(:likes, :comments)
         .order('photos.created_at DESC')
-        .limit(6)
+        .limit(3)
 
       render :show
     else

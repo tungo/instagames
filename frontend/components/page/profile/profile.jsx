@@ -20,7 +20,7 @@ class Profile extends React.Component {
       noUser: false
     };
 
-    this.limit = 6;
+    this.limit = 3;
 
     this.handleScroll = this.handleScroll.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
