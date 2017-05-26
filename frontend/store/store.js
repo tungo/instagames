@@ -11,13 +11,11 @@ if (process.env.NODE_ENV !== 'production') {
   // middlewares.push(createLogger());
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const configureStore = (preloadedState = {}) => (
   createStore(
     RootReducer,
     preloadedState,
-    composeEnhancers(applyMiddleware(...middlewares))
+    applyMiddleware(...middlewares)
   )
 );
 
