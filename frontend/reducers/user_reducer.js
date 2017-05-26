@@ -75,10 +75,10 @@ const UserReducer = (state = {}, action) => {
       if (nextState.id === userId) {
         nextState = merge(nextState, {currentUserFollowed: true});
       }
-      if (nextState.followers[userId]) {
+      if (nextState.followers && nextState.followers[userId]) {
         nextState.followers[userId].currentUserFollowed = true;
       }
-      if (nextState.following[userId]) {
+      if (nextState.following && nextState.following[userId]) {
         nextState.following[userId].currentUserFollowed = true;
       }
       return nextState;
@@ -87,10 +87,10 @@ const UserReducer = (state = {}, action) => {
       if (nextState.id === userId) {
         nextState = merge(nextState, {currentUserFollowed: false});
       }
-      if (nextState.followers[userId]) {
+      if (nextState.followers && nextState.followers[userId]) {
         nextState.followers[userId].currentUserFollowed = false;
       }
-      if (nextState.following[userId]) {
+      if (nextState.following && nextState.following[userId]) {
         nextState.following[userId].currentUserFollowed = false;
       }
       return nextState;

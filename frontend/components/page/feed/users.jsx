@@ -8,10 +8,26 @@ class Users extends React.Component {
     this.state = {
       following: false
     };
+
+    this.handleFollow = this.handleFollow.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUsers();
+  }
+
+  handleFollow(user) {
+    return (e) => {
+      e.preventDefault();
+
+      this.setState({following: true});
+
+      const { currentUser, followUser, unfollowUser } = this.props;
+      const result = (user.currentUserFollowed)
+                    ? unfollowUser(user.id)
+                    : followUser(user.id);
+      result.always(() => this.setState({following: false}));
+    };
   }
 
   renderUsers() {
@@ -22,7 +38,7 @@ class Users extends React.Component {
 
       let followButton = <button
         className={`blue-button ${followText}`}
-        onClick={this.handleFollow}
+        onClick={this.handleFollow(user)}
         disabled={this.state.following}
       >
         {followText}
