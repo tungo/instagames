@@ -149,7 +149,16 @@ class Profile extends React.Component {
   }
 
   renderIntro() {
+    const { currentUser, user, photos } = this.props;
     if (this.props.photos.length < 1) {
+      if (user.username !== currentUser.username) {
+        return <div className="intro">
+          <div className="no-posts">
+            <p>No posts yet</p>
+          </div>
+        </div>;
+      }
+
       return <div className="intro">
         <div className="left">
           <div id="image-intro-photos">

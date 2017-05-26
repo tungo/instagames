@@ -34,7 +34,8 @@ class Photo < ActiveRecord::Base
 
   has_attached_file :image,
     styles: { large: "600x", medium: "300x300#" },
-    default_url: "photo-placeholder-950-600.png"
+    default_url: "photo-placeholder-950-600.png",
+    s3_protocol: :https
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates_attachment_presence :image
 end
