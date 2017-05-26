@@ -115,7 +115,7 @@
 
 .photo-detail .info .caption {
   margin: 0 25px 8px 25px;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .photo-detail .info .caption a {
@@ -126,8 +126,8 @@
 }
 
 .photo-detail .comments {
-  padding: 0 25px;
-  overflow: scroll;
+  margin: 0 25px;
+  overflow: hidden;
 }
 
 .photo-detail .features {
