@@ -5,6 +5,7 @@ import { startLoading, stopLoading } from './loading_actions';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const UPDATE_USER = 'UPDATE_USER';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
 
 
 export const receiveUser = (user) => ({
@@ -16,6 +17,12 @@ export const updateUser = (user) => ({
   type: UPDATE_USER,
   user
 });
+
+export const receiveUsers = (users) => ({
+  type: RECEIVE_USERS,
+  users
+});
+
 
 
 export const fetchUser = (userId) => (dispatch) => {
@@ -66,4 +73,9 @@ export const updatePassword = (user) => (dispatch) => (
     .fail((err) =>
       dispatch(receiveFormErrors('accountPassword', err.responseJSON))
     )
+);
+
+export const fetchUsers = (query) => (dispatch) => (
+  UserAPIUtil.requestUsers(query)
+    .then((users) => dispatch(receiveUsers(users)))
 );

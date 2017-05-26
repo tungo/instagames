@@ -5,6 +5,14 @@ export const requestUser = (userId) => (
   })
 );
 
+export const requestUsers = (query) => (
+  $.ajax({
+    method: 'GET',
+    url: '/api/users',
+    data: {query}
+  })
+);
+
 export const updateUser = (user) => (
   $.ajax({
     method: 'PATCH',
