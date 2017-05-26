@@ -12,6 +12,8 @@
   justify-content: center;
 
   width: 600px;
+
+  color: $darkest;
 }
 
 .welcome-page .welcome-box {
@@ -30,8 +32,8 @@
 }
 
 .welcome-page .welcome-box .fa {
-  font-size: 80px;
-  color: $gray;
+  font-size: 70px;
+  color: $light-gray;
   margin: 10px 0;
 }
 
@@ -44,4 +46,23 @@
 
 .welcome-page .welcome-box p {
   margin: 5px;
+}
+
+.welcome-page .suggestions {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+
+  border: 1px solid $lighter-gray;
+  border-radius: 3px;
+}
+
+.welcome-page .suggestions header {
+  color: $gray;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.welcome-page ul.follows-list li:last-child {
+  border-bottom: none;
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import UsersContainer from './users_container';
+
 class Welcome extends React.Component {
   constructor(props) {
     super(props);
@@ -17,11 +19,7 @@ class Welcome extends React.Component {
             <p>Upload photos to share your adventures with your friends.</p>
           </article>
 
-          <div>
-            <header>
-
-            </header>
-          </div>
+          <UsersContainer />
         </main>
       </section>
     );

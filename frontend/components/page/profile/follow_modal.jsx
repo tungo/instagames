@@ -42,10 +42,12 @@ class FollowModal extends React.Component {
           overlayClassName="modal-overlay follow-modal-overlay"
         >
           <div className="modal-guts">
-            <FollowIndexContainer
-              closeModal={this.closeModal}
-              followType={this.props.followType}
-            />
+            <div>
+              <FollowIndexContainer
+                closeModal={this.closeModal}
+                followType={this.props.followType}
+              />
+            </div>
           </div>
         </Modal>
       </div>
