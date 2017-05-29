@@ -23,8 +23,6 @@
 
   width: auto;
   height: 600px;
-
-  background: $white;
 }
 
 .follows > div {
@@ -37,10 +35,12 @@
   padding: 15px;
 
   border-bottom: 1px solid $light-gray;
+  background: $white;
 
   text-transform: capitalize;
   font-size: 16px;
   font-weight: bold;
+
 }
 
 .follows > div > header h1 {
@@ -49,6 +49,8 @@
 
 .follows > div > main {
   overflow-y: scroll;
+  height: 512px;
+  background: $white;
 }
 
 .follows ul.follows-list {
