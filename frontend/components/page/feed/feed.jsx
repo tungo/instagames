@@ -14,7 +14,7 @@ class Feed extends React.Component {
       noMorePhoto: false
     };
 
-    this.limit = 3;
+    this.limit = 6;
 
     this.handleScroll = this.handleScroll.bind(this);
     this.feedPhotos = this.feedPhotos.bind(this);
