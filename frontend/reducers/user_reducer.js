@@ -74,6 +74,7 @@ const UserReducer = (state = {}, action) => {
     case RECEIVE_FOLLOW:
       if (nextState.id === userId) {
         nextState = merge(nextState, {currentUserFollowed: true});
+        nextState.followersCount++;
       }
       if (nextState.followers && nextState.followers[userId]) {
         nextState.followers[userId].currentUserFollowed = true;
@@ -81,11 +82,13 @@ const UserReducer = (state = {}, action) => {
       if (nextState.following && nextState.following[userId]) {
         nextState.following[userId].currentUserFollowed = true;
       }
+
       return nextState;
 
     case REMOVE_FOLLOW:
       if (nextState.id === userId) {
         nextState = merge(nextState, {currentUserFollowed: false});
+        nextState.followersCount--;
       }
       if (nextState.followers && nextState.followers[userId]) {
         nextState.followers[userId].currentUserFollowed = false;
@@ -93,6 +96,7 @@ const UserReducer = (state = {}, action) => {
       if (nextState.following && nextState.following[userId]) {
         nextState.following[userId].currentUserFollowed = false;
       }
+
       return nextState;
 
     default:

@@ -91,7 +91,7 @@
         createdAt: "2017-05-03T11:59:59:00"
       }
     },
-    followingsCount: 1,
+    followingCount: 1,
     following: {
       2: {
         id: 2,
