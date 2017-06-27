@@ -18,10 +18,6 @@ class Page extends React.Component {
           <Route path="/user/:userId" component={ProfileContainer} />
           <Route path="/" component={FeedContainer} />
         </Switch>
-
-        <div className="floating-upload">
-          <UploadModal floatingUpload={true} />
-        </div>
       </div>
     );
   }
