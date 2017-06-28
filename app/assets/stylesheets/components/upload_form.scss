@@ -25,6 +25,7 @@
   width: auto;
 
   background: $white;
+  border-radius: 3px;
 }
 
 .upload-form > ul {
@@ -40,8 +41,20 @@
   border-bottom: 1px solid $light-gray;
 }
 
+
+.upload-form > ul > li:first-child .button{
+  border-radius: 3px 3px 0 0;
+}
+
 .upload-form > ul > li:last-child {
   border-bottom: none;
+}
+
+.upload-form > ul > li:last-child .button{
+  border-radius: 0 0 3px 0;
+}
+.upload-form > ul > li:last-child .button.blue{
+  border-radius: 0 0 0 3px;
 }
 
 .upload-form .title {
@@ -85,6 +98,7 @@
 .upload-form .image img{
   max-height: 270px;
   // max-width: 480px;
+  margin: 10px 0;
 }
 
 .upload-form .input,
@@ -117,6 +131,10 @@
 .upload-form .button.blue {
   color: $white;
   background: $blue;
+}
+.upload-form .button.blue:hover {
+  color: $white;
+  background: $blur-blue;
 }
 .upload-form .button.blue:disabled:hover {
   background: $blue;
