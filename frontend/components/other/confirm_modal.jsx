@@ -50,15 +50,18 @@ class ConfirmModal extends React.Component {
             <div className="confirm">
               <ul>
                 <li>
-                  <button
-                    type="submit"
-                    onClick={this.props.handleConfirm}
-                  >
-                    {this.props.confirmText}
-                  </button>
+                  <header>{this.props.confirmText}</header>
                 </li>
 
                 <li>
+                  <button
+                    className="blue"
+                    type="submit"
+                    onClick={this.props.handleConfirm}
+                  >
+                    OK
+                  </button>
+
                   <button
                     onClick={this.closeModal}
                   >

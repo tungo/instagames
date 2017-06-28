@@ -123,7 +123,7 @@ class PhotoDetail extends React.Component {
 
                   <ConfirmModal
                     confirmOpen={this.state.deleteConfirming}
-                    confirmText="Delete Photo"
+                    confirmText="Are you sure you want to delete this photo?"
                     closeConfirm={this.closeDeleteConfirm}
                     handleConfirm={this.handleDelete}
                   />

@@ -58,6 +58,19 @@ img {
   display: block;
 }
 
+.white-button {
+  padding: 7px 15px;
+
+  background: $white;
+  border: 1px solid $light-gray;
+  border-radius: 3px;
+
+  color: $darkest;
+}
+.white-button:hover {
+  border-color: $gray;
+}
+
 .blue-button {
   padding: 7px 15px;
 
@@ -66,6 +79,12 @@ img {
   border-radius: 3px;
 
   color: $white;
+}
+.blue-button:hover {
+  opacity: 0.9;
+}
+.blue-button:active {
+  opacity: 0.7;
 }
 
 .button-link {

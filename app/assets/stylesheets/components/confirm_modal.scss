@@ -1,5 +1,5 @@
 .modal.confirm-modal {
-  top: 50%;
+  top: 35%;
   left: 50%;
 
   width: auto;
@@ -24,12 +24,11 @@
   width: auto;
 
   background: $white;
+  border-radius: 3px;
 }
 
 .confirm > ul {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
 }
 
 .confirm > ul > li {
@@ -41,25 +40,44 @@
   border-bottom: 1px solid $light-gray;
 }
 
+.confirm > ul > li > header {
+  padding: 20px;
+  width: 400px;
+
+  font-size: 16px;
+  text-align: center;
+}
 .confirm > ul > li:last-child {
   border-bottom: none;
 }
 
 .confirm button {
-  padding: 0 10px;
-  width: 500px;
-  line-height: 50px;
+  padding: 10px;
+  width: 50%;
 
   border: none;
-
-  background: white;
+  background: $white;
+  border-radius: 0 0 3px 0;
 
   color: $darkest;
   text-align: center;
-  font-size: 16px;
-
 }
 
 .confirm button:hover {
-  background: $light-gray;
+  background: rgba(0, 0, 0, 0.07);
+}
+.confirm button:disabled:hover {
+  background: $white;
+}
+
+.confirm button.blue {
+  color: $white;
+  background: $blue;
+  border-radius: 0 0 0 3px;
+}
+.confirm button.blue:hover{
+  background: $blur-blue;
+}
+.confirm button.blue:disabled:hover {
+  background: $blue;
 }
