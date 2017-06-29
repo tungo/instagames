@@ -1,6 +1,7 @@
 #image-login-page-phone::after {
   background-image: url(asset_path("login-page-phone.png"));
   background-size: 360px 580px;
+  background-repeat: no-repeat;
   display: block;
   width: 360px;
   height: 580px;
@@ -10,6 +11,7 @@
 #image-logo-nav::after {
   background-image: url(asset_path("instagames-logo-90.png"));
   background-size: 33px 33px;
+  background-repeat: no-repeat;
   display: block;
   width: 33px;
   height: 33px;
@@ -19,6 +21,7 @@
 #image-loading-spinner::after {
   background-image: url(asset_path("loading-spinner.svg"));
   background-size: 108px 108px;
+  background-repeat: no-repeat;
   display: block;
   width: 108px;
   height: 108px;
@@ -28,6 +31,7 @@
 #image-intro-photos::after {
   background-image: url(asset_path("intro-photos.png"));
   background-size: 360px 360px;
+  background-repeat: no-repeat;
   display: block;
   width: 360px;
   height: 360px;

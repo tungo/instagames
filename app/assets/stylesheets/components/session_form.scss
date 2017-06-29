@@ -15,8 +15,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   margin-right: 50px;
+}
+
+.session-main .left header {
+  margin-bottom: 20px;
+
+  text-align: center;
+  font-size: 14px;
+  color: $darkest;
+}
+
+.session-main .left header h3{
+  font-size: 20px;
+  padding-bottom: 5px;
 }
 
 .session-main .right {

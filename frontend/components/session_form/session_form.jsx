@@ -103,8 +103,14 @@ class SessionForm extends React.Component {
       <div className="session-page">
         <div className="session-main">
           <div className="left">
+            <header>
+              <h3>Explore adventures together</h3>
+              See and share photos with your friends and everybody
+            </header>
             <div id="image-login-page-phone">
             </div>
+            <footer>
+            </footer>
           </div>
 
           <div className="right">
@@ -181,14 +187,14 @@ class SessionForm extends React.Component {
   formContent() {
     // default value for login form
     let content = {
-      formTitle: 'Login with your account',
+      formTitle: 'Login to your account',
       submitButton: 'Log in'
     };
 
     // setup for signup form
     if (this.props.formType === 'signup') {
       content = Object.assign(content, {
-        formTitle: 'Sign up to see and share your adventures with your friends',
+        formTitle: 'Sign up new account',
         submitButton: 'Sign up'
       });
     }
