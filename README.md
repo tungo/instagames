@@ -61,6 +61,34 @@ This features is immediately response (without loading page again) for a best us
 [react]: https://facebook.github.io/react/
 [redux]: http://redux.js.org/
 
+My feed photos function to implement infinite loading on homepage:
+
+```javascript
+feedPhotos() {
+  if (this.state.isFeeding || this.state.noMorePhoto) {
+    return;
+  }
+  this.setState({isFeeding: true});
+
+  this.props.feedPhotos({
+    limit: this.limit,
+    max_created_at: this.state.lastCreatedAt
+  }).then((rspPhotos) => {
+    const photos = selectAllPhotos(rspPhotos);
+
+    if (photos.length < this.limit) {
+      this.setState({noMorePhoto: true});
+    }
+
+    if (photos.length > 0) {
+      this.setState({
+        lastCreatedAt: photos[photos.length - 1].createdAt
+      });
+    }
+  }).always(() => this.setState({isFeeding: false}));
+}
+```
+
 ## Additional Resources
 
 * [View Wireframes][wireframes]
