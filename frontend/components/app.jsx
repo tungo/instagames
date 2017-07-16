@@ -22,8 +22,8 @@ const App = () => (
       <footer>
         <div className="left">
           <a href="https://github.com/tungo">GITHUB</a>
-          <a href="https://tungo.net">PORTFOLIO</a>
           <a href="https://www.linkedin.com/in/tu-ngo/">LINKEDIN</a>
+          <a href="https://tungo.net/?utm_source=instagames&utm_medium=footer">PORTFOLIO</a>
         </div>
         <div className="right">
           Tu Ngo © 2017 INSTAGAMES
