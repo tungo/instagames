@@ -5,17 +5,21 @@ import RootReducer from '../reducers/root_reducer';
 
 const middlewares = [thunk];
 
+let composeEnhancers = compose;
+
 if (process.env.NODE_ENV !== 'production') {
   // must use 'require' (import only allowed at top of file)
   // const createLogger = require('redux-logger');
   // middlewares.push(createLogger());
+
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 }
 
 const configureStore = (preloadedState = {}) => (
   createStore(
     RootReducer,
     preloadedState,
-    applyMiddleware(...middlewares)
+    composeEnhancers(applyMiddleware(...middlewares))
   )
 );
 
