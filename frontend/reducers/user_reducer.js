@@ -43,7 +43,7 @@ const UserReducer = (state = {}, action) => {
       return nextState;
 
     case RECEIVE_USER_PHOTOS:
-      return merge({}, state, {photos});
+      return merge(nextState, {photos});
 
     case REMOVE_PHOTO:
       if (nextState.photos && nextState.photos[action.id]) {

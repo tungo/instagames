@@ -23,10 +23,10 @@ const PhotosReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_PHOTOS:
-      return merge({}, state, photos);
+      return merge(nextState, photos);
 
     case RECEIVE_PHOTO:
-      return merge({}, state, {[photo.id]: photo});
+      return merge(nextState, {[photo.id]: photo});
 
     case REMOVE_PHOTO:
       delete nextState[action.id];
