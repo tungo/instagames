@@ -197,6 +197,7 @@
   opacity: 0;
 }
 
+.profile-page .photos button.image-button:hover .highlight, // firefox
 .profile-page .photos .highlight:hover {
   display: relative;
   opacity: 1;
