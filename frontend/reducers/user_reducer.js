@@ -36,7 +36,11 @@ const UserReducer = (state = {}, action) => {
       return merge(nextState, action.user);
 
     case RECEIVE_USER_PHOTO:
-      return merge({}, state, {photos: {[photo.id]: photo}});
+      if (nextState.id === window.currentUserId) {
+        nextState =  merge(nextState, {photos: {[photo.id]: photo}});
+        nextState.photosCount++;
+      }
+      return nextState;
 
     case RECEIVE_USER_PHOTOS:
       return merge({}, state, {photos});
