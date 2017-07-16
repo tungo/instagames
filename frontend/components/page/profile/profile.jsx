@@ -207,7 +207,7 @@ class Profile extends React.Component {
 
               <ul className="summary">
                 <div className="count">
-                  <span>{photos.length} </span>
+                  <span>{user.photosCount} </span>
                   posts
                 </div>
 

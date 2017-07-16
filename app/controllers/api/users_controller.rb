@@ -15,6 +15,7 @@ class Api::UsersController < ApplicationController
         .includes(:likes, :comments)
         .order('photos.created_at DESC')
         .limit(6)
+      @photos_count = @user.photos.count
 
       render :show
     else
