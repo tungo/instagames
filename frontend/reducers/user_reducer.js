@@ -83,6 +83,10 @@ const UserReducer = (state = {}, action) => {
         nextState.following[userId].currentUserFollowed = true;
       }
 
+      if (nextState.id === window.currentUserId) {
+        nextState.followingCount++;
+      }
+
       return nextState;
 
     case REMOVE_FOLLOW:
@@ -95,6 +99,11 @@ const UserReducer = (state = {}, action) => {
       }
       if (nextState.following && nextState.following[userId]) {
         nextState.following[userId].currentUserFollowed = false;
+      }
+
+      // current user page
+      if (nextState.id === window.currentUserId) {
+        nextState.followingCount--;
       }
 
       return nextState;
