@@ -90,7 +90,11 @@ class UploadForm extends React.Component {
                 />
 
                 <div className="image">
-                  <img src={this.state.imageUrl} />
+                  {
+                    this.state.imageUrl
+                      ? <img src={this.state.imageUrl} />
+                      : ''
+                  }
                 </div>
               </div>
             </li>
